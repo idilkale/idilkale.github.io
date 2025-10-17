@@ -228,6 +228,79 @@
             // Bu fonksiyon proje detay sayfasını açacak
             alert('Proje detayları: ' + projectId + ' - Bu sayfa yakında eklenecek!');
         }
+
+        // Preload all project images for better performance
+        function preloadProjectImages() {
+            const imageUrls = [
+                // Armoni images
+                'armoni/idilkale_white background logo.jpeg',
+                'armoni/Logo_white_transpar.png',
+                'armoni/clearspace_transparent-white.png',
+                'armoni/BBBBBBB.png',
+                'armoni/DDDDDDD.png',
+                'armoni/CCCCCCCC.png',
+                'armoni/idilkale-item-extra-2.png',
+                'armoni/idilkale-stationary-package.jpg',
+                'armoni/idilkale-item-extra-1.jpg',
+                'armoni/idilkale-item-main-3.jpg',
+                'armoni/idilkale-item-main-6.png',
+                'armoni/idilkale-item-main-4.png',
+                'armoni/idilkale-item-main-2.jpg',
+                'armoni/idilkale-item-main-1.png',
+                'armoni/4item.png',
+                'armoni/website.png',
+                
+                // UniSphere images
+                'unisphere/va325.png',
+                'unisphere/va325_figma_mockup.png',
+                'unisphere/va325 kopyası.png',
+                
+                // VR Lab images
+                'VR_Lab/lab1.png',
+                'VR_Lab/lab2.png',
+                'VR_Lab/a.png',
+                'VR_Lab/b.png',
+                'VR_Lab/c.png',
+                
+                // Catastrophe images (first few)
+                'catastrophe/1.png',
+                'catastrophe/2.png',
+                'catastrophe/3.png',
+                'catastrophe/4.png',
+                'catastrophe/5.png',
+                
+                // The Ocean images
+                'the_ocean/theocean_photo.png',
+                
+                // Monogram images
+                'photos/monogram.png'
+            ];
+
+            console.log('Starting to preload project images...');
+            let loadedCount = 0;
+            const totalImages = imageUrls.length;
+
+            imageUrls.forEach((url, index) => {
+                const img = new Image();
+                img.onload = function() {
+                    loadedCount++;
+                    console.log(`Preloaded ${loadedCount}/${totalImages}: ${url}`);
+                    if (loadedCount === totalImages) {
+                        console.log('All project images preloaded successfully!');
+                    }
+                };
+                img.onerror = function() {
+                    console.warn(`Failed to preload: ${url}`);
+                };
+                img.src = url;
+            });
+        }
+
+        // Start preloading when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start preloading after a short delay to not block initial page load
+            setTimeout(preloadProjectImages, 1000);
+        });
     </script>
 </body>
 </html>
