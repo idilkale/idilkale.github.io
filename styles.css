@@ -258,6 +258,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0.5rem auto 5rem auto;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
+    text-align: center;
     line-height: 1.6;
     max-width: 800px;
     text-align: center;
