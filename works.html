@@ -125,13 +125,13 @@
                 </div>
 
                 <!-- Project 7 -->
-                <div class="project-card" data-category="coding" onclick="window.location.href='crexrtive.html'">
+                <div class="project-card" data-category="coding ui-ux" onclick="window.location.href='crexrtive.html'">
                     <div class="project-image">
                         <img src="crexartive/crexrtive.png" alt="Crexrtive Project" class="project-img">
                         <div class="project-overlay">
                             <div class="project-info">
                                 <h3>Crexrtive</h3>
-                                <p>HTML, CSS</p>
+                                <p class="crexrtive-description">Website Design</p>
                             </div>
                         </div>
                     </div>
@@ -150,6 +150,9 @@
             const armoniCard = document.querySelector('.project-card[data-category*="ui-ux"]');
             const armoniImage = armoniCard.querySelector('.project-img');
             const armoniDescription = armoniCard.querySelector('.armoni-description');
+            
+            const crexrtiveCard = document.querySelector('.project-card[data-category*="coding"]');
+            const crexrtiveDescription = crexrtiveCard.querySelector('.crexrtive-description');
 
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -170,6 +173,15 @@
                         armoniImage.src = 'photos/idilkale-item-extra-1.jpg';
                         armoniImage.alt = 'Ar Mo Ni Project';
                         armoniDescription.textContent = 'Brand Identity & Signage Design';
+                    }
+
+                    // Change Crexrtive description based on filter
+                    if (filterValue === 'ui-ux') {
+                        crexrtiveDescription.textContent = 'Website Design';
+                    } else if (filterValue === 'coding') {
+                        crexrtiveDescription.textContent = 'HTML, CSS';
+                    } else {
+                        crexrtiveDescription.textContent = 'Website Design';
                     }
 
                     projectCards.forEach(card => {
