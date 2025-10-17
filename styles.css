@@ -1,0 +1,1361 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000000;
+    color: #B19CD9;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0 2rem;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    padding: 1.2rem 0;
+    border-bottom: 1px dashed rgba(177, 156, 217, 0.3);
+    width: calc(100% - 4rem);
+    margin: 0 2rem;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo h1 {
+    font-size: 1.7rem;
+    font-weight: 500;
+    font-style: italic;
+    color: #B19CD9;
+}
+
+.header-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.header-nav a {
+    color: #B19CD9;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.header-nav a:hover {
+    color: #D4C5F9;
+}
+
+
+/* Main Content */
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding-top: 0;
+}
+
+.hero-section {
+    text-align: center;
+}
+
+.hero-logo {
+    max-width: 500px;
+    height: auto;
+    margin-bottom: 0.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+.hero-nav a {
+    color: #B19CD9;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.hero-nav a:hover {
+    color: #ffffff;
+    background: rgba(177, 156, 217, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(177, 156, 217, 0.3);
+}
+
+/* Grid Overlay removed for clean black background */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .header {
+        padding: 1.5rem 0;
+        width: calc(100% - 2rem);
+        margin: 0 1rem;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .header-nav ul {
+        gap: 1.5rem;
+    }
+    
+    .hero-logo {
+        max-width: 400px;
+        margin-bottom: 0.3rem;
+    }
+    
+    .hero-nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 0 1rem;
+    }
+    
+    .main-content {
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-logo {
+        max-width: 350px;
+    }
+    
+    .header-nav ul,
+    .hero-nav ul {
+        gap: 0.5rem;
+    }
+    
+    .header-nav a,
+    .hero-nav a {
+        font-size: 1rem;
+    }
+}
+
+/* Smooth scrolling - DISABLED for custom JavaScript control */
+html {
+    scroll-behavior: auto; /* Disabled to use custom JavaScript */
+    scroll-padding-top: 100px; /* Header height offset */
+}
+
+/* Custom smooth scroll for better control - DISABLED */
+* {
+    scroll-behavior: auto; /* Disabled to use custom JavaScript */
+}
+
+/* Focus styles for accessibility */
+a:focus {
+    outline: 2px solid #D4C5F9;
+    outline-offset: 2px;
+}
+
+/* Typography - Headings use Playfair Display */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Armoni Project Page Styles */
+.armoni-main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 6rem;
+    background-color: #000000;
+}
+
+.armoni-content {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.armoni-text {
+    margin-bottom: 2rem;
+}
+
+.armoni-text h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 2rem 0;
+    font-family: 'Playfair Display', serif;
+}
+
+.armoni-tools {
+    font-size: 1rem;
+    color: #b0b0b0;
+    margin: 0.5rem 0 0 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+.armoni-tools.large {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin: 0.3rem 0 0.2rem 0;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.armoni-tools.spaced {
+    margin: 1.5rem 0 0 0;
+}
+
+.armoni-description {
+    font-size: 0.9rem;
+    color: #d0d0d0;
+    margin: 0.5rem auto 5rem auto;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    line-height: 1.6;
+    max-width: 800px;
+    text-align: center;
+}
+
+.armoni-tools-inline {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin: 0.3rem 0 0.2rem 0;
+}
+
+.armoni-video-container {
+    margin: 6rem auto 0 auto;
+    text-align: center;
+    max-width: 90%;
+}
+
+.armoni-video {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.armoni-images-section {
+    margin: 2rem auto 0 auto;
+    text-align: center;
+    max-width: 90%;
+}
+
+.catastrophe .armoni-images-section {
+    margin-top: 9px;
+}
+
+.armoni-images-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #000000;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.armoni-images-item {
+    min-width: 0;
+    height: 300px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 0;
+}
+
+.armoni-images-img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    object-fit: cover;
+}
+
+.armoni-images-grid-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #000000;
+    border-radius: 0;
+}
+
+/* Catastrophe page specific styles */
+.catastrophe .armoni-content {
+    max-width: none;
+    padding: 0;
+}
+
+.catastrophe .armoni-images-grid-5 {
+    max-width: none;
+    margin: 0;
+    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 4px;
+}
+
+.catastrophe .armoni-images-grid-4 {
+    max-width: none;
+    margin: 0;
+    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    column-gap: 8px; /* Yatay boşluk */
+    row-gap: 8px;    /* Dikey boşluk */
+}
+
+.catastrophe .armoni-images-grid-4.row-1 {
+    margin-top: 0;
+}
+
+.catastrophe .armoni-images-grid-4.row-2 {
+    margin-top: 0;
+}
+
+.catastrophe .armoni-images-grid-4.row-3 {
+    margin-top: 0;
+}
+
+.catastrophe .armoni-images-grid-4.row-4 {
+    margin-top: 0;
+}
+
+.catastrophe .armoni-images-grid-4.row-5 {
+    margin-top: 0;
+}
+
+.armoni-images-item-5 {
+    min-width: 0;
+    height: 240px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 0;
+}
+
+.armoni-images-img-5 {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    object-fit: cover;
+}
+
+.armoni-images-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    row-gap: 8px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #000000;
+    border-radius: 0;
+}
+
+.armoni-images-item-4 {
+    min-width: 0;
+    aspect-ratio: 1;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 0;
+}
+
+.armoni-images-img-4 {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    object-fit: cover;
+}
+
+.armoni-text {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.armoni-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.armoni-logo {
+    max-width: 400px;
+    height: auto;
+}
+
+.monogram-logo {
+    max-width: 800px;
+    height: auto;
+}
+
+.unisphere-logo {
+    max-width: 1000px;
+    height: auto;
+}
+
+.armoni-mockup-container {
+    margin: 2rem auto;
+    text-align: center;
+    max-width: 1600px;
+}
+
+.armoni-mockup-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.unisphere-mockup-img {
+    max-width: 120%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-left: -80px;
+    width: 140%;
+}
+
+.armoni-desc {
+    max-width: 100%;
+    margin: 0 auto 4rem auto;
+    color: #d0d0d0;
+    font-size: 1.2rem;
+    line-height: 1.9;
+    text-align: center;
+    padding: 0 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Armoni Mockup Section */
+.armoni-mockup-section {
+    margin-top: 8rem;
+    text-align: center;
+}
+
+.armoni-mockup-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 3rem;
+    font-family: 'Playfair Display', serif;
+}
+
+
+.armoni-mockup-single-img {
+    width: 100%;
+    max-width: 90%;
+    height: auto;
+    display: inline-block;
+    margin: 0 auto;
+    border-radius: 0;
+    margin-left: 148px;
+}
+
+.armoni-mockup-caption {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Armoni Brochure Section */
+.armoni-brochure-section {
+    margin-top: 8rem;
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.armoni-brochure-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Armoni Website Section */
+.armoni-website-section {
+    margin-top: 8rem;
+    text-align: center;
+}
+
+.armoni-website-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.armoni-website-container {
+    max-width: 80%;
+    margin: 0 auto;
+    background-color: transparent;
+    padding: 0;
+}
+
+.armoni-website-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 100%;
+    border-radius: 0;
+}
+
+.armoni-website-link {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.armoni-website-link a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.armoni-website-link a:hover {
+    text-decoration: underline;
+}
+
+/* Armoni Main Products Section */
+.armoni-main-products-section {
+    margin-top: 8rem;
+    text-align: center;
+}
+
+.armoni-main-products-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.armoni-main-products-subtitle {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #ffffff;
+    font-style: italic;
+    margin-bottom: 3rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.armoni-main-products-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    margin-bottom: 1rem;
+    max-width: 100%;
+    margin: 0 auto 1rem auto;
+    background: #000000;
+    padding: 0;
+    border-radius: 0;
+}
+
+.armoni-main-products-item {
+    min-width: 0;
+    height: 300px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 0;
+}
+
+/* İlk 3 fotoğraf (üst sıra) */
+.armoni-main-products-item:nth-child(1),
+.armoni-main-products-item:nth-child(2),
+.armoni-main-products-item:nth-child(3) {
+    grid-column: span 2;
+}
+
+/* Son 2 fotoğraf (alt sıra) */
+.armoni-main-products-item:nth-child(4),
+.armoni-main-products-item:nth-child(5) {
+    grid-column: span 3;
+    height: 400px;
+}
+
+.armoni-main-products-img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    object-fit: cover;
+    object-position: 75% center;
+}
+
+/* 2. resim için özel konumlandırma */
+.armoni-main-products-img-right {
+    object-position: 55% center !important;
+}
+
+.armoni-main-products-caption {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.armoni-company-products-section {
+    margin-top: 8rem;
+    text-align: center;
+}
+
+.armoni-company-products-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.armoni-company-products-subtitle {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #ffffff;
+    font-style: italic;
+    margin-bottom: 3rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.armoni-company-products-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.armoni-company-products-item {
+    flex: 0 0 auto;
+    max-width: 45%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.armoni-company-products-img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    object-fit: cover;
+}
+
+.armoni-company-products-caption {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.armoni-white-box {
+    background: #ffffff;
+    border-radius: 0;
+    padding: 1.5rem 0;
+    max-width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8rem auto 0 auto;
+}
+
+.armoni-white-img {
+    display: block;
+    margin: 0 auto;
+    height: 400px;
+    width: auto;
+    max-width: 100%;
+}
+
+.armoni-white-wide {
+    object-fit: contain;
+}
+
+.armoni-clearspace-img {
+    display: block;
+    margin:  10 px auto;
+    height: 1000px;
+    width: auto;
+    max-width: 100%;
+    margin-left: 60px;
+}
+
+.armoni-black-box {
+    background: #000000;
+    border-radius: 0;
+    padding: 1.5rem 0;
+    max-width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8rem auto 0 auto;
+}
+
+.armoni-caption-white {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 0.5rem;
+    margin-bottom: 4rem;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.armoni-caption-black {
+    text-align: center;
+    color: #ffffff;
+    margin-top: -1rem;
+    margin-bottom: 4rem;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.armoni-mascots-section {
+    margin-top: 8rem;
+    text-align: center;
+}
+
+.armoni-mascots-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.armoni-mascot-item {
+    flex: 0 0 auto;
+}
+
+.armoni-mascot-img-1 {
+    width: 420px;
+    height: auto;
+    max-width: 100%;
+    margin-top: -180px;
+}
+
+.armoni-mascot-img-2 {
+    width: 420px;
+    height: auto;
+    max-width: 100%;
+    margin-top: -150px;
+}
+
+.armoni-mascot-img-3 {
+    width: 420px;
+    height: auto;
+    max-width: 100%;
+    margin-top: -110px;
+}
+
+.armoni-caption-mascots {
+    text-align: center;
+    color: #ffffff;
+    margin-top: -6rem;
+    margin-bottom: 4rem;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.armoni-brand-applications-section {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.armoni-brand-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.armoni-brand-item {
+    flex: 0 0 auto;
+}
+
+.armoni-brand-img {
+    width: 120px;
+    height: auto;
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.armoni-caption-brand {
+    text-align: center;
+    color: #cccccc;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.armoni-stationery-section {
+    margin-top: 8rem;
+    text-align: center;
+}
+
+.armoni-stationery-img {
+    width: 90%;
+    max-width: 1200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.armoni-caption-stationery {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.armoni-flipbook-section {
+    margin-top: 8rem;
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.armoni-flipbook-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #000000;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.footer-content p {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* Animation for page load */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-section {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Background Animation */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Header Logo */
+.header-logo {
+    height: 50px;
+    width: auto;
+}
+
+/* Active Navigation Link */
+.header-nav a.active {
+    color: #D4C5F9;
+    font-weight: 500;
+}
+
+/* Works Page Styles */
+.works-main {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    min-height: 100vh;
+}
+
+.works-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 4rem;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+}
+
+.works-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #B19CD9, #D4C5F9, transparent);
+    border-radius: 2px;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 3rem 0 2rem 0;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(177, 156, 217, 0.3);
+    color: #B19CD9;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+.filter-btn:hover {
+    background: rgba(177, 156, 217, 0.2);
+    border-color: rgba(177, 156, 217, 0.5);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(177, 156, 217, 0.3);
+}
+
+.filter-btn.active {
+    background: rgba(177, 156, 217, 0.3);
+    border-color: #B19CD9;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(177, 156, 217, 0.4);
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.works-grid.single-project {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    justify-items: center;
+}
+
+.works-grid.few-projects {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 800px;
+    gap: 2rem;
+}
+
+.project-card {
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+
+.project-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(177, 156, 217, 0.3);
+    border-color: rgba(177, 156, 217, 0.3);
+}
+
+
+.project-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 2;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.unisphere-img {
+    object-position: 12% center;
+}
+
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    backdrop-filter: blur(5px);
+    z-index: 3;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.05);
+}
+
+.project-card:hover .project-image {
+    box-shadow: 0 0 30px rgba(177, 156, 217, 0.4);
+}
+
+.project-info {
+    text-align: center;
+    color: white;
+    padding: 1.5rem;
+    position: relative;
+    z-index: 4;
+}
+
+.project-info h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.project-info p {
+    font-size: 0.95rem;
+    opacity: 0.95;
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Design for Works */
+@media (max-width: 1024px) {
+    .works-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+    
+    .filter-buttons {
+        gap: 0.8rem;
+        margin: 2rem 0 1.5rem 0;
+    }
+    
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .works-main {
+        padding-top: 6rem;
+        padding-bottom: 2rem;
+    }
+    
+    .works-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .works-title::after {
+        width: 320px;
+    }
+    
+    .works-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.8rem;
+        padding: 1rem;
+    }
+    
+    .project-card {
+        border-radius: 16px;
+    }
+    
+    .project-image {
+        border-radius: 12px;
+    }
+    
+    .project-info h3 {
+        font-size: 1.4rem;
+    }
+    
+    .project-info p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .works-main {
+        padding-top: 5rem;
+    }
+    
+    .works-title {
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .filter-buttons {
+        gap: 0.5rem;
+        margin: 1.5rem 0 1rem 0;
+    }
+    
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .works-title::after {
+        width: 280px;
+    }
+    
+    .works-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0.5rem;
+    }
+    
+    .project-card {
+        border-radius: 12px;
+    }
+    
+    .project-image {
+        border-radius: 8px;
+    }
+    
+    .project-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .project-info p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Armoni Company Products Responsive */
+@media (max-width: 768px) {
+    .armoni-main-products-title {
+        font-size: 2rem;
+    }
+    
+    .armoni-main-products-subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .armoni-main-products-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 1fr);
+        gap: 1rem;
+        max-width: 95vw;
+        padding: 1rem;
+    }
+    
+    .armoni-mockup-grid {
+        flex-direction: column;
+        gap: 0;
+        max-width: 95vw;
+    }
+    
+    .armoni-mockup-item {
+        width: 100%;
+        height: 250px;
+    }
+    
+    .armoni-main-products-item {
+        width: 100%;
+        height: 250px;
+    }
+    
+    .armoni-main-products-item:nth-child(4),
+    .armoni-main-products-item:nth-child(5) {
+        grid-column: 1;
+    }
+    
+    .armoni-company-products-title {
+        font-size: 2rem;
+    }
+    
+    .armoni-company-products-subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .armoni-company-products-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .armoni-company-products-item {
+        max-width: 90%;
+        height: 250px;
+    }
+}
+
+/* Armoni Brand Applications Responsive */
+@media (max-width: 768px) {
+    .armoni-brand-img {
+        width: 100px;
+    }
+    
+    .armoni-brand-grid {
+        gap: 0.5rem;
+    }
+    
+    .footer {
+        padding: 1.5rem 0;
+        margin-top: 2rem;
+    }
+    
+    .footer-content {
+        padding: 0 1rem;
+    }
+    
+    .footer-content p {
+        font-size: 0.8rem;
+    }
+    
+    .armoni-website-title {
+        font-size: 1.8rem;
+    }
+    
+    .armoni-website-container {
+        max-width: 80vw;
+    }
+    
+    .armoni-website-link {
+        font-size: 0.9rem;
+    }
+}

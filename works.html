@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Works - İdil Kale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="photos/idil logo yazı.png" alt="İdil Kale" class="header-logo">
+                    </a>
+                </div>
+                <nav class="header-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="works.html" class="active">Works</a></li>
+                        <li><a href="#about">About Me</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Works Section -->
+    <main class="works-main">
+        <div class="container">
+            <h1 class="works-title">Works</h1>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
+                <button class="filter-btn" data-filter="coding">Coding</button>
+                <button class="filter-btn" data-filter="graphic">Graphic Design</button>
+                <button class="filter-btn" data-filter="photography">Photography</button>
+                <button class="filter-btn" data-filter="video">Video</button>
+            </div>
+            
+            <div class="works-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="ui-ux" onclick="openArmoniProject()">
+                    <div class="project-image">
+                        <img src="photos/idilkale-item-extra-1.jpg" alt="Ar Mo Ni Project" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Armoni</h3>
+                                <p>Brand Identity & Signage Design</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-category="ui-ux" onclick="window.location.href='unisphere.html'">
+                    <div class="project-image">
+                        <img src="photos/unisphere.png" alt="UniSphere Project" class="project-img unisphere-img">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>UniSphere</h3>
+                                <p>UI/UX</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-category="coding" onclick="window.location.href='vr-lab.html'">
+                    <div class="project-image">
+                        <img src="VR_Lab/lab1.png" alt="VR Biology Lab Project" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Multiuser VR Biology Lab</h3>
+                                <p>VR Development & 3D Design</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-category="photography" onclick="window.location.href='catastrophe.html'">
+                    <div class="project-image">
+                        <img src="catastrophe/1.png" alt="Catastrophe Project" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Catastrophe</h3>
+                                <p>Digital & Photographic Imaging</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-category="graphic" onclick="window.location.href='monogram.html'">
+                    <div class="project-image">
+                        <img src="photos/monogram.png" alt="Monogram Design Project" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Monogram Design</h3>
+                                <p>Graphic Design & Typography</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" data-category="video" onclick="window.location.href='the-ocean.html'">
+                    <div class="project-image">
+                        <img src="the_ocean/theocean_photo.png" alt="The Ocean Project" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>The Ocean</h3>
+                                <p>Experimental Video & Motion Graphics</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            const worksGrid = document.querySelector('.works-grid');
+            const armoniImage = document.querySelector('.project-card[data-category="ui-ux"] .project-img');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+                    let visibleCount = 0;
+
+                    // Change Armoni image based on filter
+                    if (filterValue === 'ui-ux') {
+                        armoniImage.src = 'armoni/website.png';
+                        armoniImage.alt = 'Armoni Website Project';
+                    } else {
+                        armoniImage.src = 'photos/idilkale-item-extra-1.jpg';
+                        armoniImage.alt = 'Ar Mo Ni Project';
+                    }
+
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            card.style.animation = 'fadeIn 0.5s ease-in-out';
+                            visibleCount++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    // Add class based on visible project count
+                    worksGrid.classList.remove('single-project', 'few-projects');
+                    if (visibleCount === 1) {
+                        worksGrid.classList.add('single-project');
+                    } else if (visibleCount <= 3) {
+                        worksGrid.classList.add('few-projects');
+                    }
+                });
+            });
+        });
+
+        function openArmoniProject() {
+            // Check if UI/UX filter is active
+            const activeFilter = document.querySelector('.filter-btn.active');
+            if (activeFilter && activeFilter.getAttribute('data-filter') === 'ui-ux') {
+                // If UI/UX filter is active, go to armoni.html and scroll to website section
+                window.location.href = 'armoni.html?scroll=website';
+            } else {
+                // If not UI/UX filter, go to normal armoni page
+                window.location.href = 'armoni.html';
+            }
+        }
+
+        // Smooth scroll function with easing
+        function smoothScrollTo(targetId, duration = 2000) {
+            const target = document.getElementById(targetId);
+            if (!target) return;
+
+            const targetPosition = target.offsetTop - 100; // 100px offset for header
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            let startTime = null;
+
+            function easeInOutCubic(t) {
+                // Ultra gentle easing - almost linear with very subtle curve
+                return t < 0.5 ? 0.5 * t * t * t : 1 - 0.5 * Math.pow(-2 * t + 2, 3);
+            }
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1);
+                const ease = easeInOutCubic(progress);
+                
+                window.scrollTo(0, startPosition + distance * ease);
+                
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                }
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        function openProject(projectId) {
+            // Bu fonksiyon proje detay sayfasını açacak
+            alert('Proje detayları: ' + projectId + ' - Bu sayfa yakında eklenecek!');
+        }
+    </script>
+</body>
+</html>
+
+
