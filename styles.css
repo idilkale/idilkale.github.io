@@ -1244,16 +1244,32 @@ h1, h2, h3, h4, h5, h6 {
     
     .project-info h3 {
         font-size: 1.4rem;
+        margin-bottom: 0.5rem;
     }
     
     .project-info p {
         font-size: 0.85rem;
+        margin: 0;
+    }
+    
+    .project-overlay {
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+    }
+    
+    .project-card:hover .project-overlay {
+        opacity: 1;
     }
 }
 
 @media (max-width: 480px) {
+    body {
+        padding-top: 5rem; /* Küçük ekranlar için daha az padding */
+    }
+    
     .works-main {
-        padding-top: 5rem;
+        padding-top: 2rem;
     }
     
     .works-title {
@@ -1399,10 +1415,14 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Mobile-specific fixes for Armoni page */
+/* Mobile-specific fixes for general layout */
 @media (max-width: 768px) {
+    body {
+        padding-top: 6rem; /* Header yüksekliği kadar boşluk bırak */
+    }
+    
     .armoni-main {
-        padding-top: 4rem;
+        padding-top: 2rem; /* Body'de zaten padding-top var, burada azalt */
         padding-left: 1rem;
         padding-right: 1rem;
         overflow-x: hidden;
@@ -1542,7 +1562,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 480px) {
     .armoni-main {
-        padding-top: 3rem;
+        padding-top: 1rem; /* Body'de zaten padding-top var */
         padding-left: 0.5rem;
         padding-right: 0.5rem;
     }
