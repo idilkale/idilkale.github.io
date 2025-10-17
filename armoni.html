@@ -148,7 +148,7 @@
             const target = document.getElementById(targetId);
             if (!target) return;
 
-            const targetPosition = target.offsetTop - 200; // 200px offset for better positioning
+            const targetPosition = target.offsetTop - 300; // 300px offset to ensure it scrolls to the bottom
             const startPosition = window.pageYOffset;
             const distance = targetPosition - startPosition;
             let startTime = null;
@@ -180,9 +180,12 @@
             const scrollTarget = urlParams.get('scroll');
             
             if (scrollTarget === 'website') {
-                console.log('Scroll parameter detected, starting smooth scroll immediately...');
-                // Start scroll immediately when page loads
-                smoothScrollTo('website', 2000); // 2 seconds for smooth scroll
+                console.log('Scroll parameter detected, waiting for page to fully load...');
+                // Wait for page to fully load, then scroll
+                setTimeout(function() {
+                    console.log('Starting smooth scroll to website section...');
+                    smoothScrollTo('website', 2500); // 2.5 seconds for smooth scroll
+                }, 500); // Wait 500ms for page to fully render
             }
         });
     </script>
