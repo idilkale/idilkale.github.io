@@ -40,20 +40,20 @@
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
                 <button class="filter-btn" data-filter="coding">Coding</button>
-                <button class="filter-btn" data-filter="graphic">Graphic Design</button>
+                <button class="filter-btn" data-filter="graphic-design">Branding & Graphic Design</button>
                 <button class="filter-btn" data-filter="photography">Photography</button>
                 <button class="filter-btn" data-filter="video">Video</button>
             </div>
             
             <div class="works-grid">
-                <!-- Project 1 -->
-                <div class="project-card" data-category="ui-ux" onclick="openArmoniProject()">
+                <!-- Project 1 - Armoni (Dynamic) -->
+                <div class="project-card" data-category="ui-ux graphic-design" onclick="openArmoniProject()">
                     <div class="project-image">
                         <img src="photos/idilkale-item-extra-1.jpg" alt="Ar Mo Ni Project" class="project-img">
                         <div class="project-overlay">
                             <div class="project-info">
                                 <h3>Armoni</h3>
-                                <p>Brand Identity & Signage Design</p>
+                                <p class="armoni-description">Brand Identity & Signage Design</p>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                 </div>
 
                 <!-- Project 5 -->
-                <div class="project-card" data-category="graphic" onclick="window.location.href='monogram.html'">
+                <div class="project-card" data-category="graphic-design" onclick="window.location.href='monogram.html'">
                     <div class="project-image">
                         <img src="photos/monogram.png" alt="Monogram Design Project" class="project-img">
                         <div class="project-overlay">
@@ -134,7 +134,9 @@
             const filterButtons = document.querySelectorAll('.filter-btn');
             const projectCards = document.querySelectorAll('.project-card');
             const worksGrid = document.querySelector('.works-grid');
-            const armoniImage = document.querySelector('.project-card[data-category="ui-ux"] .project-img');
+            const armoniCard = document.querySelector('.project-card[data-category*="ui-ux"]');
+            const armoniImage = armoniCard.querySelector('.project-img');
+            const armoniDescription = armoniCard.querySelector('.armoni-description');
 
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -146,17 +148,20 @@
                     const filterValue = this.getAttribute('data-filter');
                     let visibleCount = 0;
 
-                    // Change Armoni image based on filter
+                    // Change Armoni image and description based on filter
                     if (filterValue === 'ui-ux') {
                         armoniImage.src = 'armoni/website.png';
                         armoniImage.alt = 'Armoni Website Project';
+                        armoniDescription.textContent = 'UI/UX';
                     } else {
                         armoniImage.src = 'photos/idilkale-item-extra-1.jpg';
                         armoniImage.alt = 'Ar Mo Ni Project';
+                        armoniDescription.textContent = 'Brand Identity & Signage Design';
                     }
 
                     projectCards.forEach(card => {
-                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        const cardCategories = card.getAttribute('data-category').split(' ');
+                        if (filterValue === 'all' || cardCategories.includes(filterValue)) {
                             card.style.display = 'block';
                             card.style.animation = 'fadeIn 0.5s ease-in-out';
                             visibleCount++;

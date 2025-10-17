@@ -129,8 +129,15 @@ body {
     
     .header {
         padding: 1.5rem 0;
-        width: calc(100% - 2rem);
-        margin: 0 1rem;
+        width: 100%;
+        margin: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
     }
     
     .header-content {
@@ -1257,11 +1264,17 @@ h1, h2, h3, h4, h5, h6 {
     .filter-buttons {
         gap: 0.5rem;
         margin: 1.5rem 0 1rem 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 1rem;
     }
     
     .filter-btn {
         padding: 0.5rem 1rem;
         font-size: 0.8rem;
+        min-width: auto;
+        flex: 1;
+        max-width: 120px;
     }
     
     .works-title::after {
@@ -1383,5 +1396,191 @@ h1, h2, h3, h4, h5, h6 {
     
     .armoni-website-link {
         font-size: 0.9rem;
+    }
+}
+
+/* Mobile-specific fixes for Armoni page */
+@media (max-width: 768px) {
+    .armoni-main {
+        padding-top: 4rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        overflow-x: hidden;
+    }
+    
+    .armoni-content {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .armoni-text h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .armoni-tools {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .armoni-images-section {
+        margin: 2rem 0;
+    }
+    
+    .armoni-images-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .armoni-images-img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    
+    .armoni-video-container {
+        margin: 2rem 0;
+        padding: 0 1rem;
+    }
+    
+    .armoni-video {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    
+    .armoni-main-products-section {
+        margin-top: 4rem;
+        padding: 0 1rem;
+    }
+    
+    .armoni-main-products-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .armoni-main-products-subtitle {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+    }
+    
+    .armoni-main-products-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    .armoni-main-products-item {
+        height: 200px;
+        width: 100%;
+    }
+    
+    .armoni-main-products-item:nth-child(1),
+    .armoni-main-products-item:nth-child(2),
+    .armoni-main-products-item:nth-child(3),
+    .armoni-main-products-item:nth-child(4),
+    .armoni-main-products-item:nth-child(5) {
+        grid-column: 1;
+        height: 200px;
+    }
+    
+    .armoni-company-products-section {
+        margin-top: 4rem;
+        padding: 0 1rem;
+    }
+    
+    .armoni-company-products-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .armoni-company-products-subtitle {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+    }
+    
+    .armoni-company-products-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    .armoni-company-products-item {
+        height: 200px;
+        width: 100%;
+    }
+    
+    .armoni-website-section {
+        margin-top: 4rem;
+        padding: 0 1rem;
+    }
+    
+    .armoni-website-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .armoni-website-container {
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    .armoni-website-img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    
+    .armoni-website-link {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .armoni-main {
+        padding-top: 3rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    .armoni-content {
+        padding: 0 0.5rem;
+    }
+    
+    .armoni-text h1 {
+        font-size: 2rem;
+    }
+    
+    .armoni-tools {
+        font-size: 1rem;
+    }
+    
+    .armoni-images-grid {
+        padding: 0 0.5rem;
+    }
+    
+    .armoni-video-container {
+        padding: 0 0.5rem;
+    }
+    
+    .armoni-main-products-section,
+    .armoni-company-products-section,
+    .armoni-website-section {
+        padding: 0 0.5rem;
+    }
+    
+    .armoni-main-products-title,
+    .armoni-company-products-title,
+    .armoni-website-title {
+        font-size: 1.8rem;
+    }
+    
+    .armoni-main-products-subtitle,
+    .armoni-company-products-subtitle {
+        font-size: 1.2rem;
     }
 }
