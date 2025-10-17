@@ -46,27 +46,14 @@
             </div>
             
             <div class="works-grid">
-                <!-- Project 1 - Armoni UI/UX -->
-                <div class="project-card" data-category="ui-ux" onclick="openArmoniProject()">
+                <!-- Project 1 - Armoni (Dynamic) -->
+                <div class="project-card" data-category="ui-ux graphic-design" onclick="openArmoniProject()">
                     <div class="project-image">
                         <img src="photos/idilkale-item-extra-1.jpg" alt="Ar Mo Ni Project" class="project-img">
                         <div class="project-overlay">
                             <div class="project-info">
                                 <h3>Armoni</h3>
-                                <p class="armoni-description">UI/UX</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 1b - Armoni Graphic Design -->
-                <div class="project-card" data-category="graphic-design" onclick="window.location.href='armoni.html'">
-                    <div class="project-image">
-                        <img src="photos/idilkale-item-extra-1.jpg" alt="Ar Mo Ni Project" class="project-img">
-                        <div class="project-overlay">
-                            <div class="project-info">
-                                <h3>Armoni</h3>
-                                <p>Brand Identity & Signage Design</p>
+                                <p class="armoni-description">Brand Identity & Signage Design</p>
                             </div>
                         </div>
                     </div>
@@ -160,7 +147,7 @@
             const filterButtons = document.querySelectorAll('.filter-btn');
             const projectCards = document.querySelectorAll('.project-card');
             const worksGrid = document.querySelector('.works-grid');
-            const armoniCard = document.querySelector('.project-card[data-category="ui-ux"]');
+            const armoniCard = document.querySelector('.project-card[data-category*="ui-ux"]');
             const armoniImage = armoniCard.querySelector('.project-img');
             const armoniDescription = armoniCard.querySelector('.armoni-description');
             
@@ -185,7 +172,7 @@
                     } else {
                         armoniImage.src = 'photos/idilkale-item-extra-1.jpg';
                         armoniImage.alt = 'Ar Mo Ni Project';
-                        armoniDescription.textContent = 'UI/UX';
+                        armoniDescription.textContent = 'Brand Identity & Signage Design';
                     }
 
                     // Change Crexrtive description based on filter
