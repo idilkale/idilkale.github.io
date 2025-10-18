@@ -28,7 +28,7 @@ body {
     left: 0;
     right: 0;
     z-index: 9999;
-    padding: 1.2rem 0;
+    padding: 2rem 0;
     border-bottom: 1px dashed rgba(177, 156, 217, 0.3);
     width: calc(100% - 4rem);
     margin: 0 2rem;
@@ -63,11 +63,53 @@ body {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 400;
-    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 .header-nav a:hover {
-    color: #D4C5F9;
+    color: #ffffff;
+    background: rgba(177, 156, 217, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(177, 156, 217, 0.3);
+}
+
+/* Back Button Below Header */
+.back-button-container {
+    position: fixed;
+    top: 10rem;
+    left: 2rem;
+    z-index: 10000;
+}
+
+.back-button {
+    background: none;
+    color: #b19cd9;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-button:hover {
+    color: #ffffff;
+    background: rgba(177, 156, 217, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(177, 156, 217, 0.3);
+}
+
+.back-button::before {
+    content: "←";
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 
@@ -128,7 +170,7 @@ body {
     }
     
     .header {
-        padding: 1.5rem 0;
+        padding: 2rem 0;
         width: 100%;
         margin: 0;
         position: fixed;
@@ -175,6 +217,15 @@ body {
         gap: 0.5rem;
     }
     
+    .back-button-container {
+        top: 9rem;
+        left: 1rem;
+    }
+    
+    .back-button {
+        font-size: 0.8rem;
+    }
+    
     .header-nav a,
     .hero-nav a {
         font-size: 1rem;
@@ -209,7 +260,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-    padding-top: 6rem;
+    padding-top: 8rem;
     background-color: #000000;
 }
 
@@ -258,10 +309,14 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0.5rem auto 5rem auto;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
-    text-align: center;
+    text-align: center !important;
     line-height: 1.6;
     max-width: 800px;
-    text-align: center;
+}
+
+/* Works sayfasındaki Armoni hover yazısı için özel CSS */
+.works-page .armoni-description {
+    margin: 0 !important;
 }
 
 .armoni-tools-inline {
@@ -275,6 +330,20 @@ h1, h2, h3, h4, h5, h6 {
     margin: 6rem auto 0 auto;
     text-align: center;
     max-width: 90%;
+}
+
+/* VR Lab specific video positioning */
+.vr-lab-page .armoni-video-container {
+    margin: 2rem auto 0 auto;
+}
+
+/* Ensure back button is visible on all pages */
+.the-ocean-page .back-button-container,
+.catastrophe-page .back-button-container,
+.monogram-page .back-button-container {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .armoni-video {
@@ -1150,9 +1219,9 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     opacity: 0;
     transition: opacity 0.2s ease;
     backdrop-filter: blur(5px);
@@ -1174,15 +1243,19 @@ h1, h2, h3, h4, h5, h6 {
 .project-info {
     text-align: center;
     color: white;
-    padding: 1.5rem;
+    padding: 0;
     position: relative;
     z-index: 4;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .project-info h3 {
     font-size: 1.6rem;
     font-weight: 600;
-    margin-bottom: 0.8rem;
+    margin: 0;
     font-family: 'Playfair Display', serif;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
@@ -1193,6 +1266,8 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.5;
     font-family: 'Montserrat', sans-serif;
     text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin: 0;
 }
 
 /* Responsive Design for Works */
@@ -1423,7 +1498,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .armoni-main {
-        padding-top: 2rem; /* Body'de zaten padding-top var, burada azalt */
+        padding-top: 3rem; /* Body'de zaten padding-top var, burada azalt */
         padding-left: 1rem;
         padding-right: 1rem;
         overflow-x: hidden;
@@ -1563,7 +1638,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 480px) {
     .armoni-main {
-        padding-top: 1rem; /* Body'de zaten padding-top var */
+        padding-top: 2rem; /* Body'de zaten padding-top var */
         padding-left: 0.5rem;
         padding-right: 0.5rem;
     }
@@ -1603,5 +1678,74 @@ h1, h2, h3, h4, h5, h6 {
     .armoni-main-products-subtitle,
     .armoni-company-products-subtitle {
         font-size: 1.2rem;
+    }
+}
+
+/* Crexrtive specific styles */
+.crexrtive-page .armoni-text {
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
+
+.crexrtive-page .armoni-tools {
+    margin-bottom: 1rem;
+}
+
+.crexrtive-page .armoni-description {
+    margin-top: 2rem;
+}
+
+.crexrtive-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.crexrtive-image {
+    width: 100%;
+    max-width: 1600px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    object-fit: contain;
+    transform: translateX(50px);
+}
+
+.crexrtive-link-container {
+    text-align: center;
+    margin-top: -1rem;
+}
+
+.crexrtive-link-container a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+.crexrtive-link-container a:hover {
+    color: #b19cd9;
+    text-decoration: underline;
+}
+
+/* Mobile responsive for Crexrtive */
+@media (max-width: 768px) {
+    .crexrtive-image-container {
+        padding: 1rem;
+    }
+    
+    .crexrtive-image {
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@media (max-width: 480px) {
+    .crexrtive-image-container {
+        padding: 0.5rem;
     }
 }

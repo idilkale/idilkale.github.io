@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="vr-lab-page">
     <!-- Header Section -->
     <header class="header">
         <div class="container">
@@ -29,6 +29,11 @@
             </div>
         </div>
     </header>
+
+    <!-- Back Button Below Header -->
+    <div class="back-button-container">
+        <a href="works.html" class="back-button">Back to Works</a>
+    </div>
 
     <!-- Main Content -->
     <main class="armoni-main">
@@ -56,7 +61,7 @@
             </div>
             
                 <div class="armoni-video-container">
-                    <video controls class="armoni-video">
+                    <video controls autoplay muted loop preload="metadata" class="armoni-video">
                         <source src="VR_Lab/VR_Lab.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
