@@ -125,7 +125,7 @@
                 </div>
 
                 <!-- Project 7 -->
-                <div class="project-card" data-category="coding" onclick="window.location.href='crexrtive.html'">
+                <div class="project-card" data-category="ui-ux" onclick="window.location.href='crexrtive.html'">
                     <div class="project-image">
                         <img src="crexartive/crexrtive.png" alt="Crexrtive Project" class="project-img">
                         <div class="project-overlay">
@@ -151,7 +151,7 @@
             const armoniImage = armoniCard.querySelector('.project-img');
             const armoniDescription = armoniCard.querySelector('.armoni-description');
             
-            const crexrtiveCard = document.querySelector('.project-card[data-category="coding"]:last-child');
+            const crexrtiveCard = document.querySelector('.project-card[data-category="ui-ux"]:last-child');
             const crexrtiveDescription = crexrtiveCard.querySelector('.crexrtive-description');
 
             filterButtons.forEach(button => {
@@ -177,8 +177,6 @@
 
                     // Change Crexrtive description based on filter
                     if (filterValue === 'ui-ux') {
-                        crexrtiveDescription.textContent = 'Website Design';
-                    } else if (filterValue === 'coding') {
                         crexrtiveDescription.textContent = 'Website Design';
                     } else {
                         crexrtiveDescription.textContent = 'Website Design';

@@ -1351,6 +1351,7 @@ h1, h2, h3, h4, h5, h6 {
     .works-title {
         font-size: 1.8rem;
         margin-bottom: 2.5rem;
+        margin-top: 2rem;
     }
     
     .filter-buttons {
@@ -1385,6 +1386,16 @@ h1, h2, h3, h4, h5, h6 {
     
     .project-image {
         border-radius: 8px;
+    }
+    
+    .project-card .project-overlay {
+        opacity: 1 !important;
+        background: rgba(0, 0, 0, 0.7) !important;
+        backdrop-filter: blur(5px) !important;
+    }
+    
+    .project-card .project-info p {
+        display: none;
     }
     
     .project-info h3 {
