@@ -1351,52 +1351,7 @@ h1, h2, h3, h4, h5, h6 {
     .works-title {
         font-size: 1.8rem;
         margin-bottom: 2.5rem;
-        margin-top: 4rem; /* Increased to prevent header overlap */
-    }
-    
-    /* Mobile project cards - hide description, show only image + title */
-    .project-card .project-overlay {
-        opacity: 1 !important; /* Always visible on mobile */
-        background: rgba(0, 0, 0, 0.7) !important; /* Darker background for text readability */
-        backdrop-filter: blur(5px) !important;
-    }
-    
-    .project-card .project-info p {
-        display: none !important; /* Hide description on mobile */
-    }
-    
-    /* Fix mobile project card images - center and prevent overflow */
-    .project-card {
-        margin: 0 auto;
-        max-width: 90vw;
-        overflow: hidden;
-    }
-    
-    .project-card .project-image {
-        width: 100%;
-        height: 200px;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .project-card .project-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-    
-    /* Fix Armoni project card image overflow */
-    .project-card[data-category*="ui-ux"] .project-img {
-        object-fit: contain;
-        background: #f5f5f5;
-    }
-    
-    /* Hide back button on mobile */
-    .back-button-container {
-        display: none !important;
+        margin-top: 2rem;
     }
     
     .filter-buttons {
@@ -1405,16 +1360,6 @@ h1, h2, h3, h4, h5, h6 {
         flex-wrap: wrap;
         justify-content: center;
         padding: 0 1rem;
-    }
-    
-    /* Mobile works grid improvements */
-    .works-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-        padding: 0 1rem;
-        max-width: 100%;
-        margin: 0 auto;
-    }
     
     .filter-btn {
         padding: 0.5rem 1rem;
@@ -1703,7 +1648,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 480px) {
     .armoni-main {
-        padding-top: 4rem; /* Increased to prevent header overlap */
+        padding-top: 2rem; /* Body'de zaten padding-top var */
         padding-left: 0.5rem;
         padding-right: 0.5rem;
     }
@@ -1722,58 +1667,6 @@ h1, h2, h3, h4, h5, h6 {
     
     .armoni-images-grid {
         padding: 0 0.5rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    /* Center all images on mobile for all project pages */
-    .armoni-images-grid img,
-    .armoni-image-container img,
-    .project-image img,
-    .armoni-video-container,
-    .armoni-video-container video {
-        max-width: 100%;
-        width: auto;
-        height: auto;
-        margin: 0 auto;
-        display: block;
-    }
-    
-    /* Center image grids */
-    .armoni-images-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        justify-items: center;
-        align-items: center;
-    }
-    
-    /* General mobile centering for all project pages */
-    .armoni-main,
-    .the-ocean-main,
-    .vr-lab-main,
-    .catastrophe-main,
-    .unisphere-main,
-    .monogram-main,
-    .crexrtive-main {
-        text-align: center;
-    }
-    
-    .armoni-content,
-    .the-ocean-content,
-    .vr-lab-content,
-    .catastrophe-content,
-    .unisphere-content,
-    .monogram-content,
-    .crexrtive-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    }
     
     .armoni-video-container {
         padding: 0 0.5rem;
