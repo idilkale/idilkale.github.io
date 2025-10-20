@@ -2104,13 +2104,33 @@ h1, h2, h3, h4, h5, h6 {
 
 /* About Me Page Styles */
 .about-content {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 2rem 0;
 }
 
-.about-text {
+.about-profile {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
     margin-bottom: 3rem;
+}
+
+.about-image {
+    flex-shrink: 0;
+    width: 300px;
+}
+
+.profile-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.about-text {
+    flex: 1;
 }
 
 .about-text p {
@@ -2167,6 +2187,18 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
     .about-content {
         padding: 1rem 0;
+        max-width: 100%;
+    }
+    
+    .about-profile {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .about-image {
+        width: 250px;
     }
     
     .about-text p {
@@ -2185,6 +2217,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 480px) {
+    .about-profile {
+        gap: 1.5rem;
+    }
+    
+    .about-image {
+        width: 200px;
+    }
+    
     .about-text p {
         font-size: 0.9rem;
         line-height: 1.6;
