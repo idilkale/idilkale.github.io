@@ -827,11 +827,37 @@ h1, h2, h3, h4, h5, h6 {
 
 .armoni-clearspace-img {
     display: block;
-    margin:  10 px auto;
-    height: 1000px;
+    margin: 10px auto;
+    height: auto;
     width: auto;
     max-width: 100%;
-    margin-left: 60px;
+    max-height: 1000px;
+    object-fit: contain;
+}
+
+/* Responsive clearspace image */
+@media (max-width: 1200px) {
+    .armoni-clearspace-img {
+        max-height: 800px;
+    }
+}
+
+@media (max-width: 992px) {
+    .armoni-clearspace-img {
+        max-height: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .armoni-clearspace-img {
+        max-height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .armoni-clearspace-img {
+        max-height: 400px;
+    }
 }
 
 .armoni-black-box {
