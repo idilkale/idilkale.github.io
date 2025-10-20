@@ -112,6 +112,13 @@ body {
     font-weight: 600;
 }
 
+/* Hide back button on smaller screens */
+@media (max-width: 1200px) {
+    .back-button-container {
+        display: none;
+    }
+}
+
 
 /* Main Content */
 .main-content {
@@ -120,10 +127,18 @@ body {
     justify-content: center;
     min-height: 100vh;
     padding-top: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hero-section {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem 0;
 }
 
 .hero-logo {
@@ -133,6 +148,8 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
+    object-fit: contain;
 }
 
 .hero-nav ul {
@@ -191,9 +208,15 @@ body {
         gap: 1.5rem;
     }
     
+    .hero-section {
+        min-height: 100vh;
+        padding: 1rem 0;
+    }
+    
     .hero-logo {
         max-width: 400px;
         margin-bottom: 0.3rem;
+        width: 90%;
     }
     
     .hero-nav ul {
@@ -359,6 +382,13 @@ h1, h2, h3, h4, h5, h6 {
     margin: 2rem auto 0 auto;
     text-align: center;
     max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 2rem;
+    box-sizing: border-box;
 }
 
 .catastrophe .armoni-images-section {
@@ -375,6 +405,8 @@ h1, h2, h3, h4, h5, h6 {
     background: #000000;
     border-radius: 0;
     overflow: hidden;
+    justify-content: center;
+    align-items: center;
 }
 
 .armoni-images-item {
@@ -530,12 +562,70 @@ h1, h2, h3, h4, h5, h6 {
 .unisphere-logo {
     max-width: 1000px;
     height: auto;
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Responsive unisphere logo */
+@media (max-width: 1200px) {
+    .unisphere-logo {
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 992px) {
+    .unisphere-logo {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .unisphere-logo {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .unisphere-logo {
+        max-width: 400px;
+    }
 }
 
 .armoni-mockup-container {
     margin: 2rem auto;
     text-align: center;
     max-width: 1600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+/* Force center unisphere container - ULTRA AGGRESSIVE */
+.unisphere-page .armoni-mockup-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 2rem auto !important;
+    padding: 0 2rem !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    float: none !important;
+    clear: both !important;
+    overflow: visible !important;
+    z-index: 1 !important;
 }
 
 .armoni-mockup-img {
@@ -546,12 +636,126 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .unisphere-mockup-img {
-    max-width: 120%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    margin-left: -80px;
-    width: 140%;
+    width: auto !important;
+    max-width: 80% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    border-radius: 0;
+    object-fit: contain;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Responsive unisphere mockup image */
+@media (max-width: 1200px) {
+    .unisphere-mockup-img {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 992px) {
+    .unisphere-mockup-img {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .unisphere-mockup-img {
+        max-width: 95%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .unisphere-mockup-img {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
+
+/* Force center unisphere mockup image - ULTRA AGGRESSIVE */
+.unisphere-page .unisphere-mockup-img {
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin: 0 auto !important;
+    display: block !important;
+    text-align: center !important;
+    width: auto !important;
+    max-width: 80% !important;
+    height: auto !important;
+    float: none !important;
+    clear: both !important;
+    vertical-align: middle !important;
+    text-indent: 0 !important;
+    direction: ltr !important;
+    unicode-bidi: normal !important;
+}
+
+/* Override all responsive rules for unisphere mockup */
+.unisphere-page .unisphere-mockup-img {
+    max-width: 80% !important;
+}
+
+@media (max-width: 1200px) {
+    .unisphere-page .unisphere-mockup-img {
+        max-width: 85% !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .unisphere-page .unisphere-mockup-img {
+        max-width: 90% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .unisphere-page .unisphere-mockup-img {
+        max-width: 95% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .unisphere-page .unisphere-mockup-img {
+        max-width: 100% !important;
+    }
+}
+
+/* NUCLEAR OPTION - Override everything */
+.unisphere-page .armoni-mockup-container .unisphere-mockup-img {
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 auto !important;
+    display: block !important;
+    text-align: center !important;
+    width: auto !important;
+    max-width: 80% !important;
+    height: auto !important;
+    float: none !important;
+    clear: both !important;
+    vertical-align: middle !important;
+    text-indent: 0 !important;
+    direction: ltr !important;
+    unicode-bidi: normal !important;
+    box-sizing: border-box !important;
+    border: none !important;
+    outline: none !important;
+    background: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 1 !important;
 }
 
 .armoni-desc {
@@ -569,6 +773,9 @@ h1, h2, h3, h4, h5, h6 {
 .armoni-mockup-section {
     margin-top: 8rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .armoni-mockup-title {
@@ -581,13 +788,43 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .armoni-mockup-single-img {
-    width: 100%;
-    max-width: 90%;
-    height: auto;
-    display: inline-block;
-    margin: 0 auto;
+    width: auto !important;
+    max-width: 80% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
     border-radius: 0;
-    margin-left: 148px;
+    object-fit: contain;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+/* Responsive 4item image */
+@media (max-width: 1200px) {
+    .armoni-mockup-single-img {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 992px) {
+    .armoni-mockup-single-img {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .armoni-mockup-single-img {
+        max-width: 95%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .armoni-mockup-single-img {
+        max-width: 100%;
+        margin: 0 auto;
+    }
 }
 
 .armoni-mockup-caption {
@@ -898,33 +1135,124 @@ h1, h2, h3, h4, h5, h6 {
 .armoni-mascots-grid {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
     margin-bottom: 1rem;
+    flex-wrap: nowrap;
 }
 
 .armoni-mascot-item {
     flex: 0 0 auto;
 }
 
-.armoni-mascot-img-1 {
-    width: 420px;
+.armoni-mascot-img-1,
+.armoni-mascot-img-2,
+.armoni-mascot-img-3 {
+    width: 380px;
     height: auto;
     max-width: 100%;
-    margin-top: -180px;
+    display: block;
+    margin: 0 auto;
+}
+
+.armoni-mascot-img-1 {
+    margin-top: -180px !important;
 }
 
 .armoni-mascot-img-2 {
-    width: 420px;
-    height: auto;
-    max-width: 100%;
-    margin-top: -150px;
+    margin-top: -120px !important;
 }
 
 .armoni-mascot-img-3 {
-    width: 420px;
-    height: auto;
-    max-width: 100%;
-    margin-top: -110px;
+    margin-top: -100px !important;
+}
+
+/* Responsive mascots */
+@media (max-width: 1400px) {
+    .armoni-mascot-img-1,
+    .armoni-mascot-img-2,
+    .armoni-mascot-img-3 {
+        width: 320px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .armoni-mascots-grid {
+        gap: 0.5rem;
+    }
+    
+    .armoni-mascot-img-1,
+    .armoni-mascot-img-2,
+    .armoni-mascot-img-3 {
+        width: 280px;
+    }
+}
+
+@media (max-width: 992px) {
+    .armoni-mascots-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        margin-top: -100px;
+    }
+    
+    .armoni-mascot-img-1 {
+        width: 220px;
+        margin-top: 0px;
+    }
+    
+    .armoni-mascot-img-2 {
+        width: 220px;
+        margin-top: 0px;
+    }
+    
+    .armoni-mascot-img-3 {
+        width: 220px;
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 768px) {
+    .armoni-mascots-grid {
+        gap: 1.5rem;
+        margin-top: -80px;
+    }
+    
+    .armoni-mascot-img-1 {
+        width: 200px;
+        margin-top: 0px;
+    }
+    
+    .armoni-mascot-img-2 {
+        width: 200px;
+        margin-top: 0px;
+    }
+    
+    .armoni-mascot-img-3 {
+        width: 200px;
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 480px) {
+    .armoni-mascots-grid {
+        gap: 1rem;
+        margin-top: -60px;
+    }
+    
+    .armoni-mascot-img-1 {
+        width: 180px;
+        margin-top: 0px;
+    }
+    
+    .armoni-mascot-img-2 {
+        width: 180px;
+        margin-top: 0px;
+    }
+    
+    .armoni-mascot-img-3 {
+        width: 180px;
+        margin-top: 0px;
+    }
 }
 
 .armoni-caption-mascots {
@@ -934,6 +1262,25 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 4rem;
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
+}
+
+/* Responsive mascot caption */
+@media (max-width: 992px) {
+    .armoni-caption-mascots {
+        margin-top: -4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .armoni-caption-mascots {
+        margin-top: -3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .armoni-caption-mascots {
+        margin-top: -2rem;
+    }
 }
 
 .armoni-brand-applications-section {
@@ -1632,5 +1979,224 @@ h1, h2, h3, h4, h5, h6 {
 .crexrtive-link-container a:hover {
     color: #b19cd9;
     text-decoration: underline;
+}
+
+/* Responsive VR Lab Images */
+@media (max-width: 1200px) {
+    .armoni-images-section {
+        max-width: 95%;
+        padding: 0 1.5rem;
+    }
+    
+    .armoni-images-grid {
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 992px) {
+    .armoni-images-section {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .armoni-images-grid {
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 768px) {
+    .armoni-images-section {
+        max-width: 100%;
+        padding: 0 0.5rem;
+    }
+    
+    .armoni-images-grid {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        gap: 1rem;
+    }
+    
+    .armoni-images-item {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .armoni-images-section {
+        padding: 0 0.25rem;
+    }
+    
+    .armoni-images-grid {
+        gap: 0.5rem;
+    }
+    
+    .armoni-images-item {
+        height: 200px;
+    }
+}
+
+/* Home Page Responsive Design */
+@media (max-width: 1200px) {
+    .hero-logo {
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-logo {
+        max-width: 400px;
+    }
+    
+    .hero-nav ul {
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 100vh;
+        padding: 1rem 0;
+    }
+    
+    .hero-logo {
+        max-width: 350px;
+        width: 85%;
+    }
+    
+    .hero-nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        min-height: 100vh;
+        padding: 0.5rem 0;
+    }
+    
+    .hero-logo {
+        max-width: 300px;
+        width: 80%;
+        margin-bottom: 0.2rem;
+    }
+    
+    .hero-nav ul {
+        gap: 0.6rem;
+        padding: 0 0.5rem;
+    }
+    
+    .hero-nav a {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .main-content {
+        padding: 0 0.5rem;
+    }
+    
+    .container {
+        padding: 0 0.5rem;
+    }
+}
+
+/* About Me Page Styles */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.about-text {
+    margin-bottom: 3rem;
+}
+
+.about-text p {
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.cv-download-section {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.cv-download-section p {
+    color: #cccccc;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.cv-download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #B19CD9, #8B7CB8);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(177, 156, 217, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.cv-download-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(177, 156, 217, 0.4);
+    background: linear-gradient(135deg, #8B7CB8, #B19CD9);
+}
+
+.download-icon {
+    font-size: 1.2rem;
+}
+
+/* About Me Responsive */
+@media (max-width: 768px) {
+    .about-content {
+        padding: 1rem 0;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .cv-download-section {
+        padding: 1rem 0;
+    }
+    
+    .cv-download-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-text p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    
+    .cv-download-section {
+        padding: 0.5rem 0;
+    }
+    
+    .cv-download-button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
 }
 
