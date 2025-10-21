@@ -124,14 +124,40 @@
                     </div>
                 </div>
 
-                <!-- Project 7 -->
-                <div class="project-card" data-category="ui-ux" onclick="window.location.href='crexrtive.html'">
+                <!-- Project 7 - Crexrtive UI/UX -->
+                <div class="project-card" id="crexrtive-ui" data-category="ui-ux" onclick="window.location.href='crexrtive.html'">
                     <div class="project-image">
                         <img src="crexartive/crexrtive.png" alt="Crexrtive Project" class="project-img">
                         <div class="project-overlay">
                             <div class="project-info">
                                 <h3>Crexrtive</h3>
                                 <p class="crexrtive-description">Website Design</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8 - Crexrtive Coding -->
+                <div class="project-card" id="crexrtive-coding" data-category="coding" onclick="window.location.href='crexrtive.html'">
+                    <div class="project-image">
+                        <img src="crexartive/crexrtive.png" alt="Crexrtive Project" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Crexrtive</h3>
+                                <p class="crexrtive-description">HTML, CSS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9 - Hepsisurada -->
+                <div class="project-card" data-category="coding" onclick="window.location.href='hepsisurada.html'">
+                    <div class="project-image">
+                        <img src="hepsisurada/hepsisurada.png" alt="Hepsisurada Project" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Hepsisurada</h3>
+                                <p>Frontend & Backend Development</p>
                             </div>
                         </div>
                     </div>
@@ -151,8 +177,11 @@
             const armoniImage = armoniCard.querySelector('.project-img');
             const armoniDescription = armoniCard.querySelector('.armoni-description');
             
-            const crexrtiveCard = document.querySelector('.project-card[data-category="ui-ux"]:last-child');
-            const crexrtiveDescription = crexrtiveCard.querySelector('.crexrtive-description');
+            const crexrtiveUICard = document.getElementById('crexrtive-ui');
+            const crexrtiveUIDescription = crexrtiveUICard ? crexrtiveUICard.querySelector('.crexrtive-description') : null;
+            
+            const crexrtiveCodingCard = document.getElementById('crexrtive-coding');
+            const crexrtiveCodingDescription = crexrtiveCodingCard ? crexrtiveCodingCard.querySelector('.crexrtive-description') : null;
 
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -176,15 +205,33 @@
                     }
 
                     // Change Crexrtive description based on filter
-                    if (filterValue === 'ui-ux') {
-                        crexrtiveDescription.textContent = 'Website Design';
+                    // Handle Crexrtive descriptions based on filter
+                    if (filterValue === 'ui-ux' && crexrtiveUIDescription) {
+                        crexrtiveUIDescription.textContent = 'Website Design';
+                    } else if (filterValue === 'coding' && crexrtiveCodingDescription) {
+                        crexrtiveCodingDescription.textContent = 'HTML, CSS';
                     } else {
-                        crexrtiveDescription.textContent = 'Website Design';
+                        if (crexrtiveUIDescription) crexrtiveUIDescription.textContent = 'Website Design';
+                        if (crexrtiveCodingDescription) crexrtiveCodingDescription.textContent = 'HTML, CSS';
                     }
 
                     projectCards.forEach(card => {
                         const cardCategories = card.getAttribute('data-category').split(' ');
-                        if (filterValue === 'all' || cardCategories.includes(filterValue)) {
+                        
+                        // Special handling for "All" filter - show only one Crexrtive
+                        if (filterValue === 'all') {
+                            if (card.id === 'crexrtive-coding') {
+                                card.style.display = 'none'; // Hide coding version in "All"
+                            } else if (card.id === 'crexrtive-ui') {
+                                card.style.display = 'block'; // Show UI version in "All"
+                                card.style.animation = 'fadeIn 0.5s ease-in-out';
+                                visibleCount++;
+                            } else {
+                                card.style.display = 'block';
+                                card.style.animation = 'fadeIn 0.5s ease-in-out';
+                                visibleCount++;
+                            }
+                        } else if (cardCategories.includes(filterValue)) {
                             card.style.display = 'block';
                             card.style.animation = 'fadeIn 0.5s ease-in-out';
                             visibleCount++;
@@ -202,6 +249,14 @@
                     }
                 });
             });
+
+            // Initialize with "All" filter active
+            const allButton = document.querySelector('.filter-btn[data-filter="all"]');
+            if (allButton) {
+                allButton.classList.add('active');
+                // Trigger the filter to ensure proper display
+                allButton.click();
+            }
         });
 
         function openArmoniProject() {
@@ -299,7 +354,10 @@
                 'photos/monogram.png',
                 
                 // Crexrtive images
-                'crexartive/crexrtive.png'
+                'crexartive/crexrtive.png',
+                
+                // Hepsisurada images
+                'hepsisurada/hepsisurada.png'
             ];
 
             console.log('Starting to preload project images...');
