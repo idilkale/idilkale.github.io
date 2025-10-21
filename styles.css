@@ -1504,6 +1504,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
     padding: 2rem;
     transition: all 0.3s ease;
+    justify-items: center;
 }
 
 .works-grid.single-project {
@@ -1512,10 +1513,18 @@ h1, h2, h3, h4, h5, h6 {
     justify-items: center;
 }
 
+.works-grid.two-projects {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+    gap: 2rem;
+    justify-items: center;
+}
+
 .works-grid.few-projects {
     grid-template-columns: repeat(3, 1fr);
     max-width: 1000px;
     gap: 1.5rem;
+    justify-items: center;
 }
 
 .project-card {

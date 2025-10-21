@@ -241,9 +241,11 @@
                     });
 
                     // Add class based on visible project count
-                    worksGrid.classList.remove('single-project', 'few-projects');
+                    worksGrid.classList.remove('single-project', 'two-projects', 'few-projects');
                     if (visibleCount === 1) {
                         worksGrid.classList.add('single-project');
+                    } else if (visibleCount === 2) {
+                        worksGrid.classList.add('two-projects');
                     } else if (visibleCount <= 3) {
                         worksGrid.classList.add('few-projects');
                     }
