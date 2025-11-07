@@ -1,13 +1,29 @@
 let incr = 0;
+let scrollOffset = 0;
 
 function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight);
-  canvas.parent('p5-animation');
+  // Works sayfası için özel boyut
+  let parentElement = document.getElementById('p5-animation');
+  if (parentElement) {
+    let w = parentElement.offsetWidth || windowWidth;
+    let h = parentElement.offsetHeight || 800;
+    let canvas = createCanvas(w, h);
+    canvas.parent('p5-animation');
+  } else {
+    let canvas = createCanvas(windowWidth, windowHeight);
+    canvas.parent('p5-animation');
+  }
   colorMode(RGB);
 }
 
 function draw() {
   background(0, 0, 0, 0); // Transparent background
+
+  // Scroll pozisyonunu al (works sayfası için)
+  // Pattern scroll'dan daha yavaş hareket etsin (parallax efekti)
+  if (typeof window !== 'undefined' && window.scrollPosition !== undefined) {
+    scrollOffset = window.scrollPosition * 0.5; // Parallax hızı - container'dan daha yavaş
+  }
 
   drawPattern();
   
@@ -20,10 +36,12 @@ function drawPattern() {
   let spacing = radius * 2.5; 
   let verticalSpacing = radius * 1.2; 
 
-  for (let y = 0; y < height + verticalSpacing; y += verticalSpacing) {
+  // Works sayfası için pattern'ı daha sık çiz
+  for (let y = -verticalSpacing; y < height + verticalSpacing * 2; y += verticalSpacing) {
     for (let x = 0; x < width + spacing; x += spacing) {
       let offsetX = (y / verticalSpacing) % 2 === 0 ? 0 : spacing / 2;
-      drawCirclesWithInner(x + offsetX, y, radius);
+      // Scroll offset'i ekle - pattern'ı yukarı/aşağı hareket ettir
+      drawCirclesWithInner(x + offsetX, y - scrollOffset, radius);
     }
   }
 }
