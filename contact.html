@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="scroll-handler.js" defer></script>
 </head>
 <body class="about-page">
     <!-- Header Section -->
@@ -27,6 +28,20 @@
                     </ul>
                 </nav>
             </div>
+        </div>
+    </header>
+
+    <!-- Compact Header - Appears when scrolling down -->
+    <header class="compact-header">
+        <div class="compact-header-content">
+            <a href="index.html" class="compact-header-logo">İDİL KALE</a>
+            <nav class="compact-header-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -61,12 +76,16 @@
         </div>
     </main>
 
+    <!-- Scroll to Top Button -->
+    <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"></a>
+
     <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2024 İdil Kale. All rights reserved.</p>
         </div>
     </footer>
+    <script src="scroll-handler.js"></script>
 </body>
 </html>
 
