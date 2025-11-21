@@ -56,8 +56,7 @@
                 <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
                 <button class="filter-btn" data-filter="coding">Coding</button>
                 <button class="filter-btn" data-filter="graphic-design">Branding & Graphic Design</button>
-                <button class="filter-btn" data-filter="photography">Photography</button>
-                <button class="filter-btn" data-filter="video">Video</button>
+                <button class="filter-btn" data-filter="photography-video">Photography & Video</button>
             </div>
             
             <div class="works-grid">
@@ -227,6 +226,15 @@
                                 card.style.display = 'block';
                                 card.style.animation = 'fadeIn 0.5s ease-in-out';
                                 visibleCount++;
+                            }
+                        } else if (filterValue === 'photography-video') {
+                            // Show both photography and video projects
+                            if (cardCategories.includes('photography') || cardCategories.includes('video')) {
+                                card.style.display = 'block';
+                                card.style.animation = 'fadeIn 0.5s ease-in-out';
+                                visibleCount++;
+                            } else {
+                                card.style.display = 'none';
                             }
                         } else if (cardCategories.includes(filterValue)) {
                             card.style.display = 'block';
