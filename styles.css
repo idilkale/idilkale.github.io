@@ -520,6 +520,12 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 2rem;
+    overflow: visible;
+}
+
+/* Allow unisphere mockup to overflow */
+.unisphere-page .armoni-content {
+    overflow: visible !important;
 }
 
 .armoni-text {
@@ -530,8 +536,16 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2.5rem;
     font-weight: 600;
     color: #000000;
-    margin: 0 0 2rem 0;
+    margin: 0 0 1rem 0;
     font-family: 'Playfair Display', serif;
+}
+
+.armoni-description-short {
+    font-size: 1.2rem;
+    color: #000000;
+    margin: 0 0 1.5rem 0;
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
 }
 
 .armoni-tools {
@@ -571,6 +585,28 @@ body:not(.works-page) .armoni-description {
     text-align: center !important;
 }
 
+/* Catastrophe ve Hepsisurada sayfalarında left aligned - başlıklar ortada kalacak */
+body.catastrophe .armoni-content,
+body.catastrophe .armoni-text,
+body.catastrophe .armoni-text p,
+body.catastrophe .armoni-description,
+body.catastrophe .armoni-content .armoni-text,
+body.catastrophe .armoni-content .armoni-description,
+body.hepsisurada-page .armoni-content,
+body.hepsisurada-page .armoni-text,
+body.hepsisurada-page .armoni-text p,
+body.hepsisurada-page .armoni-description,
+body.hepsisurada-page .armoni-content .armoni-text,
+body.hepsisurada-page .armoni-content .armoni-description {
+    text-align: left !important;
+}
+
+/* Başlıklar ortada kalacak */
+body.catastrophe .armoni-text h1,
+body.hepsisurada-page .armoni-text h1 {
+    text-align: center !important;
+}
+
 /* Works sayfasındaki Armoni yazısı - ÇOK GÜÇLÜ OVERRIDE */
 body.works-page .project-card .project-info p.armoni-description,
 body.works-page .project-info .armoni-description,
@@ -598,6 +634,152 @@ body.works-page .armoni-description,
 /* VR Lab specific video positioning */
 .vr-lab-page .armoni-video-container {
     margin: 2rem auto 0 auto;
+}
+
+/* VR Lab video in the middle of description */
+.vr-lab-video-middle {
+    margin: 4rem auto !important;
+    max-width: 80% !important;
+    text-align: center !important;
+}
+
+.vr-lab-video-middle .armoni-video {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* VR Lab two images inline - small */
+.vr-lab-two-images-inline {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    max-width: 900px;
+    flex-wrap: wrap;
+}
+
+.vr-lab-small-img {
+    max-width: 400px !important;
+    width: 400px !important;
+    height: auto !important;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+.vr-lab-page .vr-lab-small-img {
+    max-width: 400px !important;
+    width: 400px !important;
+    min-width: 400px !important;
+}
+
+@media (max-width: 768px) {
+    .vr-lab-two-images-inline {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .vr-lab-small-img {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+}
+
+/* Force size for VR Lab small images */
+.vr-lab-page .vr-lab-two-images-inline .vr-lab-small-img {
+    max-width: 400px !important;
+    width: 400px !important;
+    min-width: 400px !important;
+    height: auto !important;
+}
+
+/* VR Lab featured image at top */
+.vr-lab-featured-image {
+    margin: 3rem auto 4rem auto;
+    text-align: center;
+    max-width: 100%;
+}
+
+.vr-lab-featured-img {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* VR Lab text and images side by side */
+.vr-lab-section-with-images {
+    margin-bottom: 5rem;
+}
+
+.vr-lab-text-images-wrapper {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    margin-top: 2rem;
+}
+
+.vr-lab-text-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.vr-lab-images-right,
+.vr-lab-images-left {
+    flex: 0 0 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.vr-lab-images-left:has(.vr-lab-large-img) {
+    flex: 0 0 55%;
+}
+
+.vr-lab-images-left {
+    order: -1;
+}
+
+.vr-lab-reverse {
+    flex-direction: row-reverse;
+}
+
+.vr-lab-side-img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.vr-lab-large-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* Responsive for VR Lab text-images layout */
+@media (max-width: 992px) {
+    .vr-lab-text-images-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .vr-lab-images-right,
+    .vr-lab-images-left {
+        flex: 1;
+        width: 100%;
+    }
+    
+    .vr-lab-reverse {
+        flex-direction: column;
+    }
+    
+    .vr-lab-images-left {
+        order: 0;
+    }
 }
 
 /* Ensure back button is visible on all pages */
@@ -1029,6 +1211,11 @@ body.works-page .armoni-description,
     z-index: 1 !important;
 }
 
+/* Override for unisphere-mockup-middle - more specific */
+.unisphere-page .armoni-mockup-container.unisphere-mockup-middle .unisphere-mockup-img {
+    max-width: 120% !important;
+}
+
 .armoni-desc {
     max-width: 100%;
     margin: 1rem auto 2rem auto;
@@ -1043,6 +1230,410 @@ body.works-page .armoni-description,
     opacity: 1 !important;
     position: relative;
     z-index: 2;
+}
+
+/* Unisphere Description Styles */
+.unisphere-description {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    text-align: left;
+}
+
+.unisphere-section {
+    margin-bottom: 5rem;
+}
+
+.unisphere-section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #000000;
+    margin: 0 0 2rem 0;
+    font-family: 'Playfair Display', serif;
+    text-align: left;
+}
+
+.unisphere-text {
+    font-size: 1rem;
+    color: #333333;
+    margin: 0 0 1.5rem 0;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.unisphere-text strong {
+    font-weight: 600;
+    color: #000000;
+}
+
+.unisphere-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.5rem 0;
+    text-align: left;
+}
+
+.unisphere-list li {
+    font-size: 1rem;
+    color: #333333;
+    margin: 0.8rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.8;
+}
+
+.unisphere-list li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #000000;
+    font-weight: bold;
+}
+
+.unisphere-ordered {
+    list-style: decimal;
+    padding-left: 1.5rem;
+}
+
+.unisphere-ordered li {
+    padding-left: 0.5rem;
+}
+
+.unisphere-ordered li:before {
+    display: none;
+}
+
+.unisphere-sublist {
+    list-style: none;
+    padding-left: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.unisphere-sublist li {
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.unisphere-sublist li:before {
+    content: "◦";
+    color: #666666;
+}
+
+/* Unisphere mockup in the middle of description */
+.unisphere-mockup-middle {
+    margin: 4rem auto !important;
+    max-width: 140% !important;
+    width: 140% !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: visible !important;
+}
+
+.unisphere-mockup-middle .unisphere-mockup-img {
+    max-width: 120% !important;
+    width: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+    position: relative !important;
+    left: 20% !important;
+    transform: translateX(-20%) !important;
+}
+
+/* Even more specific override for unisphere page */
+.unisphere-page .unisphere-mockup-middle .unisphere-mockup-img,
+.unisphere-page .armoni-mockup-container.unisphere-mockup-middle .unisphere-mockup-img {
+    max-width: 120% !important;
+    width: auto !important;
+    position: relative !important;
+    left: 20% !important;
+    transform: translateX(-20%) !important;
+}
+
+/* Responsive overrides for unisphere-mockup-middle */
+@media (max-width: 1200px) {
+    .unisphere-page .unisphere-mockup-middle .unisphere-mockup-img,
+    .unisphere-page .armoni-mockup-container.unisphere-mockup-middle .unisphere-mockup-img {
+        max-width: 115% !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .unisphere-page .unisphere-mockup-middle .unisphere-mockup-img,
+    .unisphere-page .armoni-mockup-container.unisphere-mockup-middle .unisphere-mockup-img {
+        max-width: 110% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .unisphere-page .unisphere-mockup-middle .unisphere-mockup-img,
+    .unisphere-page .armoni-mockup-container.unisphere-mockup-middle .unisphere-mockup-img {
+        max-width: 105% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .unisphere-page .unisphere-mockup-middle .unisphere-mockup-img,
+    .unisphere-page .armoni-mockup-container.unisphere-mockup-middle .unisphere-mockup-img {
+        max-width: 100% !important;
+    }
+}
+
+/* Responsive adjustments for Unisphere description */
+@media (max-width: 768px) {
+    .unisphere-description {
+        padding: 0 1.5rem;
+        margin: 3rem auto;
+    }
+    
+    .unisphere-section-title {
+        font-size: 1.5rem;
+    }
+    
+    .unisphere-text {
+        font-size: 0.95rem;
+    }
+    
+    .unisphere-list li {
+        font-size: 0.95rem;
+    }
+    
+    .unisphere-page .unisphere-mockup-middle .unisphere-mockup-img,
+    .unisphere-page .armoni-mockup-container.unisphere-mockup-middle .unisphere-mockup-img {
+        max-width: 105% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .unisphere-description {
+        padding: 0 1rem;
+    }
+    
+    .unisphere-section-title {
+        font-size: 1.3rem;
+    }
+    
+    .unisphere-text {
+        font-size: 0.9rem;
+    }
+    
+    .unisphere-list li {
+        font-size: 0.9rem;
+        padding-left: 1.2rem;
+    }
+}
+
+/* Armoni inline images and subsections */
+.armoni-image-inline {
+    margin: 2.5rem auto;
+    text-align: center;
+    background: transparent;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+}
+
+.armoni-inline-img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    border-radius: 4px;
+    background: transparent;
+    display: block;
+    margin: 0 auto !important;
+}
+
+/* Specific for 4item.png */
+.armoni-4item-container {
+    text-align: center !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 1rem auto !important;
+    padding: 0 !important;
+    position: relative !important;
+}
+
+.armoni-4item-img {
+    margin: 0 auto !important;
+    display: block !important;
+    text-align: center !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.armoni-page .unisphere-description .armoni-4item-container {
+    text-align: center !important;
+    display: block !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.armoni-page .unisphere-description .armoni-4item-container * {
+    text-align: center !important;
+}
+
+.armoni-page .unisphere-section .armoni-4item-container {
+    text-align: center !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+.armoni-page .unisphere-section .armoni-4item-img {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+}
+
+/* Force center for 4item in armoni page */
+.armoni-4item-wrapper {
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 900px !important;
+    margin: 2rem auto !important;
+    display: block !important;
+    padding: 0 2rem !important;
+    box-sizing: border-box !important;
+}
+
+.armoni-4item-wrapper img {
+    display: block !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.armoni-page .armoni-4item-wrapper {
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 900px !important;
+    margin: 2rem auto !important;
+    padding: 0 2rem !important;
+}
+
+.armoni-page .armoni-4item-wrapper img {
+    margin: 0 auto !important;
+    display: block !important;
+    text-align: center !important;
+}
+
+/* Clearspace image specific spacing */
+.armoni-clearspace-inline {
+    margin: 0 auto !important;
+    padding: 0 !important;
+    margin-top: -4rem !important;
+    margin-bottom: -8rem !important;
+    text-align: center !important;
+    position: relative;
+    top: -2rem;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+}
+
+.armoni-clearspace-inline .armoni-inline-img {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.armoni-clearspace-img-cropped {
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    max-height: 700px;
+    width: auto;
+    margin: 0 auto !important;
+    transform: scale(1.3);
+    text-align: center;
+}
+
+/* Reduce spacing around clearspace image */
+.armoni-text-before-clearspace {
+    margin-bottom: 0.25rem !important;
+}
+
+.armoni-page .unisphere-section .armoni-text-before-clearspace {
+    margin-bottom: -2rem !important;
+    padding-bottom: 0 !important;
+}
+
+.armoni-page .unisphere-section .unisphere-text + .armoni-clearspace-inline {
+    margin-top: 0.25rem !important;
+}
+
+.armoni-page .unisphere-section .armoni-clearspace-inline + .armoni-flipbook-section {
+    margin-top: -14rem !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+
+.armoni-page .unisphere-section .armoni-clearspace-inline + .armoni-flipbook-section h3 {
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.armoni-subsection-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000000;
+    margin: 3rem 0 1.5rem 0;
+    font-family: 'Playfair Display', serif;
+    text-align: left;
+}
+
+/* Armoni page specific adjustments */
+.armoni-page .unisphere-description {
+    text-align: left;
+}
+
+.armoni-page .armoni-mascots-section {
+    margin: 3rem 0;
+}
+
+.armoni-page .armoni-main-products-section {
+    margin: 3rem 0;
+}
+
+.armoni-page .armoni-company-products-section {
+    margin: 3rem 0;
+}
+
+.armoni-page .armoni-flipbook-section,
+.armoni-page .armoni-brochure-section {
+    margin: 4rem 0;
+}
+
+/* Override for flipbook after clearspace */
+.armoni-page .unisphere-section .armoni-clearspace-inline + .armoni-flipbook-section {
+    margin: -14rem 0 0 0 !important;
+    padding: 0 !important;
+}
+
+/* Override for flipbook after clearspace */
+.armoni-page .unisphere-section .armoni-clearspace-inline + .armoni-flipbook-section {
+    margin: -3rem 0 0 0 !important;
+    padding: 0 !important;
+}
+
+.armoni-page .armoni-website-section {
+    margin: 3rem 0;
 }
 
 /* Armoni Mockup Section */
@@ -1628,6 +2219,13 @@ body.works-page .armoni-description,
     max-width: 100%;
     width: 100%;
     text-align: center;
+}
+
+/* Override for flipbook after clearspace - very specific */
+.armoni-page .unisphere-section .armoni-clearspace-inline + .armoni-flipbook-section {
+    margin-top: -3rem !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
 }
 
 .armoni-flipbook-title {
@@ -2453,7 +3051,7 @@ body.works-page .project-info .armoni-description,
 
 /* Crexrtive specific styles */
 .crexrtive-page .armoni-text {
-    margin-top: 1rem;
+    margin-top: 3rem;
     margin-bottom: 4rem;
 }
 
@@ -2488,6 +3086,23 @@ body.works-page .project-info .armoni-description,
 .crexrtive-link-container {
     text-align: center;
     margin-top: -1rem;
+}
+
+/* Crexrtive group photo */
+.crexrtive-group-photo {
+    margin: 4rem auto;
+    text-align: center;
+    max-width: 100%;
+}
+
+.crexrtive-group-img {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    border-radius: 4px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
 
 .crexrtive-link-container a {

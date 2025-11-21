@@ -54,17 +54,138 @@
     <main class="armoni-main">
         <div class="armoni-content">
             <div class="armoni-text">
-                <h1>Mobile App Development</h1>
-                <p class="armoni-tools large">UI/UX Design</p>
+                <h1>UniSphere</h1>
+                <p class="armoni-description-short">Mobile App Development & UI/UX Design</p>
                 <p class="armoni-tools spaced">Figma</p>
             </div>
             <div class="armoni-logo-container">
                 <img src="unisphere/va325.png" alt="UniSphere Logo" class="unisphere-logo">
             </div>
-            <div class="armoni-mockup-container" style="display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; text-align: center !important; width: 100% !important; margin: 2rem auto !important; padding: 0 2rem !important; box-sizing: border-box !important; position: relative !important; left: 0 !important; right: 0 !important; top: 0 !important; bottom: 0 !important; float: none !important; clear: both !important; overflow: visible !important; z-index: 1 !important;">
-                <img src="unisphere/va325_figma_mockup_new.png" alt="UniSphere Figma Mockup" class="unisphere-mockup-img" style="position: relative !important; left: 50% !important; transform: translateX(-50%) !important; margin: 0 auto !important; display: block !important; text-align: center !important; width: 120% !important; max-width: none !important; height: auto !important; float: none !important; clear: both !important; vertical-align: middle !important; text-indent: 0 !important; direction: ltr !important; unicode-bidi: normal !important; box-sizing: border-box !important; border: none !important; outline: none !important; background: none !important; padding: 0 !important; border-radius: 0 !important; box-shadow: none !important; filter: none !important; opacity: 1 !important; visibility: visible !important; z-index: 1 !important;">
+            
+            <div class="unisphere-description">
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">1. Project Background</h2>
+                    <p class="unisphere-text">Unisphere is a mobile app interface project that I developed with one teammate, fully designed using Figma.</p>
+                    <p class="unisphere-text">The idea came from a simple observation: there are many social media apps, but none of them truly focus on students who move to a new city or country for education.</p>
+                    <p class="unisphere-text">Students who go abroad for:</p>
+                    <ul class="unisphere-list">
+                        <li>Erasmus</li>
+                        <li>Exchange</li>
+                        <li>Master's degree</li>
+                        <li>PhD</li>
+                    </ul>
+                    <p class="unisphere-text">often struggle to find organized and trustworthy information. Most communication happens through random WhatsApp groups, Instagram pages, or forums, which are not centralized or searchable. We wanted to create a focused, supportive platform just for them.</p>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">2. Problem & Goals</h2>
+                    <p class="unisphere-text"><strong>Problem:</strong></p>
+                    <p class="unisphere-text">Students moving abroad for education lack a structured platform to connect, ask questions, and learn from others with similar experiences.</p>
+                    <p class="unisphere-text"><strong>Goals:</strong></p>
+                    <ul class="unisphere-list">
+                        <li>Build a community where international students can support each other.</li>
+                        <li>Provide a place to ask practical questions (courses, housing, city life).</li>
+                        <li>Enable filtering by country, city, university, and major.</li>
+                        <li>Design a clear, welcoming interface that reduces anxiety for new arrivals.</li>
+                    </ul>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">3. Concept Development</h2>
+                    <p class="unisphere-text">We identified four main user pathways based on purpose:</p>
+                    <ol class="unisphere-list unisphere-ordered">
+                        <li>Erasmus</li>
+                        <li>Exchange</li>
+                        <li>Master</li>
+                        <li>PhD</li>
+                    </ol>
+                    <p class="unisphere-text">Each category became its own app section, visually and structurally separated. Users primarily see content relevant to their purpose (e.g., Master students see posts from other Master students), improving relevance and personalization.</p>
+                    <p class="unisphere-text">Each section has:</p>
+                    <ul class="unisphere-list">
+                        <li>A unique accent color</li>
+                        <li>Tailored content emphasis</li>
+                        <li>A shared design system created in Figma Components for consistency</li>
+                    </ul>
+                    <p class="unisphere-text">Short-term programs (Erasmus/Exchange) highlight social life and course choices, while long-term paths (Master/PhD) focus more on research, living arrangements, and career opportunities.</p>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">4. Research & User Needs</h2>
+                    <p class="unisphere-text">We conducted informal research by speaking with students who studied abroad. Common needs included:</p>
+                    <ul class="unisphere-list">
+                        <li>Reliable housing information</li>
+                        <li>Course recommendations and reviews</li>
+                        <li>Connecting with people before arriving</li>
+                        <li>Guidance on academic workload and expectations</li>
+                        <li>Emotional support and community</li>
+                    </ul>
+                    <p class="unisphere-text">From these insights, we outlined key UX requirements:</p>
+                    <ul class="unisphere-list">
+                        <li>A global feed filtered by country, university, and major</li>
+                        <li>Purpose-based user grouping</li>
+                        <li>Simple, supportive UI accessible to international users</li>
+                        <li>Screens designed with consistent Figma components and reusable UI patterns</li>
+                    </ul>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">5. Key Features</h2>
+                    <ul class="unisphere-list">
+                        <li><strong>Four main sections (Erasmus / Exchange / Master / PhD)</strong><br>Users start in their own category but can explore others freely.</li>
+                        <li><strong>Advanced filtering</strong>
+                            <ul class="unisphere-sublist">
+                                <li>University</li>
+                                <li>Country/City</li>
+                                <li>Department/Major</li>
+                            </ul>
+                        </li>
+                        <li><strong>Community posts & Q&A</strong><br>Users ask and answer questions or share tips.</li>
+                        <li><strong>Profiles with purpose & location</strong><br>Transparency makes interactions more trustworthy.</li>
+                        <li><strong>Figma-based component library</strong><br>Ensures consistency across icons, typography, colors, and layouts.</li>
+                    </ul>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">6. Visual Design & Color System</h2>
+                    <p class="unisphere-text">The main theme color of Unisphere is orange.</p>
+                    <p class="unisphere-text">We chose this after testing multiple palettes and reviewing color psychology studies:</p>
+                    <ul class="unisphere-list">
+                        <li>Orange communicates warmth, energy, optimism, and social interaction.</li>
+                        <li>It helps reduce anxiety and gives users a sense of welcome when adapting to a new environment.</li>
+                        <li>It visually separates Unisphere from blue-dominant social media platforms.</li>
+                    </ul>
+                    <p class="unisphere-text">Each category has its own complementary accent color, unified by shared Figma styles and consistent UI components.</p>
+                    <p class="unisphere-text">We prioritized:</p>
+                    <ul class="unisphere-list">
+                        <li>Clean hierarchy for mobile readability</li>
+                        <li>High contrast for accessibility</li>
+                        <li>Friendly, minimal design language</li>
+                    </ul>
+                </section>
+
+                <!-- Mockup image placed in the middle -->
+                <div class="armoni-mockup-container unisphere-mockup-middle">
+                    <img src="unisphere/va325_figma_mockup_newnew.png" alt="UniSphere Figma Mockup" class="unisphere-mockup-img">
+                </div>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">7. My Role & Workflow</h2>
+                    <p class="unisphere-text">This was a team project with two designers. My contribution included:</p>
+                    <ul class="unisphere-list">
+                        <li>Co-designing the concept and user structure</li>
+                        <li>Creating user flows and wireframes in Figma</li>
+                        <li>Building reusable Figma component sets</li>
+                        <li>Designing the home feed, filtering interface, and profile screens</li>
+                        <li>Contributing to the color system and visual direction</li>
+                        <li>Preparing high-fidelity mockups for presentation</li>
+                    </ul>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">Outcome</h2>
+                    <p class="unisphere-text">Unisphere offers a more structured way for students studying abroad to connect, ask questions, and share experiences. By designing purpose-specific sections, robust filtering, and a warm visual identity built in Figma, the app aims to reduce confusion and help students feel supported during major life transitions.</p>
+                </section>
             </div>
-            <p class="armoni-desc">Mobile App UI Overview</p>
         </div>
     </main>
 

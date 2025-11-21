@@ -54,33 +54,82 @@
     <main class="armoni-main">
         <div class="armoni-content">
             <div class="armoni-text">
-                <h1>Multiuser VR Biology Lab</h1>
-                <p class="armoni-tools">Unity, Blender</p>
+                <h1>Multi-User VR Laboratory</h1>
+                <p class="armoni-description-short">VR Development</p>
+                <p class="armoni-tools spaced">Unity, Blender, Photon Fusion, Oculus Quest, Rokoko SmartSuit Pro</p>
             </div>
             
-            <div class="armoni-images-section">
-                <div class="armoni-images-grid">
-                    <div class="armoni-images-item">
-                        <img src="VR_Lab/a.png" alt="VR Lab Image A" class="armoni-images-img">
-                    </div>
-                    <div class="armoni-images-item">
-                        <img src="VR_Lab/b.png" alt="VR Lab Image B" class="armoni-images-img">
-                    </div>
-                    <div class="armoni-images-item">
-                        <img src="VR_Lab/c.png" alt="VR Lab Image C" class="armoni-images-img">
-                    </div>
-                    <div class="armoni-images-item">
-                        <img src="VR_Lab/lab2.png" alt="VR Lab Image 2" class="armoni-images-img">
-                    </div>
-                </div>
+            <div class="unisphere-description" style="margin-top: 2rem;">
+                <p class="unisphere-text">This project is a multi-user virtual reality laboratory experience developed as my senior capstone project. The goal was to design a shared VR environment where multiple users can join the same session, interact with lab equipment in real time, and collaboratively perform experimental procedures. The project was built in Unity for Oculus Quest headsets, and Meta provided the hardware support specifically for this project. Real-time networking and synchronization were implemented using Photon Fusion.</p>
             </div>
             
-                <div class="armoni-video-container">
+            <div class="vr-lab-featured-image">
+                <img src="VR_Lab/lab2.png" alt="VR Lab Featured Image" class="vr-lab-featured-img">
+            </div>
+            
+            <div class="unisphere-description">
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">Background & Motivation</h2>
+                    <p class="unisphere-text">Most VR educational tools focus on single-user interactions. While these systems are useful for learning basic concepts, they fail to simulate the collaborative nature of real laboratory environments, where communication and shared activity are essential.</p>
+                    <p class="unisphere-text">We aimed to bridge this gap by creating a VR environment that supports true multi-user interaction, synchronized object states, and collaborative workflows. The experience focuses on laboratory tasks that require coordination, such as transferring liquids between test tubes, preparing chemical solutions, and using scientific tools.</p>
+                    
+                    <div class="vr-lab-two-images-inline">
+                        <img src="VR_Lab/a.png" alt="VR Lab Image A" class="vr-lab-small-img">
+                        <img src="VR_Lab/b.png" alt="VR Lab Image B" class="vr-lab-small-img">
+                    </div>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">Development Process</h2>
+                    <p class="unisphere-text">The environment and interactions were developed in Unity, with a physics-based system that allows users to grab objects, manipulate lab tools, and observe changes in real time. All major interactions—holding objects, changing liquid levels, activating equipment—are network-synchronized so each user sees the same state.</p>
+                    <p class="unisphere-text">I implemented core interaction logic, collider-based fluid manipulation, object ownership transfer through Photon, and custom VR controller handling.</p>
+                    
+                    <div class="armoni-image-inline">
+                        <img src="VR_Lab/c.png" alt="VR Lab Image C" class="armoni-inline-img">
+                    </div>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">Networking & Multi-User Experience</h2>
+                    <p class="unisphere-text">We used Photon Fusion to build stable real-time connections between users. Each participant appears in the environment as an avatar and can observe others' actions. Object states, transforms, and procedural steps are replicated across the network, enabling shared workflows.</p>
+                    <p class="unisphere-text">This multi-user design allows learners to communicate, follow each other's actions, and complete tasks together, reflecting real-life lab settings more accurately than single-user VR experiences.</p>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">Motion Capture & Realistic Animation</h2>
+                    <p class="unisphere-text">To enhance realism, we recorded the movements of an actual laboratory worker using a Rokoko motion capture suit. The captured data was processed and cleaned in Blender, then retargeted to a humanoid rig used in Unity.</p>
+                    <p class="unisphere-text">We also modeled the avatar's face to resemble the real lab worker (with permission), allowing the VR demonstrator to reflect an authentic human presence. This figure performs proper lab procedures inside the environment, guiding users and demonstrating workflows they later replicate.</p>
+                    <p class="unisphere-text">This grounded motion data made the experience feel more natural and professional, especially for instructional sequences.</p>
+                </section>
+
+                <!-- Video placed in the middle -->
+                <div class="armoni-video-container vr-lab-video-middle">
                     <video controls autoplay muted loop preload="metadata" class="armoni-video">
                         <source src="VR_Lab/VR_Lab.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">Hardware & Tools</h2>
+                    <p class="unisphere-text">The project was developed using:</p>
+                    <ul class="unisphere-list">
+                        <li>Unity (C#)</li>
+                        <li>Photon Fusion</li>
+                        <li>Oculus Quest </li>
+                        <li>Blender</li>
+                        <li>Rokoko SmartSuit Pro</li>
+                    </ul>
+                    <p class="unisphere-text">We tested interactions directly on headset hardware throughout development.</p>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">Outcome</h2>
+                    <p class="unisphere-text">The final system demonstrates how VR can support collaborative scientific training by combining realistic motion, networked interactions, and immersive spatial design. The environment allows users to work together, observe demonstrations, and learn hands-on procedures in a virtual space.</p>
+                    <p class="unisphere-text">The project serves as a foundation for scalable VR laboratory education, with potential future directions including AI-assisted instruction, expanded procedural content, and extended multi-role lab simulations.</p>
+                </section>
+            </div>
         </div>
     </main>
 
