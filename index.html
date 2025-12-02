@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İdil Kale - Portfolio</title>
+    <title>İdil Kale - UI/UX Designer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="scroll-handler.js" defer></script>
 </head>
-<body class="works-page">
+<body class="home-page">
     <!-- Header Section -->
     <header class="header">
         <div class="container">
@@ -23,6 +23,7 @@
                 <nav class="header-nav">
                     <ul>
                         <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="works.html">Works</a></li>
                         <li><a href="about.html">About Me</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -38,6 +39,7 @@
             <nav class="compact-header-nav">
                 <ul>
                     <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="works.html">Works</a></li>
                     <li><a href="about.html">About Me</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -45,120 +47,54 @@
         </div>
     </header>
 
-    <!-- Works Section -->
-    <main class="works-main">
+    <!-- Main Content -->
+    <main class="main-content home-main-new">
         <div class="container">
-            <h1 class="works-title"></h1>
-            
-            <!-- Filter Buttons -->
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
-                <button class="filter-btn" data-filter="coding">Coding</button>
-                <button class="filter-btn" data-filter="graphic-design">Branding & Graphic Design</button>
-                <button class="filter-btn" data-filter="photography-video">Photography & Video</button>
-            </div>
-            
-            <div class="works-grid">
-                <!-- Project 1 - Armoni (Dynamic) - Large -->
-                <div class="project-card project-large" data-category="ui-ux graphic-design" onclick="openArmoniProject()">
-                    <div class="project-image">
-                        <img src="photos/idilkale-item-extra-1.jpg" alt="Ar Mo Ni Project" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <h3>Armoni</h3>
-                        <p class="armoni-description">Brand Identity & Signage Design</p>
-                    </div>
+            <!-- Hero Section - Top -->
+            <section class="home-hero-top">
+                <div class="greeting-text">
+                    <span class="greeting-word" id="greetingWord">Merhaba</span>.
                 </div>
+                <h1 class="hero-name-large">I'm İdil</h1>
+                <p class="hero-description-text">I love creating things that feel good to use. Whether it's a simple button or a whole experience, I try to make sure every detail matters. I'm always curious about how people interact with design and how we can make those interactions a little bit better.</p>
+            </section>
 
-                <!-- Project 2 - Medium -->
-                <div class="project-card project-medium" data-category="ui-ux" onclick="window.location.href='unisphere.html'">
-                    <div class="project-image">
-                        <img src="photos/unisphere.png" alt="UniSphere Project" class="project-img unisphere-img">
-                    </div>
-                    <div class="project-info">
+            <!-- Featured Projects Section - Bottom -->
+            <section class="home-projects-bottom">
+                <h2 class="featured-title">Featured Work</h2>
+                <div class="projects-showcase-grid">
+                    <div class="project-showcase-item" onclick="window.location.href='unisphere.html'">
+                        <div class="project-showcase-image">
+                            <img src="photos/unisphere.png" alt="UniSphere">
+                            <div class="project-overlay">
                         <h3>UniSphere</h3>
-                        <p>UI/UX</p>
+                                <p>UI/UX Design</p>
                     </div>
                 </div>
-
-                <!-- Project 3 - Medium -->
-                <div class="project-card project-medium" data-category="coding" onclick="window.location.href='vr-lab.html'">
-                    <div class="project-image">
-                        <img src="VR_Lab/lab1.png" alt="VR Biology Lab Project" class="project-img">
                     </div>
-                    <div class="project-info">
-                        <h3>Multiuser VR Biology Lab</h3>
-                        <p>VR Development & 3D Design</p>
+                    <div class="project-showcase-item" onclick="window.location.href='armoni.html'">
+                        <div class="project-showcase-image">
+                            <img src="photos/idilkale-item-extra-1.jpg" alt="Armoni">
+                            <div class="project-overlay">
+                                <h3>Armoni</h3>
+                                <p>Brand Identity</p>
                     </div>
                 </div>
-
-                <!-- Project 4 - Large -->
-                <div class="project-card project-large" data-category="photography" onclick="window.location.href='catastrophe.html'">
-                    <div class="project-image">
-                        <img src="catastrophe/1.png" alt="Catastrophe Project" class="project-img">
                     </div>
-                    <div class="project-info">
-                        <h3>Catastrophe</h3>
-                        <p>Digital & Photographic Imaging</p>
+                    <div class="project-showcase-item" onclick="window.location.href='vr-lab.html'">
+                        <div class="project-showcase-image">
+                            <img src="VR_Lab/lab1.png" alt="VR Lab">
+                            <div class="project-overlay">
+                                <h3>VR Biology Lab</h3>
+                                <p>VR Development</p>
                     </div>
                 </div>
-
-                <!-- Project 5 - Small -->
-                <div class="project-card project-small" data-category="graphic-design" onclick="window.location.href='monogram.html'">
-                    <div class="project-image">
-                        <img src="photos/monogram.png" alt="Monogram Design Project" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <h3>Monogram Design</h3>
-                        <p>Graphic Design & Typography</p>
                     </div>
                 </div>
-
-                <!-- Project 6 - Medium -->
-                <div class="project-card project-medium" data-category="video" onclick="window.location.href='the-ocean.html'">
-                    <div class="project-image">
-                        <img src="the_ocean/theocean_photo.png" alt="The Ocean Project" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <h3>The Ocean</h3>
-                        <p>Experimental Video & Motion Graphics</p>
-                    </div>
+                <div class="view-all-link">
+                    <a href="works.html" class="view-all-btn">VIEW ALL PROJECTS →</a>
                 </div>
-
-                <!-- Project 7 - Crexrtive UI/UX - Small -->
-                <div class="project-card project-small" id="crexrtive-ui" data-category="ui-ux" onclick="window.location.href='crexrtive.html'">
-                    <div class="project-image">
-                        <img src="crexartive/crexrtive.png" alt="Crexrtive Project" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <h3>Crexrtive</h3>
-                        <p class="crexrtive-description">Website Design</p>
-                    </div>
-                </div>
-
-                <!-- Project 8 - Crexrtive Coding - Small -->
-                <div class="project-card project-small" id="crexrtive-coding" data-category="coding" onclick="window.location.href='crexrtive.html'">
-                    <div class="project-image">
-                        <img src="crexartive/crexrtive.png" alt="Crexrtive Project" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <h3>Crexrtive</h3>
-                        <p class="crexrtive-description">HTML, CSS</p>
-                    </div>
-                </div>
-
-                <!-- Project 9 - Hepsisurada - Medium -->
-                <div class="project-card project-medium" data-category="coding" onclick="window.location.href='hepsisurada.html'">
-                    <div class="project-image">
-                        <img src="hepsisurada/hepsisurada.png" alt="Hepsisurada Project" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <h3>Hepsisurada</h3>
-                        <p>Frontend & Backend Development</p>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
     </main>
 
@@ -166,241 +102,50 @@
     <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"></a>
 
     <script>
-        // Filter functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.project-card');
-            const worksGrid = document.querySelector('.works-grid');
-            const armoniCard = document.querySelector('.project-card[data-category*="ui-ux"]');
-            const armoniImage = armoniCard.querySelector('.project-img');
-            const armoniDescription = armoniCard.querySelector('.armoni-description');
-            
-            const crexrtiveUICard = document.getElementById('crexrtive-ui');
-            const crexrtiveUIDescription = crexrtiveUICard ? crexrtiveUICard.querySelector('.crexrtive-description') : null;
-            
-            const crexrtiveCodingCard = document.getElementById('crexrtive-coding');
-            const crexrtiveCodingDescription = crexrtiveCodingCard ? crexrtiveCodingCard.querySelector('.crexrtive-description') : null;
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    this.classList.add('active');
-
-                    const filterValue = this.getAttribute('data-filter');
-                    let visibleCount = 0;
-
-                    // Change Armoni image and description based on filter
-                    if (filterValue === 'ui-ux') {
-                        armoniImage.src = 'armoni/website.png';
-                        armoniImage.alt = 'Armoni Website Project';
-                        armoniDescription.textContent = 'UI/UX';
-                    } else {
-                        armoniImage.src = 'photos/idilkale-item-extra-1.jpg';
-                        armoniImage.alt = 'Ar Mo Ni Project';
-                        armoniDescription.textContent = 'Brand Identity & Signage Design';
-                    }
-
-                    // Change Crexrtive description based on filter
-                    // Handle Crexrtive descriptions based on filter
-                    if (filterValue === 'ui-ux' && crexrtiveUIDescription) {
-                        crexrtiveUIDescription.textContent = 'Website Design';
-                    } else if (filterValue === 'coding' && crexrtiveCodingDescription) {
-                        crexrtiveCodingDescription.textContent = 'HTML, CSS';
-                    } else {
-                        if (crexrtiveUIDescription) crexrtiveUIDescription.textContent = 'Website Design';
-                        if (crexrtiveCodingDescription) crexrtiveCodingDescription.textContent = 'HTML, CSS';
-                    }
-
-                    projectCards.forEach(card => {
-                        const cardCategories = card.getAttribute('data-category').split(' ');
-                        
-                        // Special handling for "All" filter - show only one Crexrtive
-                        if (filterValue === 'all') {
-                            if (card.id === 'crexrtive-coding') {
-                                card.style.display = 'none'; // Hide coding version in "All"
-                            } else if (card.id === 'crexrtive-ui') {
-                                card.style.display = 'block'; // Show UI version in "All"
-                                card.style.animation = 'fadeIn 0.5s ease-in-out';
-                                visibleCount++;
-                            } else {
-                                card.style.display = 'block';
-                                card.style.animation = 'fadeIn 0.5s ease-in-out';
-                                visibleCount++;
-                            }
-                        } else if (filterValue === 'photography-video') {
-                            // Show both photography and video projects
-                            if (cardCategories.includes('photography') || cardCategories.includes('video')) {
-                                card.style.display = 'block';
-                                card.style.animation = 'fadeIn 0.5s ease-in-out';
-                                visibleCount++;
-                            } else {
-                                card.style.display = 'none';
-                            }
-                        } else if (cardCategories.includes(filterValue)) {
-                            card.style.display = 'block';
-                            card.style.animation = 'fadeIn 0.5s ease-in-out';
-                            visibleCount++;
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-
-                    // Add class based on visible project count (only when filtered, not "all")
-                    worksGrid.classList.remove('single-project', 'two-projects', 'few-projects');
-                    if (filterValue !== 'all') {
-                        // When filtered (not "all"), use 2-column layout for 2+ projects
-                        if (visibleCount === 1) {
-                            worksGrid.classList.add('single-project');
-                        } else if (visibleCount === 2) {
-                            worksGrid.classList.add('two-projects');
-                        } else if (visibleCount > 2) {
-                            worksGrid.classList.add('few-projects');
-                        }
-                    }
-                    // When "all" is selected, keep default grid layout (no special class)
-                });
-            });
-
-            // Initialize with "All" filter active
-            const allButton = document.querySelector('.filter-btn[data-filter="all"]');
-            if (allButton) {
-                allButton.classList.add('active');
-                // Trigger the filter to ensure proper display
-                allButton.click();
-            }
-        });
-
-        function openArmoniProject() {
-            // Check if UI/UX filter is active
-            const activeFilter = document.querySelector('.filter-btn.active');
-            if (activeFilter && activeFilter.getAttribute('data-filter') === 'ui-ux') {
-                // If UI/UX filter is active, go to armoni.html and scroll to website section
-                window.location.href = 'armoni.html?scroll=website';
-            } else {
-                // If not UI/UX filter, go to normal armoni page
-                window.location.href = 'armoni.html';
+        // Greeting text animation - switching between Merhaba and Hi
+        const greetingWords = ['Merhaba', 'Hi'];
+        let currentIndex = 0;
+        const greetingElement = document.getElementById('greetingWord');
+        
+        function changeGreeting() {
+            if (greetingElement) {
+                greetingElement.style.opacity = '0';
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % greetingWords.length;
+                    greetingElement.textContent = greetingWords[currentIndex];
+                    greetingElement.style.opacity = '1';
+                }, 250);
             }
         }
+        
+        // Start greeting animation after page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initial delay
+            setTimeout(() => {
+                setInterval(changeGreeting, 2500); // Change every 2.5 seconds
+            }, 1500);
+            
+            // Start carousel auto-play
+            setInterval(nextSlide, 4000); // Change slide every 4 seconds
+        });
 
-        // Smooth scroll function with easing
-        function smoothScrollTo(targetId, duration = 2000) {
-            const target = document.getElementById(targetId);
-            if (!target) return;
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-            const targetPosition = target.offsetTop - 100; // 100px offset for header
-            const startPosition = window.pageYOffset;
-            const distance = targetPosition - startPosition;
-            let startTime = null;
-
-            function easeInOutCubic(t) {
-                // Ultra gentle easing - almost linear with very subtle curve
-                return t < 0.5 ? 0.5 * t * t * t : 1 - 0.5 * Math.pow(-2 * t + 2, 3);
-            }
-
-            function animation(currentTime) {
-                if (startTime === null) startTime = currentTime;
-                const timeElapsed = currentTime - startTime;
-                const progress = Math.min(timeElapsed / duration, 1);
-                const ease = easeInOutCubic(progress);
-                
-                window.scrollTo(0, startPosition + distance * ease);
-                
-                if (timeElapsed < duration) {
-                    requestAnimationFrame(animation);
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-visible');
                 }
-            }
-
-            requestAnimationFrame(animation);
-        }
-
-        function openProject(projectId) {
-            // Bu fonksiyon proje detay sayfasını açacak
-            alert('Proje detayları: ' + projectId + ' - Bu sayfa yakında eklenecek!');
-        }
-
-        // Preload all project images for better performance
-        function preloadProjectImages() {
-            const imageUrls = [
-                // Armoni images
-                'armoni/idilkale_white background logo.jpeg',
-                'armoni/new.png',
-                'armoni/clearspace-new.jpg',
-                'armoni/BBBBBBB.png',
-                'armoni/DDDDDDD.png',
-                'armoni/CCCCCCCC.png',
-                'armoni/idilkale-item-extra-2.png',
-                'armoni/idilkale-stationary-package.jpg',
-                'armoni/idilkale-item-extra-1.jpg',
-                'armoni/idilkale-item-main-3.jpg',
-                'armoni/idilkale-item-main-6.png',
-                'armoni/idilkale-item-main-4.png',
-                'armoni/idilkale-item-main-2.jpg',
-                'armoni/idilkale-item-main-1.png',
-                'armoni/4item.png',
-                'armoni/website.png',
-                
-                // UniSphere images
-                'unisphere/va325.png',
-                'unisphere/va325_figma_mockup_new.png',
-                'unisphere/va325 kopyası.png',
-                
-                // VR Lab images
-                'VR_Lab/lab1.png',
-                'VR_Lab/lab2.png',
-                'VR_Lab/a.png',
-                'VR_Lab/b.png',
-                'VR_Lab/c.png',
-                
-                // Catastrophe images (first few)
-                'catastrophe/1.png',
-                'catastrophe/2.png',
-                'catastrophe/3.png',
-                'catastrophe/4.png',
-                'catastrophe/5.png',
-                
-                // The Ocean images
-                'the_ocean/theocean_photo.png',
-                
-                // Monogram images
-                'photos/monogram.png',
-                
-                // Crexrtive images
-                'crexartive/crexrtive.png',
-                
-                // Hepsisurada images
-                'hepsisurada/hepsisurada.png'
-            ];
-
-            console.log('Starting to preload project images...');
-            let loadedCount = 0;
-            const totalImages = imageUrls.length;
-
-            imageUrls.forEach((url, index) => {
-                const img = new Image();
-                img.onload = function() {
-                    loadedCount++;
-                    console.log(`Preloaded ${loadedCount}/${totalImages}: ${url}`);
-                    if (loadedCount === totalImages) {
-                        console.log('All project images preloaded successfully!');
-                    }
-                };
-                img.onerror = function() {
-                    console.warn(`Failed to preload: ${url}`);
-                };
-                img.src = url;
             });
-        }
+        }, observerOptions);
 
-        // Start preloading when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            // Start preloading after a short delay to not block initial page load
-            setTimeout(preloadProjectImages, 1000);
+        document.querySelectorAll('.project-showcase-item').forEach(item => {
+            observer.observe(item);
         });
-
-        // Header scroll functionality is handled by scroll-handler.js
-
     </script>
 </body>
 </html>
