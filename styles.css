@@ -2633,7 +2633,7 @@ body.works-page .armoni-description,
     opacity: 1 !important;
 }
 
-.project-info h3 {
+.project-info h2 {
     font-size: 1.3rem;
     font-weight: 600;
     margin: 0 0 0.3rem 0;
@@ -2824,7 +2824,7 @@ body.works-page .project-info .armoni-description,
         aspect-ratio: 4 / 3;
     }
     
-    .project-info h3 {
+    .project-info h2 {
         font-size: 1.4rem;
         margin-bottom: 0.5rem;
     }
@@ -2841,7 +2841,7 @@ body.works-page .project-info .armoni-description,
         opacity: 1 !important;
     }
     
-    .project-info h3 {
+    .project-info h2 {
         font-size: 1.1rem;
         color: #000000 !important;
     }
