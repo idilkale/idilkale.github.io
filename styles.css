@@ -2351,6 +2351,9 @@ body.works-page .armoni-description,
     min-height: 100vh;
     background-color: #ffffff;
     position: relative;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .works-title {
@@ -2719,6 +2722,15 @@ body.works-page .project-info .armoni-description,
     .works-main {
         padding-top: 10rem;
         padding-bottom: 2rem;
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    .works-main .container {
+        padding: 0 1rem;
+        max-width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
     }
     
     .works-title {
@@ -2733,8 +2745,10 @@ body.works-page .project-info .armoni-description,
     .works-grid {
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem 1.2rem;
-        padding: 2rem 2rem;
+        padding: 2rem 1rem;
         max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .project-small,
@@ -2747,10 +2761,12 @@ body.works-page .project-info .armoni-description,
     .works-grid.two-projects,
     .works-grid.few-projects {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1.5rem !important;
-        padding: 2rem 2rem !important;
+        gap: 1rem !important;
+        padding: 1rem 1rem !important;
         max-width: 100% !important;
         margin: 0 auto !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
     
     /* Single project - center it on mobile */
@@ -2758,10 +2774,12 @@ body.works-page .project-info .armoni-description,
         grid-template-columns: 1fr !important;
         max-width: 100% !important;
         gap: 2rem 1.2rem !important;
-        padding: 2rem 2rem !important;
+        padding: 1rem 1rem !important;
         margin: 0 auto !important;
         justify-items: center !important;
         place-items: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
     
     /* When filtered, all projects same size in 2-column grid on mobile */
@@ -2769,6 +2787,8 @@ body.works-page .project-info .armoni-description,
     .works-grid.few-projects .project-card {
         grid-column: span 1 !important;
         width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
     
     /* Override project size classes when filtered on mobile */
@@ -2805,6 +2825,16 @@ body.works-page .project-info .armoni-description,
         max-width: 100% !important;
         margin: 0 auto !important;
         justify-self: center !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Ensure project images don't overflow on mobile when filtered */
+    .works-grid.two-projects .project-image,
+    .works-grid.few-projects .project-image,
+    .works-grid.single-project .project-image {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
     
     .project-card {
@@ -2849,6 +2879,41 @@ body.works-page .project-info .armoni-description,
     .project-info p {
         font-size: 0.8rem;
         color: #000000 !important;
+    }
+}
+
+/* Extra small screens - Works page filtered */
+@media (max-width: 480px) {
+    .works-main .container {
+        padding: 0 0.75rem;
+    }
+    
+    .works-grid {
+        padding: 1rem 0.5rem !important;
+        gap: 1rem !important;
+    }
+    
+    /* When filtered, use 1-column grid on very small screens */
+    .works-grid.two-projects,
+    .works-grid.few-projects {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        padding: 1rem 0.5rem !important;
+    }
+    
+    .works-grid.single-project {
+        padding: 1rem 0.5rem !important;
+    }
+    
+    .filter-buttons {
+        gap: 0.5rem;
+        margin: 1.5rem 0;
+        padding: 0 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
     }
 }
 
@@ -3507,10 +3572,16 @@ body.works-page .project-card .project-info p.armoni-description {
 .contact-email-section {
     margin-top: 4rem;
     padding: 3rem 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .contact-email-wrapper {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
     position: relative;
 }
 
@@ -3532,6 +3603,7 @@ body.works-page .project-card .project-info p.armoni-description {
     overflow: hidden;
     min-width: 300px;
     justify-content: center;
+    margin-right: 0;
 }
 
 .contact-email-link::before {
@@ -3570,6 +3642,59 @@ body.works-page .project-card .project-info p.armoni-description {
     z-index: 1;
 }
 
+.contact-linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 85px;
+    height: 85px;
+    color: #000000;
+    text-decoration: none;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    background: transparent;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.contact-linkedin-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.contact-linkedin-link:hover {
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.contact-linkedin-link:hover::before {
+    left: 0;
+}
+
+.linkedin-icon {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    z-index: 1;
+}
+
+.contact-linkedin-link:hover .linkedin-icon {
+    transform: scale(1.1);
+}
+
 /* CV Download Link - White Button Style */
 .contact-cv-link {
     background: #ffffff !important;
@@ -3596,6 +3721,12 @@ body.works-page .project-card .project-info p.armoni-description {
         text-align: center;
     }
     
+    .contact-email-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
     .contact-email-link {
         font-size: 1.1rem;
         padding: 1.2rem 2rem;
@@ -3605,9 +3736,23 @@ body.works-page .project-card .project-info p.armoni-description {
     .email-icon {
         font-size: 1.3rem;
     }
+    
+    .contact-linkedin-link {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .linkedin-icon {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 @media (max-width: 480px) {
+    .contact-email-wrapper {
+        gap: 1.2rem;
+    }
+    
     .contact-email-link {
         font-size: 1rem;
         padding: 1rem 1.5rem;
@@ -3617,6 +3762,16 @@ body.works-page .project-card .project-info p.armoni-description {
     
     .email-icon {
         font-size: 1.2rem;
+    }
+    
+    .contact-linkedin-link {
+        width: 75px;
+        height: 75px;
+    }
+    
+    .linkedin-icon {
+        width: 28px;
+        height: 28px;
     }
 }
 
