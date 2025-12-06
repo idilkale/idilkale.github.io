@@ -52,7 +52,8 @@
         <div class="container">
             <h1 class="works-title">Works</h1>
             
-            <!-- Filter Buttons -->
+            <!-- Filter Buttons - COMMENTED OUT (can be re-enabled if needed) -->
+            <!--
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
@@ -60,6 +61,7 @@
                 <button class="filter-btn" data-filter="graphic-design">Branding & Graphic Design</button>
                 <button class="filter-btn" data-filter="photography-video">Photography & Video</button>
             </div>
+            -->
             
             <div class="works-grid">
                 <!-- Project 1 - Armoni (Dynamic) - Large -->
@@ -168,7 +170,8 @@
     <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"></a>
 
     <script>
-        // Filter functionality
+        // Filter functionality - COMMENTED OUT (can be re-enabled if needed)
+        /*
         document.addEventListener('DOMContentLoaded', function() {
             const filterButtons = document.querySelectorAll('.filter-btn');
             const projectCards = document.querySelectorAll('.project-card');
@@ -273,9 +276,11 @@
                 allButton.click();
             }
         });
+        */
 
         function openArmoniProject() {
-            // Check if UI/UX filter is active
+            // Filter check - COMMENTED OUT (can be re-enabled if needed)
+            /*
             const activeFilter = document.querySelector('.filter-btn.active');
             if (activeFilter && activeFilter.getAttribute('data-filter') === 'ui-ux') {
                 // If UI/UX filter is active, go to armoni.html and scroll to website section
@@ -284,6 +289,9 @@
                 // If not UI/UX filter, go to normal armoni page
                 window.location.href = 'armoni.html';
             }
+            */
+            // Always go to normal armoni page when filter is disabled
+            window.location.href = 'armoni.html';
         }
 
         // Smooth scroll function with easing
