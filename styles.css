@@ -2372,7 +2372,8 @@ body.works-page .armoni-description,
     display: none;
 }
 
-/* Filter Buttons */
+/* Filter Buttons - COMMENTED OUT (can be re-enabled if needed) */
+/*
 .filter-buttons {
     display: flex;
     justify-content: center;
@@ -2409,6 +2410,7 @@ body.works-page .armoni-description,
     color: #000000;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
+*/
 
 /* Fade In Animation */
 @keyframes fadeIn {
@@ -2486,7 +2488,8 @@ body.works-page .armoni-description,
     grid-column: span 4;
 }
 
-/* When filtered, use 2-column grid with equal sizes */
+/* When filtered, use 2-column grid with equal sizes - COMMENTED OUT (can be re-enabled if needed) */
+/*
 .works-grid.two-projects,
 .works-grid.few-projects {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -2549,6 +2552,7 @@ body.works-page .armoni-description,
     margin: 0 auto !important;
     justify-self: center !important;
 }
+*/
 
 .project-card {
     cursor: pointer;
@@ -2707,6 +2711,8 @@ body.works-page .project-info .armoni-description,
         grid-column: span 6;
     }
     
+    /* Filter buttons responsive - COMMENTED OUT (can be re-enabled if needed) */
+    /*
     .filter-buttons {
         gap: 0.8rem;
         margin: 2rem 0 1.5rem 0;
@@ -2716,6 +2722,7 @@ body.works-page .project-info .armoni-description,
         padding: 0.6rem 1.2rem;
         font-size: 0.85rem;
     }
+    */
 }
 
 @media (max-width: 768px) {
@@ -2757,7 +2764,8 @@ body.works-page .project-info .armoni-description,
         grid-column: span 4 !important;
     }
     
-    /* When filtered, use 2-column grid on mobile too */
+    /* When filtered, use 2-column grid on mobile too - COMMENTED OUT (can be re-enabled if needed) */
+    /*
     .works-grid.two-projects,
     .works-grid.few-projects {
         grid-template-columns: repeat(2, 1fr) !important;
@@ -2836,6 +2844,7 @@ body.works-page .project-info .armoni-description,
         max-width: 100% !important;
         box-sizing: border-box !important;
     }
+    */
     
     .project-card {
         border-radius: 16px;
@@ -2882,7 +2891,7 @@ body.works-page .project-info .armoni-description,
     }
 }
 
-/* Extra small screens - Works page filtered */
+/* Extra small screens - Works page filtered - COMMENTED OUT (can be re-enabled if needed) */
 @media (max-width: 480px) {
     .works-main .container {
         padding: 0 0.75rem;
@@ -2894,6 +2903,7 @@ body.works-page .project-info .armoni-description,
     }
     
     /* When filtered, use 1-column grid on very small screens */
+    /*
     .works-grid.two-projects,
     .works-grid.few-projects {
         grid-template-columns: 1fr !important;
@@ -2915,6 +2925,7 @@ body.works-page .project-info .armoni-description,
         padding: 0.5rem 1rem;
         font-size: 0.75rem;
     }
+    */
 }
 
 

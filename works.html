@@ -52,7 +52,8 @@
         <div class="container">
             <h1 class="works-title">Works</h1>
             
-            <!-- Filter Buttons -->
+            <!-- Filter Buttons - COMMENTED OUT (can be re-enabled if needed) -->
+            <!--
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
@@ -60,6 +61,7 @@
                 <button class="filter-btn" data-filter="graphic-design">Branding & Graphic Design</button>
                 <button class="filter-btn" data-filter="photography-video">Photography & Video</button>
             </div>
+            -->
             
             <div class="works-grid">
                 <!-- Project 1 - Armoni (Dynamic) - Large -->
@@ -128,25 +130,14 @@
                     </div>
                 </div>
 
-                <!-- Project 7 - Crexrtive UI/UX - Small -->
-                <div class="project-card project-small" id="crexrtive-ui" data-category="ui-ux" onclick="window.location.href='crexrtive.html'">
+                <!-- Project 7 - Crexrtive - Small -->
+                <div class="project-card project-small" data-category="ui-ux coding" onclick="window.location.href='crexrtive.html'">
                     <div class="project-image">
                         <img src="crexartive/crexrtive.png" alt="Crexrtive Project" class="project-img">
                     </div>
                     <div class="project-info">
                         <h2>Crexrtive</h2>
-                        <p class="crexrtive-description">Website Design</p>
-                    </div>
-                </div>
-
-                <!-- Project 8 - Crexrtive Coding - Small -->
-                <div class="project-card project-small" id="crexrtive-coding" data-category="coding" onclick="window.location.href='crexrtive.html'">
-                    <div class="project-image">
-                        <img src="crexartive/crexrtive.png" alt="Crexrtive Project" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <h2>Crexrtive</h2>
-                        <p class="crexrtive-description">HTML, CSS</p>
+                        <p>Website Design & Development</p>
                     </div>
                 </div>
 
@@ -168,7 +159,8 @@
     <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"></a>
 
     <script>
-        // Filter functionality
+        // Filter functionality - COMMENTED OUT (can be re-enabled if needed)
+        /*
         document.addEventListener('DOMContentLoaded', function() {
             const filterButtons = document.querySelectorAll('.filter-btn');
             const projectCards = document.querySelectorAll('.project-card');
@@ -176,12 +168,6 @@
             const armoniCard = document.querySelector('.project-card[data-category*="ui-ux"]');
             const armoniImage = armoniCard.querySelector('.project-img');
             const armoniDescription = armoniCard.querySelector('.armoni-description');
-            
-            const crexrtiveUICard = document.getElementById('crexrtive-ui');
-            const crexrtiveUIDescription = crexrtiveUICard ? crexrtiveUICard.querySelector('.crexrtive-description') : null;
-            
-            const crexrtiveCodingCard = document.getElementById('crexrtive-coding');
-            const crexrtiveCodingDescription = crexrtiveCodingCard ? crexrtiveCodingCard.querySelector('.crexrtive-description') : null;
 
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -204,34 +190,10 @@
                         armoniDescription.textContent = 'Brand Identity & Signage Design';
                     }
 
-                    // Change Crexrtive description based on filter
-                    // Handle Crexrtive descriptions based on filter
-                    if (filterValue === 'ui-ux' && crexrtiveUIDescription) {
-                        crexrtiveUIDescription.textContent = 'Website Design';
-                    } else if (filterValue === 'coding' && crexrtiveCodingDescription) {
-                        crexrtiveCodingDescription.textContent = 'HTML, CSS';
-                    } else {
-                        if (crexrtiveUIDescription) crexrtiveUIDescription.textContent = 'Website Design';
-                        if (crexrtiveCodingDescription) crexrtiveCodingDescription.textContent = 'HTML, CSS';
-                    }
-
                     projectCards.forEach(card => {
                         const cardCategories = card.getAttribute('data-category').split(' ');
                         
-                        // Special handling for "All" filter - show only one Crexrtive
-                        if (filterValue === 'all') {
-                            if (card.id === 'crexrtive-coding') {
-                                card.style.display = 'none'; // Hide coding version in "All"
-                            } else if (card.id === 'crexrtive-ui') {
-                                card.style.display = 'block'; // Show UI version in "All"
-                                card.style.animation = 'fadeIn 0.5s ease-in-out';
-                                visibleCount++;
-                            } else {
-                                card.style.display = 'block';
-                                card.style.animation = 'fadeIn 0.5s ease-in-out';
-                                visibleCount++;
-                            }
-                        } else if (filterValue === 'photography-video') {
+                        if (filterValue === 'photography-video') {
                             // Show both photography and video projects
                             if (cardCategories.includes('photography') || cardCategories.includes('video')) {
                                 card.style.display = 'block';
@@ -273,17 +235,11 @@
                 allButton.click();
             }
         });
+        */
 
         function openArmoniProject() {
-            // Check if UI/UX filter is active
-            const activeFilter = document.querySelector('.filter-btn.active');
-            if (activeFilter && activeFilter.getAttribute('data-filter') === 'ui-ux') {
-                // If UI/UX filter is active, go to armoni.html and scroll to website section
-                window.location.href = 'armoni.html?scroll=website';
-            } else {
-                // If not UI/UX filter, go to normal armoni page
-                window.location.href = 'armoni.html';
-            }
+            // Always go to normal armoni page when filter is disabled
+            window.location.href = 'armoni.html';
         }
 
         // Smooth scroll function with easing
