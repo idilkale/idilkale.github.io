@@ -3823,7 +3823,7 @@ body.works-page .project-card .project-info p.armoni-description {
 
 /* Hero Section - Top */
 .home-hero-top {
-    margin-bottom: 6rem;
+    margin-bottom: 10rem;
     margin-top: 6rem;
     max-width: 1400px;
     margin-left: auto;
@@ -4043,7 +4043,7 @@ body.works-page .project-card .project-info p.armoni-description {
 /* Projects Section - Bottom */
 .home-projects-bottom {
     width: 100%;
-    padding-top: 0;
+    padding-top: 2rem;
 }
 
 .featured-title {
@@ -4232,7 +4232,7 @@ body.works-page .project-card .project-info p.armoni-description {
     }
     
     .home-hero-top {
-        margin-bottom: 4rem;
+        margin-bottom: 6rem;
         margin-top: 4rem;
     }
     
@@ -4270,7 +4270,7 @@ body.works-page .project-card .project-info p.armoni-description {
     
     .home-hero-top {
         margin-top: 3rem;
-        margin-bottom: 3rem;
+        margin-bottom: 5rem;
     }
     
     .hero-content-wrapper {
