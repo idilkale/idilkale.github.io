@@ -4054,6 +4054,195 @@ body.works-page .project-card .project-info p.armoni-description {
     }
 }
 
+/* Skills & Interests Section */
+.skills-interests-section {
+    width: 100%;
+    margin: 3rem 0 4rem 0;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.expand-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: transparent;
+    border: 2px solid #000000;
+    color: #000000;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.expand-toggle-btn:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.expand-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    width: 24px;
+    text-align: center;
+}
+
+.expand-toggle-btn[aria-expanded="true"] .expand-icon {
+    transform: rotate(45deg);
+}
+
+.expand-text {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.expandable-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 0;
+}
+
+.expandable-content.expanded {
+    max-height: 3000px;
+    margin-top: 3rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    padding: 2rem 0;
+}
+
+.skill-category {
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000000;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #000000;
+}
+
+.skill-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.skill-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000;
+    display: block;
+}
+
+.skill-level {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #666666;
+    font-style: italic;
+    display: block;
+    margin-top: 0.25rem;
+}
+
+.skill-description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #666666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive for Skills Section */
+@media (max-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-interests-section {
+        margin: 2rem 0 3rem 0;
+    }
+    
+    .expand-toggle-btn {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .expand-icon {
+        font-size: 1.3rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.5rem 0;
+    }
+    
+    .skill-category-title {
+        font-size: 1.3rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .skill-items {
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-interests-section {
+        margin: 2rem 0 2rem 0;
+    }
+    
+    .expand-toggle-btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .skill-category-title {
+        font-size: 1.2rem;
+    }
+    
+    .skill-name {
+        font-size: 0.95rem;
+    }
+    
+    .skill-description {
+        font-size: 0.85rem;
+    }
+}
+
 /* Projects Section - Bottom */
 .home-projects-bottom {
     width: 100%;

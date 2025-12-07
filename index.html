@@ -95,6 +95,136 @@
                 </div>
             </section>
 
+            <!-- Skills & Interests Section -->
+            <section class="skills-interests-section">
+                <button class="expand-toggle-btn" id="expandToggleBtn" aria-expanded="false">
+                    <span class="expand-icon">+</span>
+                    <span class="expand-text">Skills & Interests</span>
+                </button>
+                <div class="expandable-content" id="expandableContent">
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3 class="skill-category-title">Software & Tools</h3>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <span class="skill-name">Figma</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Adobe Illustrator</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Adobe Photoshop</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Adobe InDesign</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Adobe After Effects</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Adobe Lightroom</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Unity</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Blender</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">TouchDesigner</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">HTML & CSS</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">JavaScript</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">React</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Python</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">C++</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Java</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3 class="skill-category-title">Design & Research Areas</h3>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <span class="skill-name">UI/UX Design</span>
+                                    <p class="skill-description">Creating intuitive and user-centered digital experiences</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">User Research</span>
+                                    <p class="skill-description">Conducting UX research and usability testing for innovative projects including VR</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Wireframing & Prototyping</span>
+                                    <p class="skill-description">From concept to functional prototypes using Figma and development tools</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Interaction Design</span>
+                                    <p class="skill-description">Designing engaging interactions based on Human-Computer Interaction principles</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Heuristic Evaluation</span>
+                                    <p class="skill-description">Systematic evaluation of interfaces for usability and accessibility</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Visual Systems</span>
+                                    <p class="skill-description">Developing cohesive brand identities and visual communication systems</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Accessibility</span>
+                                    <p class="skill-description">Designing and developing accessible digital products and interfaces</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">VR/AR Design</span>
+                                    <p class="skill-description">Designing immersive virtual environments and spatial interfaces</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Design Thinking</span>
+                                    <p class="skill-description">Applying human-centered design methodologies to solve complex problems</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3 class="skill-category-title">Key Strengths</h3>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <span class="skill-name">Dual Expertise</span>
+                                    <p class="skill-description">Combining Computer Science and Visual Communication Design for unique interdisciplinary solutions</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Interface Design</span>
+                                    <p class="skill-description">Creating intuitive and engaging interfaces that balance aesthetics with functionality</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Prototyping to Deployment</span>
+                                    <p class="skill-description">Taking designs from Figma prototypes through development to functional, responsive, and accessible digital products</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">VR Design & Implementation</span>
+                                    <p class="skill-description">Hands-on experience designing and implementing interactive VR environments with HCI principles</p>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Visual Storytelling</span>
+                                    <p class="skill-description">Strong visual storytelling capabilities across multiple platforms and media</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Featured Projects Section - Bottom -->
             <section class="home-projects-bottom">
                 <h2 class="featured-title">Featured Work</h2>
@@ -163,7 +293,32 @@
             
             // Initialize images slider
             initImagesSlider();
+            
+            // Initialize expandable skills section
+            initExpandableSection();
         });
+        
+        // Expandable Skills Section Functionality
+        function initExpandableSection() {
+            const toggleBtn = document.getElementById('expandToggleBtn');
+            const expandableContent = document.getElementById('expandableContent');
+            
+            if (toggleBtn && expandableContent) {
+                toggleBtn.addEventListener('click', function() {
+                    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+                    
+                    if (isExpanded) {
+                        // Close
+                        toggleBtn.setAttribute('aria-expanded', 'false');
+                        expandableContent.classList.remove('expanded');
+                    } else {
+                        // Open
+                        toggleBtn.setAttribute('aria-expanded', 'true');
+                        expandableContent.classList.add('expanded');
+                    }
+                });
+            }
+        }
 
         // Images Slider Functionality
         function initImagesSlider() {
