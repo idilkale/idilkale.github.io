@@ -2453,11 +2453,11 @@ body.works-page .armoni-description,
 
 /* Special cases for better layout - only for "All" filter */
 .works-grid:not(.single-project):not(.two-projects):not(.few-projects) .project-card:nth-child(1) {
-    grid-column: span 8;
+    grid-column: span 7;
 }
 
 .works-grid:not(.single-project):not(.two-projects):not(.few-projects) .project-card:nth-child(2) {
-    grid-column: span 4;
+    grid-column: span 5;
 }
 
 .works-grid:not(.single-project):not(.two-projects):not(.few-projects) .project-card:nth-child(3) {
@@ -2469,19 +2469,19 @@ body.works-page .armoni-description,
 }
 
 .works-grid:not(.single-project):not(.two-projects):not(.few-projects) .project-card:nth-child(5) {
-    grid-column: span 4;
+    grid-column: span 7;
 }
 
 .works-grid:not(.single-project):not(.two-projects):not(.few-projects) .project-card:nth-child(6) {
-    grid-column: span 8;
+    grid-column: span 5;
 }
 
 .works-grid:not(.single-project):not(.two-projects):not(.few-projects) .project-card:nth-child(7) {
-    grid-column: span 8;
+    grid-column: span 5;
 }
 
 .works-grid:not(.single-project):not(.two-projects):not(.few-projects) .project-card:nth-child(8) {
-    grid-column: span 4;
+    grid-column: span 7;
 }
 
 .works-grid:not(.single-project):not(.two-projects):not(.few-projects) .project-card:nth-child(9) {
