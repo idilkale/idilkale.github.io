@@ -343,6 +343,15 @@ body.home-page {
         padding: 0.25rem 0.5rem;
         margin-left: 0.3rem;
     }
+    
+    .logo-text img {
+        height: 50px !important;
+        width: auto;
+    }
+    
+    .header-content {
+        padding: 0.8rem 1rem;
+    }
 }
 
 /* Scroll to Top Button */
@@ -472,7 +481,12 @@ body.home-page {
     .header-content {
         flex-direction: column;
         gap: 0.8rem;
-        padding: 1.5rem 2rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    .logo-text img {
+        height: 60px !important;
+        width: auto;
     }
     
     .header-nav ul {
