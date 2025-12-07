@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Sun - İdil Kale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scroll-handler.js" defer></script>
+</head>
+<body class="digital-sun-page">
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" class="logo-text">
+                        İDİL KALE
+                    </a>
+                </div>
+                <nav class="header-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="works.html">Works</a></li>
+                        <li><a href="about.html">About Me</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Compact Header - Appears when scrolling down -->
+    <header class="compact-header">
+        <div class="compact-header-content">
+            <a href="index.html" class="compact-header-logo">İDİL KALE</a>
+            <nav class="compact-header-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="works.html">Works</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Back Button Below Header -->
+    <div class="back-button-container">
+        <a href="works.html" class="back-button">Back to Works</a>
+    </div>
+
+    <!-- Main Content -->
+    <main class="armoni-main">
+        <div class="armoni-content">
+            <div class="armoni-text">
+                <h1>Digital Sun — Physical Computing Project</h1>
+                <p class="armoni-description-short">Physical Computing</p>
+                <p class="armoni-tools spaced">Arduino, Arduino IDE, Photoresistor, TouchDesigner</p>
+                <p class="armoni-tools" style="margin-top: 0.5rem; font-style: normal;">March 2024</p>
+            </div>
+            
+            <div class="armoni-logo-container" style="margin-top: 2rem;">
+                <img src="digital sun/new_coverphoto2.png" alt="Digital Sun Cover" class="unisphere-logo" style="max-width: 80%;">
+            </div>
+            
+            <div class="unisphere-description" style="margin-top: 2rem;">
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">Course Context</h2>
+                    <p class="unisphere-text">This project was developed as part of the Physical Computing course. The main focus was to create a system where a physical light input directly controls a digital 3D object in real time.</p>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">Project Description</h2>
+                    <p class="unisphere-text">The system is based on a photoresistor (light sensor), an Arduino, and TouchDesigner. When light hits the photoresistor in the physical environment, the sensor value changes. These values are sent from Arduino to TouchDesigner using serial communication. Inside TouchDesigner, the incoming data controls the brightness and intensity of a 3D Sun model.</p>
+                    <p class="unisphere-text">When real-world light increases, the digital Sun becomes brighter. When light decreases, the Sun becomes darker.</p>
+                    
+                    <div class="armoni-video-container" style="margin-top: 3rem;">
+                        <video controls class="armoni-video">
+                            <source src="digital sun/video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">Hardware Setup</h2>
+                    <p class="unisphere-text">The physical system consists of:</p>
+                    <ul class="unisphere-list">
+                        <li>Arduino board</li>
+                        <li>Photoresistor</li>
+                        <li>Resistor</li>
+                        <li>Breadboard</li>
+                        <li>Jumper cables</li>
+                    </ul>
+                    <p class="unisphere-text">The photoresistor measures light intensity as an analog value. Arduino reads this value and continuously sends it to the computer.</p>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">Software & Coding</h2>
+                    <p class="unisphere-text">The Arduino code was written using the Arduino IDE. On the Arduino side, I developed code to:</p>
+                    <ul class="unisphere-list">
+                        <li>Read analog data from the photoresistor</li>
+                        <li>Normalize the sensor values</li>
+                        <li>Transmit the data via serial communication</li>
+                    </ul>
+                    <p class="unisphere-text">On the TouchDesigner side, I:</p>
+                    <ul class="unisphere-list">
+                        <li>Received live sensor data from Arduino</li>
+                        <li>Processed and smoothed the values</li>
+                        <li>Mapped the data to the light and brightness parameters of the 3D Sun</li>
+                    </ul>
+                    
+                    <div class="armoni-video-container" style="margin-top: 3rem;">
+                        <video controls class="armoni-video">
+                            <source src="digital sun/touchdesigner.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">Interaction Logic</h2>
+                    <p class="unisphere-text">The user interacts with the system using light as the only input. A flashlight, desk lamp, or ambient light source changes the behavior of the digital Sun on screen. No keyboard, mouse, or touch interaction is required.</p>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">Outcome</h2>
+                    <p class="unisphere-text">The final system demonstrates a direct connection between a physical sensor and a digital 3D environment. It clearly shows the core principles of physical computing: sensing, data transmission, and real-time visual output.</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"></a>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 İdil Kale. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="scroll-handler.js"></script>
+</body>
+</html>

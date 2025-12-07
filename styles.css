@@ -2469,11 +2469,11 @@ body.works-page .armoni-description,
 }
 
 .works-grid:not(.single-project):not(.two-projects):not(.few-projects) .project-card:nth-child(5) {
-    grid-column: span 7;
+    grid-column: span 6;
 }
 
 .works-grid:not(.single-project):not(.two-projects):not(.few-projects) .project-card:nth-child(6) {
-    grid-column: span 5;
+    grid-column: span 6;
 }
 
 .works-grid:not(.single-project):not(.two-projects):not(.few-projects) .project-card:nth-child(7) {
