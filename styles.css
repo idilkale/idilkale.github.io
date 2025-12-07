@@ -177,7 +177,7 @@ body.home-page {
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 1.1rem 3rem;
+    padding: 1.5rem 3rem;
     overflow: hidden;
     position: relative;
 }
@@ -472,7 +472,7 @@ body.home-page {
     .header-content {
         flex-direction: column;
         gap: 0.8rem;
-        padding: 1.1rem 2rem;
+        padding: 1.5rem 2rem;
     }
     
     .header-nav ul {
