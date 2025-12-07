@@ -53,11 +53,46 @@
         <div class="container">
             <!-- Hero Section - Top -->
             <section class="home-hero-top">
-                <div class="greeting-text">
-                    <span class="greeting-word" id="greetingWord">Merhaba</span>.
+                <div class="hero-content-wrapper">
+                    <div class="hero-text-section">
+                        <div class="greeting-text">
+                            <span class="greeting-word" id="greetingWord">Merhaba</span>.
+                        </div>
+                        <h1 class="hero-name-large">I'm İdil</h1>
+                        <p class="hero-description-text">I'm a designer who finds inspiration in the moments I capture, whether it's the way light falls in a new city, the quiet comfort of home, or the stories people share through their spaces. These images around me aren't just memories; they're reminders of how I see the world and how that perspective shapes my work.<br><br>I believe good design comes from paying attention to details, to people, to what makes an experience feel natural rather than forced. When I'm not designing, I'm often observing, photographing, or simply being present in moments that later inform how I approach a project. I create designs that feel thoughtful and intentional, because that's how I try to live with intention, warmth, and without unnecessary noise.</p>
+                    </div>
+                    <div class="hero-images-section">
+                        <div class="images-slider-container">
+                            <div class="images-slider-track" id="imagesSliderTrack">
+                                <div class="slider-image-item">
+                                    <img src="idil/idil1.png" alt="İdil Kale">
+                                </div>
+                                <div class="slider-image-item">
+                                    <img src="idil/idil2.png" alt="İdil Kale">
+                                </div>
+                                <div class="slider-image-item">
+                                    <img src="idil/idil3.png" alt="İdil Kale">
+                                </div>
+                                <div class="slider-image-item">
+                                    <img src="idil/idil4.png" alt="İdil Kale">
+                                </div>
+                                <div class="slider-image-item">
+                                    <img src="idil/idil5.png" alt="İdil Kale">
+                                </div>
+                                <div class="slider-image-item">
+                                    <img src="idil/idil6.png" alt="İdil Kale">
+                                </div>
+                                <div class="slider-image-item">
+                                    <img src="idil/idil7.png" alt="İdil Kale">
+                                </div>
+                                <!-- Clone of first image for infinite loop -->
+                                <div class="slider-image-item">
+                                    <img src="idil/idil1.png" alt="İdil Kale">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h1 class="hero-name-large">I'm İdil</h1>
-                <p class="hero-description-text">I'm a designer who's genuinely curious about people, how they think, what they notice, and what makes an experience feel simple or complicated. I pay attention to small details and enjoy understanding why something feels clear, comfortable, or a bit off. My interest in different cultures, travel, and the way people share their stories influences a lot of how I see design.<br><br>Outside of work, I'm at my calmest when I'm at home with my cats, and that quiet time helps me reset and look at things with a clearer perspective. I like creating designs that reflect that same feeling, thoughtful, warm, and intentional, without unnecessary noise.</p>
             </section>
 
             <!-- Featured Projects Section - Bottom -->
@@ -126,9 +161,64 @@
                 setInterval(changeGreeting, 2500); // Change every 2.5 seconds
             }, 1500);
             
-            // Start carousel auto-play
-            setInterval(nextSlide, 4000); // Change slide every 4 seconds
+            // Initialize images slider
+            initImagesSlider();
         });
+
+        // Images Slider Functionality
+        function initImagesSlider() {
+            const sliderTrack = document.getElementById('imagesSliderTrack');
+            if (!sliderTrack) return;
+
+            const images = sliderTrack.querySelectorAll('.slider-image-item');
+            if (images.length === 0) return;
+
+            // Total images includes the clone, but we track only real images
+            const totalRealImages = images.length - 1; // Last one is a clone
+            let currentIndex = 0;
+            const slideDuration = 3000; // 3 seconds per image
+            let isResetting = false;
+
+            // Set initial position
+            function updateSlider(instant = false) {
+                if (instant) {
+                    sliderTrack.style.transition = 'none';
+                } else {
+                    sliderTrack.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                }
+                const translateX = -currentIndex * 100;
+                sliderTrack.style.transform = `translateX(${translateX}%)`;
+            }
+
+            // Auto-slide function
+            function nextSlide() {
+                if (isResetting) return;
+                
+                currentIndex++;
+                
+                // If we're at the clone (last image), reset to first without transition
+                if (currentIndex >= totalRealImages) {
+                    // Go to clone with transition
+                    updateSlider(false);
+                    isResetting = true;
+                    // Wait for transition to complete, then reset instantly to first
+                    setTimeout(() => {
+                        currentIndex = 0;
+                        updateSlider(true);
+                        // Re-enable transition after reset
+                        setTimeout(() => {
+                            isResetting = false;
+                        }, 50);
+                    }, 800);
+                } else {
+                    updateSlider(false);
+                }
+            }
+
+            // Start auto-sliding
+            updateSlider(true); // Initial position
+            setInterval(nextSlide, slideDuration);
+        }
 
         // Fade in animation on scroll
         const observerOptions = {
