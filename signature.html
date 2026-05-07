@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGnature - İdil Kale</title>
+    <link rel="icon" type="image/png" href="photos/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scroll-handler.js" defer></script>
+</head>
+<body class="signature-page">
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" class="logo-text">
+                        <img src="photos/logo_new_v3.png" alt="İdil Kale">
+                    </a>
+                </div>
+                <nav class="header-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="works.html">Works</a></li>
+                        <li><a href="about.html">About Me</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <header class="compact-header">
+        <div class="compact-header-content">
+            <a href="index.html" class="compact-header-logo"><img src="photos/idil kale.png" alt="İdil Kale" style="height: 35px; width: auto;"></a>
+            <nav class="compact-header-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="works.html">Works</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="armoni-main">
+        <div class="armoni-content">
+            <div class="armoni-text">
+                <h1>SIGnature</h1>
+                <p class="armoni-description-short">Arizona Science Center Website Redesign</p>
+                <p class="armoni-tools spaced">Stephan Bui, Idil Kale, Gunikaa Agarwal</p>
+                <p class="armoni-tools" style="margin-top: 0.5rem; font-style: normal;">UX Research & Redesign</p>
+            </div>
+
+            <div class="signature-top-mockup">
+                <img src="SIGnature/mockup.png" alt="SIGnature project mockup" class="signature-top-mockup-image">
+            </div>
+
+            <div class="unisphere-description" style="margin-top: 2rem;">
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">Overview</h2>
+                    <p class="unisphere-text">azscience.org is the primary planning tool for thousands of visitors to the Arizona Science Center each year: families, students, educators, and tourists who use it to buy tickets, check hours, and discover events. Our team of three conducted a full UX audit of the site and redesigned its three highest-friction pages (home, tickets, and events).</p>
+                    <ul class="unisphere-list">
+                        <li><strong>Role:</strong> UX Researcher & Designer</li>
+                        <li><strong>Team:</strong> Stephan Bui, Idil Kale, Gunikaa Agarwal</li>
+                        <li><strong>Methods:</strong> Heuristic evaluation, accessibility audit (WAVE with WCAG-informed review), user survey, moderated usability testing, team synthesis</li>
+                        <li><strong>Tools:</strong> Figma, WAVE, Google Forms, Google Sheets, Excel, WCAG (reference)</li>
+                    </ul>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">01 - Heuristic Evaluation</h2>
+                    <p class="unisphere-text">We each independently evaluated the site against Nielsen's 10 usability heuristics, then compared findings. Working separately, we flagged the same issues at the same severity levels. That overlap is one of the stronger signals of validity in UX research.</p>
+                    <p class="unisphere-text"><strong>Rating scale:</strong></p>
+                    <ul class="unisphere-list">
+                        <li>0 = Not a usability problem</li>
+                        <li>1 = Cosmetic only</li>
+                        <li>2 = Minor (low priority)</li>
+                        <li>3 = Major (high priority)</li>
+                        <li>4 = Usability catastrophe (must be fixed)</li>
+                    </ul>
+                    <p class="unisphere-text"><strong>Match Between System and Real World (4):</strong> The "Buy Tickets" navigation item takes users to a page with no ticket purchasing functionality. Users selecting a specific exhibition are redirected to General Admission without explanation, and the interface does not confirm the exhibition they selected.</p>
+                    <p class="unisphere-text"><strong>Visibility of System Status (3):</strong> A persistent sidebar appears interactive but gives no clear state changes, overlays content when expanded, and disappears on mobile. During ticket purchasing, users are not told what is happening after redirection.</p>
+                    <p class="unisphere-text"><strong>Consistency and Standards (3):</strong> Navigation behavior shifts unexpectedly between two bars and differs by page, while similar content pages use inconsistent information hierarchy.</p>
+                    <p class="unisphere-text"><strong>Recognition Rather Than Recall (3):</strong> Ambiguous colored blocks and multi-level dropdown interactions force users to repeatedly interpret navigation instead of recognizing options quickly.</p>
+                    <p class="unisphere-text"><strong>Error Prevention (3):</strong> Required steps are not validated early, unavailable options appear selectable, and non-functional items like "Member Login" appear clickable.</p>
+                    <p class="unisphere-text"><strong>Flexibility and Efficiency of Use (3):</strong> Core tasks are buried behind dense content and multi-step paths, with no shortcuts for return users.</p>
+                    <p class="unisphere-text"><strong>Aesthetic and Minimalist Design (3):</strong> Multiple competing components above the fold create high cognitive load.</p>
+                    <p class="unisphere-text"><strong>Help and Documentation (4):</strong> Dense institutional language appears before action-oriented ticket controls, with no clear guidance on what to do next.</p>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">02 - Accessibility Audit</h2>
+                    <p class="unisphere-text">We conducted an accessibility audit using WAVE (Web Accessibility Evaluation Tool), paired with manual checks against WCAG-oriented patterns where WAVE surfaced risks. We documented screenshots for each evaluated page and interpreted automated alerts in context so severity reflected real impact for users, not raw flag counts alone.</p>
+                    <p class="unisphere-text"><strong>Key finding:</strong> The site includes an accessibility menu, but users can select only one accessibility profile at a time. Real needs often overlap; forcing a single profile excludes many users and weakens the feature.</p>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">03 - User Research (Survey)</h2>
+                    <p class="unisphere-text">We distributed a structured survey built in Google Forms to 27 participants. Responses were exported for analysis in Google Sheets and Excel; each researcher summarized findings independently before we aligned on themes as a team.</p>
+                    <ul class="unisphere-list">
+                        <li>Primary goals were ticket purchasing, hours/location checks, event discovery, and exhibit information.</li>
+                        <li>No participant completed ticket purchasing without difficulty.</li>
+                        <li>Event discoverability was consistently poor despite high user importance ratings.</li>
+                        <li>Navigation, ticket flow, mobile compatibility, and event access emerged as critical priorities.</li>
+                        <li>Common emotional responses were curious, overwhelmed, and confused; no participant reported feeling confident.</li>
+                    </ul>
+                    <p class="unisphere-text"><strong>Limitation:</strong> The sample skewed toward ASU students aged 18 to 34 in Phoenix. Broader demographics would strengthen generalization.</p>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">04 - Persona Creation</h2>
+                    <p class="unisphere-text">Three personas were developed from repeated behavioral patterns across survey responses.</p>
+                    <ul class="unisphere-list">
+                        <li><strong>Alex Martinez (The Efficient Ticket Planner):</strong> Needs a fast, linear path to ticket confirmation with minimal friction.</li>
+                        <li><strong>Maya Thompson (The Event Explorer):</strong> Needs discoverable, scannable event content with enough context to decide quickly.</li>
+                        <li><strong>Jordan Lee (The Curious Learner):</strong> Needs a clear exhibit overview that communicates value before purchase.</li>
+                    </ul>
+                    <div class="signature-persona-slider signature-breakout">
+                        <div class="signature-slider-shell">
+                            <button id="signaturePersonaPrev" class="signature-pdf-btn signature-pdf-btn-arrow" type="button" aria-label="Previous persona">←</button>
+                            <div class="signature-persona-viewport">
+                                <div class="signature-persona-track" id="signaturePersonaTrack">
+                                    <figure class="signature-persona-card">
+                                        <img src="SIGnature/persona1.png" alt="Persona 1 - Alex Martinez" class="signature-persona-image">
+                                        <figcaption>Alex Martinez (The Efficient Ticket Planner)</figcaption>
+                                    </figure>
+                                    <figure class="signature-persona-card">
+                                        <img src="SIGnature/persona2.png" alt="Persona 2 - Maya Thompson" class="signature-persona-image">
+                                        <figcaption>Maya Thompson (The Event Explorer)</figcaption>
+                                    </figure>
+                                    <figure class="signature-persona-card">
+                                        <img src="SIGnature/persona3.png" alt="Persona 3 - Jordan Lee" class="signature-persona-image">
+                                        <figcaption>Jordan Lee (The Curious Learner)</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                            <button id="signaturePersonaNext" class="signature-pdf-btn signature-pdf-btn-arrow" type="button" aria-label="Next persona">→</button>
+                        </div>
+                        <div class="signature-persona-controls">
+                            <span id="signaturePersonaInfo" class="signature-pdf-page-info">Persona 1 / 3</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">05 - Usability Testing</h2>
+                    <p class="unisphere-text">We conducted nine moderated usability sessions (remote via Zoom) with consent forms, pre-test questionnaires, think-aloud task scenarios, observation sheets, and post-test questionnaires. Notes and timings were captured in structured spreadsheets for comparison across sessions.</p>
+                    <p class="unisphere-text"><strong>Scenarios:</strong> Quick visit planning (Alex), event discovery (Maya), and exhibit exploration before visiting (Jordan).</p>
+                    <p class="unisphere-text">All participants completed tasks, but consistent friction points appeared in every session: users searched footers for basic visit info, attempted non-functional sidebar actions, misread the "Experience" label, and got confused by the ticket flow's informational detours and unexplained prerequisites.</p>
+                    <p class="unisphere-text"><strong>Key insight:</strong> Written post-test reflections revealed more uncertainty than think-aloud behavior suggested. Completion alone masked significant usability friction.</p>
+                    <p class="unisphere-text"><strong>Limitations:</strong> No screen recording, inconsistent time-on-task capture, and a young-adult-heavy sample.</p>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">06 - Design Decisions</h2>
+                    <p class="unisphere-text"><strong>Ticket Page:</strong> Rebuilt into four clear steps (date, General Admission, optional experiences, order review), with a persistent cart and explicit explanation of prerequisites.</p>
+                    <p class="unisphere-text"><strong>Homepage:</strong> Replaced dual nav and ambiguous labeling with one stable navigation system, direct ticket access, clearer category language, and more scannable content hierarchy.</p>
+                    <p class="unisphere-text"><strong>Events Page:</strong> Introduced featured event cards, top-level date/type filters, and consistent row structures with visible calls to action.</p>
+                </section>
+
+                <section class="unisphere-section">
+                    <h2 class="unisphere-section-title">07 - Outcome</h2>
+                    <p class="unisphere-text">We delivered low-fidelity wireframes and high-fidelity prototypes in Figma for three redesigned pages, a clickable prototype for walkthroughs, and a full usability recommendations deck (also available below as a PDF).</p>
+                    <div class="signature-mockup-viewer signature-breakout">
+                        <iframe
+                            src="SIGnature/signature_mockup/index.html"
+                            title="SIGnature Interactive Prototype"
+                            loading="lazy"
+                            class="signature-mockup-frame">
+                        </iframe>
+                    </div>
+                    <div class="signature-pdf-intro">
+                        <h3 class="signature-pdf-intro-title">08 - Recommendations</h3>
+                        <p class="unisphere-text">Full usability recommendations document below.</p>
+                    </div>
+                    <div class="signature-pdf-viewer signature-breakout">
+                        <div class="signature-slider-shell">
+                            <button id="signaturePrevPage" class="signature-pdf-btn signature-pdf-btn-arrow" type="button" aria-label="Previous PDF page">←</button>
+                            <div class="signature-pdf-stage" id="signaturePdfStage">
+                                <canvas id="signaturePdfCanvas" aria-label="SIGnature PDF page preview"></canvas>
+                            </div>
+                            <button id="signatureNextPage" class="signature-pdf-btn signature-pdf-btn-arrow" type="button" aria-label="Next PDF page">→</button>
+                        </div>
+                        <div class="signature-pdf-controls">
+                            <span id="signaturePdfPageInfo" class="signature-pdf-page-info">Page 1 / 1</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"></a>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>SIGnature · Stephan Bui, Idil Kale, Gunikaa Agarwal · Arizona State University</p>
+        </div>
+    </footer>
+
+    <script src="scroll-handler.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        (function initSignaturePersonaSlider() {
+            const track = document.getElementById('signaturePersonaTrack');
+            const prevBtn = document.getElementById('signaturePersonaPrev');
+            const nextBtn = document.getElementById('signaturePersonaNext');
+            const info = document.getElementById('signaturePersonaInfo');
+
+            if (!track || !prevBtn || !nextBtn || !info) return;
+
+            const cards = track.querySelectorAll('.signature-persona-card');
+            if (!cards.length) return;
+
+            let index = 0;
+            const total = cards.length;
+
+            function updatePersonaSlider() {
+                track.style.transform = `translateX(-${index * 100}%)`;
+                info.textContent = `Persona ${index + 1} / ${total}`;
+                prevBtn.disabled = index === 0;
+                nextBtn.disabled = index === total - 1;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (index > 0) {
+                    index -= 1;
+                    updatePersonaSlider();
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (index < total - 1) {
+                    index += 1;
+                    updatePersonaSlider();
+                }
+            });
+
+            updatePersonaSlider();
+        })();
+
+        (function initSignaturePdfViewer() {
+            const canvas = document.getElementById('signaturePdfCanvas');
+            const stage = document.getElementById('signaturePdfStage');
+            const prevBtn = document.getElementById('signaturePrevPage');
+            const nextBtn = document.getElementById('signatureNextPage');
+            const pageInfo = document.getElementById('signaturePdfPageInfo');
+
+            if (!canvas || !stage || !prevBtn || !nextBtn || !pageInfo || !window.pdfjsLib) {
+                return;
+            }
+
+            const pdfPath = 'SIGnature/SIGnature%20Usability%20Recommendations-2.pdf';
+            const ctx = canvas.getContext('2d');
+            window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+            let pdfDoc = null;
+            let currentPage = 1;
+            let isRendering = false;
+            let pendingPage = null;
+            let directionClass = 'signature-slide-right';
+
+            function updateButtons() {
+                prevBtn.disabled = currentPage <= 1;
+                nextBtn.disabled = !pdfDoc || currentPage >= pdfDoc.numPages;
+                pageInfo.textContent = pdfDoc ? `Page ${currentPage} / ${pdfDoc.numPages}` : 'Loading...';
+            }
+
+            function queueRender(pageNum, slideClass) {
+                if (isRendering) {
+                    pendingPage = { pageNum, slideClass };
+                    return;
+                }
+                renderPage(pageNum, slideClass);
+            }
+
+            function renderPage(pageNum, slideClass) {
+                isRendering = true;
+                directionClass = slideClass || directionClass;
+
+                pdfDoc.getPage(pageNum).then((page) => {
+                    const unscaledViewport = page.getViewport({ scale: 1 });
+                    const maxWidth = Math.max(320, stage.clientWidth - 24);
+                    const scale = maxWidth / unscaledViewport.width;
+                    const viewport = page.getViewport({ scale });
+
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+                    canvas.classList.remove('signature-slide-left', 'signature-slide-right');
+                    canvas.classList.add(directionClass);
+
+                    return page.render({
+                        canvasContext: ctx,
+                        viewport
+                    }).promise;
+                }).then(() => {
+                    isRendering = false;
+                    if (pendingPage) {
+                        const next = pendingPage;
+                        pendingPage = null;
+                        renderPage(next.pageNum, next.slideClass);
+                        return;
+                    }
+                    updateButtons();
+                }).catch(() => {
+                    isRendering = false;
+                    pageInfo.textContent = 'PDF could not be loaded.';
+                });
+            }
+
+            function goToPage(pageNum, slideClass) {
+                if (!pdfDoc || pageNum < 1 || pageNum > pdfDoc.numPages) {
+                    return;
+                }
+                currentPage = pageNum;
+                updateButtons();
+                queueRender(currentPage, slideClass);
+            }
+
+            prevBtn.addEventListener('click', () => goToPage(currentPage - 1, 'signature-slide-left'));
+            nextBtn.addEventListener('click', () => goToPage(currentPage + 1, 'signature-slide-right'));
+
+            window.addEventListener('resize', () => {
+                if (pdfDoc) {
+                    queueRender(currentPage, directionClass);
+                }
+            });
+
+            pageInfo.textContent = 'Loading...';
+            window.pdfjsLib.getDocument(pdfPath).promise.then((pdf) => {
+                pdfDoc = pdf;
+                currentPage = 1;
+                updateButtons();
+                renderPage(currentPage, 'signature-slide-right');
+            }).catch(() => {
+                pageInfo.textContent = 'PDF could not be loaded.';
+                prevBtn.disabled = true;
+                nextBtn.disabled = true;
+            });
+        })();
+    </script>
+</body>
+</html>

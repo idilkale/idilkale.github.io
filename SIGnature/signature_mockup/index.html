@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIGnature — Prototype Mockup</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    min-height: auto;
+  }
+  .tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+  .tab {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 1px solid #C8C7C4;
+    background: #fff;
+    color: #6B6B70;
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .tab:hover { border-color: #1D4ED8; color: #1D4ED8; }
+  .tab.active { background: #1D4ED8; color: #fff; border-color: #1D4ED8; }
+  .laptop-wrap { width: 100%; max-width: 900px; }
+  .lid {
+    background: #1c1c1e;
+    border-radius: 16px 16px 0 0;
+    padding: 14px 14px 0;
+  }
+  .cam-row { display: flex; justify-content: center; margin-bottom: 10px; }
+  .cam { width: 7px; height: 7px; border-radius: 50%; background: #3a3a3c; }
+  .browser-chrome {
+    background: #F0F0F0;
+    border-radius: 6px 6px 0 0;
+    padding: 8px 10px 0;
+  }
+  .browser-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .dots { display: flex; gap: 4px; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; }
+  .dot-r { background: #FF5F57; }
+  .dot-y { background: #FFBD2E; }
+  .dot-g { background: #28C840; }
+  .urlbar {
+    flex: 1;
+    background: #fff;
+    border-radius: 4px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    font-size: 11px;
+    color: #888;
+    border: 1px solid #DDD;
+  }
+  .lock { margin-right: 4px; font-size: 10px; }
+  .screen-scroll {
+    background: #fff;
+    height: 520px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+  }
+  .screen-scroll::-webkit-scrollbar { width: 4px; }
+  .screen-scroll::-webkit-scrollbar-thumb { background: #ccc; border-radius: 2px; }
+  .screen-scroll img { width: 100%; display: block; transition: opacity 0.15s; }
+  .hinge { background: #2c2c2e; height: 10px; border-radius: 0 0 2px 2px; }
+  .base-wrap { display: flex; justify-content: center; }
+  .base { background: #1c1c1e; height: 14px; border-radius: 0 0 12px 12px; width: 36%; }
+  .hint {
+    margin-top: 20px;
+    font-size: 11px;
+    color: #9A9A9A;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div class="tabs">
+  <button class="tab active" onclick="show('Home.png','azscience.org')">Homepage</button>
+  <button class="tab" onclick="show('Tickets.png','azscience.org/tickets')">Tickets</button>
+  <button class="tab" onclick="show('Tickets_Payment.png','azscience.org/tickets/payment')">Payment</button>
+  <button class="tab" onclick="show('Tickets_Confirmation.png','azscience.org/tickets/confirmation')">Confirmation</button>
+  <button class="tab" onclick="show('Events.png','azscience.org/events')">Events</button>
+  <button class="tab" onclick="show('Event_Details.png','azscience.org/events/crazy-chemistry')">Event detail</button>
+</div>
+
+<div class="laptop-wrap">
+  <div class="lid">
+    <div class="cam-row"><div class="cam"></div></div>
+    <div class="browser-chrome">
+      <div class="browser-top">
+        <div class="dots">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+        </div>
+        <div class="urlbar">
+          <span class="lock">&#128274;</span>
+          <span id="urltext">azscience.org</span>
+        </div>
+      </div>
+      <div class="screen-scroll" id="screen-scroll">
+        <img id="screen-img" src="SIGnature/Home.png" alt="Prototype screen" />
+      </div>
+    </div>
+  </div>
+  <div class="hinge"></div>
+  <div class="base-wrap"><div class="base"></div></div>
+</div>
+
+<div class="hint">&#8597; scroll inside the screen to see the full page</div>
+
+<script>
+  function show(file, url) {
+    const img = document.getElementById('screen-img');
+    img.style.opacity = '0';
+    setTimeout(() => {
+      img.src = 'SIGnature/' + file;
+      img.style.opacity = '1';
+    }, 100);
+    document.getElementById('urltext').textContent = url;
+    document.getElementById('screen-scroll').scrollTop = 0;
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>
