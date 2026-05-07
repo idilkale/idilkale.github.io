@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGnature - İdil Kale</title>
+    <title>SIGnature - Idil Kale</title>
     <link rel="icon" type="image/png" href="photos/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
             <div class="header-content">
                 <div class="logo">
                     <a href="index.html" class="logo-text">
-                        <img src="photos/logo_new_v3.png" alt="İdil Kale">
+                        <img src="photos/logo_new_v3.png" alt="Idil Kale">
                     </a>
                 </div>
                 <nav class="header-nav">
@@ -34,7 +34,7 @@
 
     <header class="compact-header">
         <div class="compact-header-content">
-            <a href="index.html" class="compact-header-logo"><img src="photos/idil kale.png" alt="İdil Kale" style="height: 35px; width: auto;"></a>
+            <a href="index.html" class="compact-header-logo"><img src="photos/idil kale.png" alt="Idil Kale" style="height: 35px; width: auto;"></a>
             <nav class="compact-header-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -166,12 +166,17 @@
                     <h2 class="unisphere-section-title">07 - Outcome</h2>
                     <p class="unisphere-text">We delivered low-fidelity wireframes and high-fidelity prototypes in Figma for three redesigned pages, a clickable prototype for walkthroughs, and a full usability recommendations deck (also available below as a PDF).</p>
                     <div class="signature-mockup-viewer signature-breakout">
-                        <iframe
-                            src="SIGnature/signature_mockup/index.html"
-                            title="SIGnature Interactive Prototype"
-                            loading="lazy"
-                            class="signature-mockup-frame">
-                        </iframe>
+                        <div class="signature-mockup-embed">
+                            <iframe
+                                class="signature-mockup-inline-frame"
+                                src="SIGnature/signature_mockup/index.html"
+                                title="SIGnature Interactive Prototype"
+                                loading="lazy"></iframe>
+                        </div>
+                        <div class="signature-mockup-open-wrap">
+                            <img src="SIGnature/picture.png" alt="SIGnature clickable prototype preview" class="signature-mockup-open-thumb" decoding="async">
+                            <a href="SIGnature/signature_mockup/index.html" target="_blank" rel="noopener noreferrer" class="signature-mockup-open-btn">OPEN INTERACTIVE PROTOTYPE</a>
+                        </div>
                     </div>
                     <div class="signature-pdf-intro">
                         <h3 class="signature-pdf-intro-title">08 - Recommendations</h3>
@@ -187,6 +192,9 @@
                         </div>
                         <div class="signature-pdf-controls">
                             <span id="signaturePdfPageInfo" class="signature-pdf-page-info">Page 1 / 1</span>
+                        </div>
+                        <div class="signature-pdf-full-wrap">
+                            <a href="SIGnature/SIGnature%20Usability%20Recommendations-2.pdf" target="_blank" rel="noopener noreferrer" class="signature-mockup-open-btn">VIEW FULL PDF</a>
                         </div>
                     </div>
                 </section>

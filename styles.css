@@ -2539,12 +2539,61 @@ body.works-page .armoni-description,
     width: 100%;
 }
 
-.signature-mockup-frame {
+.signature-mockup-embed {
     width: 100%;
-    height: 900px;
+}
+
+.signature-mockup-inline-frame {
+    width: 100%;
+    height: min(88vh, 900px);
     border: none;
     display: block;
-    background: transparent;
+    background: #ffffff;
+}
+
+.signature-mockup-open-wrap {
+    display: none;
+    text-align: center;
+    padding: 0 0.25rem;
+}
+
+.signature-mockup-open-thumb {
+    display: block;
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    margin: 0 auto 1.35rem;
+}
+
+.signature-mockup-open-btn {
+    display: inline-block;
+    border: 1px solid #1a1a1a;
+    background: #ffffff;
+    color: #1a1a1a;
+    border-radius: 999px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.65rem 1.5rem;
+    text-decoration: none;
+    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.signature-mockup-open-btn:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .signature-mockup-embed {
+        display: none;
+    }
+
+    .signature-mockup-open-wrap {
+        display: block;
+    }
 }
 
 .signature-pdf-stage {
@@ -2574,6 +2623,11 @@ body.works-page .armoni-description,
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+}
+
+.signature-pdf-full-wrap {
+    text-align: center;
+    margin-top: 1rem;
 }
 
 .signature-pdf-btn {
@@ -2752,10 +2806,6 @@ body.works-page .armoni-description,
         margin-right: -40px;
     }
 
-    .signature-mockup-frame {
-        height: 760px;
-    }
-
     .signature-pdf-stage { min-height: 0; }
 
     .signature-slider-shell {
@@ -2774,10 +2824,6 @@ body.works-page .armoni-description,
         width: calc(100% + 24px);
         margin-left: -12px;
         margin-right: -12px;
-    }
-
-    .signature-mockup-frame {
-        height: 620px;
     }
 
     .signature-pdf-stage { min-height: 0; }
