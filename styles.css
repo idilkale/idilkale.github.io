@@ -177,7 +177,7 @@ body.home-page {
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 1.1rem 3rem;
+    padding: 1.5rem 3rem;
     overflow: hidden;
     position: relative;
 }
@@ -198,7 +198,7 @@ body.home-page {
 .header-nav ul {
     display: flex;
     list-style: none;
-    gap: 0.35rem;
+    gap: 1rem;
     flex-direction: column;
     align-items: flex-end;
 }
@@ -206,9 +206,9 @@ body.home-page {
 .header-nav a {
     color: #333333;
     text-decoration: none;
-    font-size: 0.82rem;
+    font-size: 0.9rem;
     font-weight: 400;
-    padding: 0.12rem 0;
+    padding: 0.3rem 0;
     border-radius: 0;
     transition: all 0.3s ease;
     text-transform: uppercase;
@@ -230,7 +230,7 @@ body.home-page {
 }
 
 .logo-text img {
-    height: 125px;
+    height: 150px;
     width: auto;
     object-fit: contain;
 }
@@ -345,7 +345,7 @@ body.home-page {
     }
     
     .logo-text img {
-        height: 42px !important;
+        height: 50px !important;
         width: auto;
     }
     
@@ -485,12 +485,12 @@ body.home-page {
     }
     
     .logo-text img {
-        height: 52px !important;
+        height: 60px !important;
         width: auto;
     }
     
     .header-nav ul {
-        gap: 0.55rem;
+        gap: 1rem;
         flex-direction: row;
         align-items: center;
         flex-wrap: wrap;
