@@ -211,145 +211,43 @@
     </footer>
 
     <script src="scroll-handler.js"></script>
+    <script src="carousel.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="pdf-viewer.js"></script>
     <script>
-        (function initSignaturePersonaSlider() {
-            const track = document.getElementById('signaturePersonaTrack');
-            const prevBtn = document.getElementById('signaturePersonaPrev');
-            const nextBtn = document.getElementById('signaturePersonaNext');
-            const info = document.getElementById('signaturePersonaInfo');
-
-            if (!track || !prevBtn || !nextBtn || !info) return;
-
-            const cards = track.querySelectorAll('.signature-persona-card');
-            if (!cards.length) return;
-
-            let index = 0;
-            const total = cards.length;
-
-            function updatePersonaSlider() {
-                track.style.transform = `translateX(-${index * 100}%)`;
-                info.textContent = `Persona ${index + 1} / ${total}`;
-                prevBtn.disabled = index === 0;
-                nextBtn.disabled = index === total - 1;
-            }
-
-            prevBtn.addEventListener('click', () => {
-                if (index > 0) {
-                    index -= 1;
-                    updatePersonaSlider();
-                }
-            });
-
-            nextBtn.addEventListener('click', () => {
-                if (index < total - 1) {
-                    index += 1;
-                    updatePersonaSlider();
-                }
-            });
-
-            updatePersonaSlider();
-        })();
-
-        (function initSignaturePdfViewer() {
-            const canvas = document.getElementById('signaturePdfCanvas');
-            const stage = document.getElementById('signaturePdfStage');
-            const prevBtn = document.getElementById('signaturePrevPage');
-            const nextBtn = document.getElementById('signatureNextPage');
-            const pageInfo = document.getElementById('signaturePdfPageInfo');
-
-            if (!canvas || !stage || !prevBtn || !nextBtn || !pageInfo || !window.pdfjsLib) {
-                return;
-            }
-
-            const pdfPath = 'SIGnature/SIGnature%20Usability%20Recommendations-2.pdf';
-            const ctx = canvas.getContext('2d');
-            window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-            let pdfDoc = null;
-            let currentPage = 1;
-            let isRendering = false;
-            let pendingPage = null;
-            let directionClass = 'signature-slide-right';
-
-            function updateButtons() {
-                prevBtn.disabled = currentPage <= 1;
-                nextBtn.disabled = !pdfDoc || currentPage >= pdfDoc.numPages;
-                pageInfo.textContent = pdfDoc ? `Page ${currentPage} / ${pdfDoc.numPages}` : 'Loading...';
-            }
-
-            function queueRender(pageNum, slideClass) {
-                if (isRendering) {
-                    pendingPage = { pageNum, slideClass };
-                    return;
-                }
-                renderPage(pageNum, slideClass);
-            }
-
-            function renderPage(pageNum, slideClass) {
-                isRendering = true;
-                directionClass = slideClass || directionClass;
-
-                pdfDoc.getPage(pageNum).then((page) => {
-                    const unscaledViewport = page.getViewport({ scale: 1 });
-                    const maxWidth = Math.max(320, stage.clientWidth - 24);
-                    const scale = maxWidth / unscaledViewport.width;
-                    const viewport = page.getViewport({ scale });
-
-                    canvas.width = viewport.width;
-                    canvas.height = viewport.height;
-                    canvas.classList.remove('signature-slide-left', 'signature-slide-right');
-                    canvas.classList.add(directionClass);
-
-                    return page.render({
-                        canvasContext: ctx,
-                        viewport
-                    }).promise;
-                }).then(() => {
-                    isRendering = false;
-                    if (pendingPage) {
-                        const next = pendingPage;
-                        pendingPage = null;
-                        renderPage(next.pageNum, next.slideClass);
-                        return;
-                    }
-                    updateButtons();
-                }).catch(() => {
-                    isRendering = false;
-                    pageInfo.textContent = 'PDF could not be loaded.';
+        function bootSignaturePage() {
+            if (window.PortfolioCarousel) {
+                PortfolioCarousel.init({
+                    trackId: 'signaturePersonaTrack',
+                    prevId: 'signaturePersonaPrev',
+                    nextId: 'signaturePersonaNext',
+                    infoId: 'signaturePersonaInfo',
+                    label: 'Persona',
+                    slideSelector: '.signature-persona-card'
                 });
             }
 
-            function goToPage(pageNum, slideClass) {
-                if (!pdfDoc || pageNum < 1 || pageNum > pdfDoc.numPages) {
-                    return;
-                }
-                currentPage = pageNum;
-                updateButtons();
-                queueRender(currentPage, slideClass);
-            }
+            if (!window.pdfjsLib || !window.PdfViewer) return;
 
-            prevBtn.addEventListener('click', () => goToPage(currentPage - 1, 'signature-slide-left'));
-            nextBtn.addEventListener('click', () => goToPage(currentPage + 1, 'signature-slide-right'));
+            window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+                'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-            window.addEventListener('resize', () => {
-                if (pdfDoc) {
-                    queueRender(currentPage, directionClass);
-                }
+            window.PdfViewer.initHiDpiPdfViewer({
+                canvas: document.getElementById('signaturePdfCanvas'),
+                stage: document.getElementById('signaturePdfStage'),
+                prevBtn: document.getElementById('signaturePrevPage'),
+                nextBtn: document.getElementById('signatureNextPage'),
+                pageInfo: document.getElementById('signaturePdfPageInfo'),
+                pdfPath: 'SIGnature/SIGnature%20Usability%20Recommendations-2.pdf',
+                loop: true
             });
+        }
 
-            pageInfo.textContent = 'Loading...';
-            window.pdfjsLib.getDocument(pdfPath).promise.then((pdf) => {
-                pdfDoc = pdf;
-                currentPage = 1;
-                updateButtons();
-                renderPage(currentPage, 'signature-slide-right');
-            }).catch(() => {
-                pageInfo.textContent = 'PDF could not be loaded.';
-                prevBtn.disabled = true;
-                nextBtn.disabled = true;
-            });
-        })();
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', bootSignaturePage);
+        } else {
+            bootSignaturePage();
+        }
     </script>
 </body>
 </html>
