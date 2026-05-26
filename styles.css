@@ -6510,9 +6510,9 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 }
 
 .playground-header {
-    max-width: 920px;
+    max-width: none;
     margin: 0 auto;
-    padding: 2rem 2rem 1rem;
+    padding: 2rem 2rem 1.15rem;
 }
 
 .playground-title {
@@ -6520,18 +6520,26 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     font-size: clamp(1.65rem, 3vw, 2.15rem);
     font-weight: var(--weight-body);
     color: #111;
-    margin: 0 0 0.75rem;
+    margin: 0 0 0.65rem;
     text-align: left;
+    max-width: 920px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
+    box-sizing: border-box;
 }
 
 .playground-intro {
     font-family: var(--font-sans);
-    font-size: 0.95rem;
+    font-size: clamp(0.78rem, 1.35vw, 0.95rem);
     font-weight: var(--weight-body);
     color: #555;
-    line-height: 1.65;
-    max-width: 520px;
-    margin: 0 0 0.5rem;
+    line-height: 1.4;
+    max-width: none;
+    margin: 0 auto;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    white-space: nowrap;
 }
 
 .playground-hint {
@@ -6544,63 +6552,41 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     margin: 0;
 }
 
+.playground-scroll-band {
+    width: 100%;
+    background: #f0eeea;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 0.7rem 1rem;
+    box-sizing: border-box;
+}
+
 .playground-scroll-hint {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    max-width: 920px;
-    margin: 1.5rem auto 0;
-    padding: 0 2rem;
-    color: #999999;
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0;
+    color: #888888;
     font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: lowercase;
     line-height: 1;
     user-select: none;
     pointer-events: none;
 }
 
 .playground-scroll-hint-arrow {
-    font-size: 1.05rem;
-    font-weight: 400;
+    font-size: 0.85rem;
     letter-spacing: 0;
-    opacity: 0.7;
+    opacity: 0.75;
 }
 
-.playground-scroll-hint-arrow:first-child {
-    animation: playground-hint-left 1.8s ease-in-out infinite;
-}
-
-.playground-scroll-hint-arrow:last-child {
-    animation: playground-hint-right 1.8s ease-in-out infinite;
-}
-
-.playground-scroll-hint-line {
-    flex: 0 0 2.75rem;
-    width: 2.75rem;
-    height: 1px;
-    background: linear-gradient(90deg, #cccccc 0%, #dddddd 50%, #cccccc 100%);
-}
-
-@keyframes playground-hint-left {
-    0%, 100% {
-        opacity: 0.45;
-        transform: translateX(0);
-    }
-    50% {
-        opacity: 1;
-        transform: translateX(-4px);
-    }
-}
-
-@keyframes playground-hint-right {
-    0%, 100% {
-        opacity: 0.45;
-        transform: translateX(0);
-    }
-    50% {
-        opacity: 1;
-        transform: translateX(4px);
-    }
+.playground-scroll-hint-label {
+    letter-spacing: 0.14em;
 }
 
 .works-subtitle {
@@ -6617,8 +6603,8 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     overflow-x: auto;
     overflow-y: hidden;
     cursor: grab;
-    margin-top: 0.75rem;
-    padding: 1rem 0 4rem;
+    margin-top: 0;
+    padding: 1.25rem 0 4rem;
     scrollbar-width: none;
     -ms-overflow-style: none;
     touch-action: auto;
@@ -6711,15 +6697,24 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
         padding: 1.5rem 1.25rem 0.75rem;
     }
 
-    .playground-scroll-hint {
-        margin-top: 1.25rem;
-        padding: 0 1.25rem;
-        gap: 0.65rem;
+    .playground-header {
+        padding: 1.5rem 0 1rem;
     }
 
-    .playground-scroll-hint-line {
-        flex-basis: 2rem;
-        width: 2rem;
+    .playground-title,
+    .playground-intro {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    .playground-intro {
+        white-space: normal;
+        font-size: 0.88rem;
+        line-height: 1.5;
+    }
+
+    .playground-scroll-band {
+        padding: 0.65rem 1.25rem;
     }
 
     .playground-viewport {
