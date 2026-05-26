@@ -292,13 +292,33 @@ body.home-page {
     background: rgba(0, 0, 0, 0.03);
 }
 
-.header-menu-btn::before {
-    content: "";
-    width: 1.05rem;
-    height: 0.7rem;
-    border-top: 1.5px solid currentColor;
-    border-bottom: 1.5px solid currentColor;
-    box-shadow: 0 0.2rem 0 currentColor;
+.header-menu-btn-bars {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 1.15rem;
+}
+
+.header-menu-btn-bars span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: currentColor;
+    border-radius: 1px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+body.mobile-nav-open .header-menu-btn-bars span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+body.mobile-nav-open .header-menu-btn-bars span:nth-child(2) {
+    opacity: 0;
+}
+
+body.mobile-nav-open .header-menu-btn-bars span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 .header-mobile-nav {
@@ -563,42 +583,79 @@ body.mobile-nav-open {
     
     .header-content {
         flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         gap: 0.75rem;
-        padding: 0.55rem 1.5rem;
+        padding: 0.6rem 1rem;
+        overflow: visible;
     }
-    
+
+    .header .logo {
+        flex: 0 1 auto;
+        min-width: 0;
+    }
+
+    .header .logo-text {
+        gap: 0;
+    }
+
     .logo-favicon {
-        height: 26px !important;
-        width: 26px !important;
+        height: 28px !important;
+        width: 28px !important;
     }
 
     .logo-wordmark,
-    .logo-text img.logo-wordmark {
-        height: 24px !important;
-        width: auto;
+    .logo-text img.logo-wordmark,
+    .logo-wordmark-slot {
+        display: none !important;
+    }
+
+    body.home-page .logo-text--home {
+        width: 28px;
+        min-width: 28px;
+        height: 28px;
+    }
+
+    body.home-page .logo-icon-slot {
+        flex: 0 0 28px;
+        width: 28px;
+        height: 28px;
     }
     
     .header-nav {
-        display: none !important;
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
     }
 
     .header-menu-btn {
         display: flex;
+        flex-shrink: 0;
+        z-index: 10003;
     }
 
     .header-mobile-nav {
         display: block;
         position: fixed;
-        top: calc(1.1rem + 27px);
+        top: 0;
         right: 0;
         z-index: 10002;
-        width: min(17.5rem, 88vw);
-        padding: 1.25rem 1.35rem 1.5rem;
+        width: min(18rem, 100vw);
+        height: 100dvh;
+        padding: calc(1.1rem + 27px + 0.75rem) 1.35rem 2rem;
         background: var(--cs-page-bg, var(--site-bg));
         border-left: 1px solid rgba(0, 0, 0, 0.08);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        box-shadow: -8px 12px 32px rgba(0, 0, 0, 0.08);
+        box-shadow: -12px 0 40px rgba(0, 0, 0, 0.1);
         box-sizing: border-box;
+        overflow-y: auto;
     }
 
     .header-mobile-nav[hidden] {

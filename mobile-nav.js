@@ -21,6 +21,10 @@
     btn.setAttribute('aria-label', 'Open menu');
     btn.setAttribute('aria-expanded', 'false');
     btn.setAttribute('aria-controls', 'headerMobileNav');
+    btn.innerHTML =
+        '<span class="header-menu-btn-bars" aria-hidden="true"><span></span><span></span><span></span></span>';
+
+    document.body.classList.add('has-mobile-nav');
 
     var panel = document.createElement('nav');
     panel.id = 'headerMobileNav';
@@ -65,9 +69,14 @@
         }
     });
 
-    window.addEventListener('resize', function () {
-        if (window.innerWidth > 768) {
+    function syncNavMode() {
+        var mobile = window.innerWidth <= 768;
+        desktopNav.setAttribute('aria-hidden', mobile ? 'true' : 'false');
+        if (!mobile) {
             closeMenu();
         }
-    });
+    }
+
+    window.addEventListener('resize', syncNavMode);
+    syncNavMode();
 })();
