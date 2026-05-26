@@ -1,70 +1,67 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Ocean - İdil Kale</title>
     <link rel="icon" type="image/png" href="photos/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=boska@400,500,700&f[]=general-sans@400,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="scroll-handler.js" defer></script>
 </head>
-<body class="the-ocean-page">
+<body class="the-ocean-page case-study-page playground-project-minimal">
     <!-- Header Section -->
-    <header class="header">
+        <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="index.html" class="logo-text">
-                        <img src="photos/logo_new_v3.png" alt="İdil Kale">
+                    <a href="index.html" class="logo-text" aria-label="İdil Kale — Home">
+                        <img src="photos/favicon.png" alt="" class="logo-favicon" width="34" height="34" decoding="async">
+                        <img src="photos/idil kale.png" alt="İdil Kale" class="logo-wordmark" decoding="async">
                     </a>
                 </div>
-                                                <nav class="header-nav">
-                    <ul class="header-nav-menu">
-                        <li class="header-nav-row">
-                            <a href="index.html" data-nav="home">Home</a>
-                        </li>
-                        <li class="header-nav-row">
-                            <a href="works.html" data-nav="works">Works</a>
-                        </li>
-                        <li class="header-nav-row">
-                            <a href="about.html" data-nav="about">About Me</a>
-                        </li>
-                        <li class="header-nav-row">
-                            <a href="contact.html" data-nav="contact">Contact</a>
-                        </li>
+                <nav class="header-nav" aria-label="Main">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="works.html">Works</a></li>
+                        <li><a href="playground.html">Playground</a></li>
+                        <li><a href="about.html">About Me</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
+<!-- Main Content -->
+    <main class="armoni-main case-study-main">
+            <section class="cs-band">
+                <div class="case-study-inner">
+                    <section class="cs-hero cs-reveal cs-reveal-visible">
+                        <h1 class="cs-title">The Ocean</h1>
+                        <dl class="cs-meta">
+                            <div class="cs-meta-item">
+                                <dt>Timeline</dt>
+                                <dd>2023</dd>
+                            </div>
+                            <div class="cs-meta-item">
+                                <dt>Role</dt>
+                                <dd>Motion Designer</dd>
+                            </div>
+                            <div class="cs-meta-item">
+                                <dt>Tools</dt>
+                                <dd>Adobe After Effects</dd>
+                            </div>
+                            <div class="cs-meta-item">
+                                <dt>Team</dt>
+                                <dd>Solo project</dd>
+                            </div>
+                        </dl>
+                    </section>
+                </div>
+            </section>
 
-    <!-- Compact Header - Appears when scrolling down -->
-    <header class="compact-header">
-        <div class="compact-header-content">
-            <a href="index.html" class="compact-header-logo"><img src="photos/idil kale.png" alt="İdil Kale" style="height: 35px; width: auto;"></a>
-                                    <nav class="compact-header-nav">
-                <ul>
-                    <li><a href="index.html" data-nav="home">Home</a></li>
-                    <li><a href="works.html" data-nav="works">Works</a></li>
-                    <li><a href="about.html" data-nav="about">About</a></li>
-                    <li><a href="contact.html" data-nav="contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-
-    <!-- Main Content -->
-    <main class="armoni-main">
         <div class="armoni-content">
-            <div class="armoni-text">
-                <h1>The Ocean</h1>
-                <p class="armoni-tools">Adobe After Effects</p>
-            </div>
-            
                 <div class="armoni-video-container">
                     <video controls class="armoni-video">
                         <source src="the_ocean/the_ocean_video.mp4" type="video/mp4">
@@ -72,17 +69,47 @@
                     </video>
                 </div>
         </div>
+            <section class="cs-band">
+                <div class="case-study-inner">
+                    <div class="cs-back-link cs-reveal">
+                        <a href="playground.html" class="cs-text-link">← Back to Playground</a>
+                    </div>
+                </div>
+            </section>
     </main>
 
     <!-- Scroll to Top Button -->
     <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"></a>
-
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 İdil Kale. All rights reserved.</p>
+    <footer class="footer home-footer">
+        <div class="home-footer-inner">
+            <div class="home-footer-quote">
+                <blockquote>
+                    <p>"Curious by nature, careful by design."</p>
+                </blockquote>
+                <p class="home-footer-tagline">Designed &amp; coded by Idil Kale · © 2026</p>
+            </div>
+            <div class="home-footer-navs">
+            <nav class="home-footer-col" aria-labelledby="footerSayHi">
+                <h2 id="footerSayHi">Say hi</h2>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/idilkale1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="mailto:idilkale2000@hotmail.com">Email</a></li>
+                    <li><a href="idil/IdilKale_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+                </ul>
+            </nav>
+            <nav class="home-footer-col" aria-labelledby="footerPage">
+                <h2 id="footerPage">Page</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="works.html">Works</a></li>
+                    <li><a href="playground.html">Playground</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            </div>
         </div>
     </footer>
     <script src="scroll-handler.js"></script>
+    <script src="case-study.js" defer></script>
 </body>
 </html>

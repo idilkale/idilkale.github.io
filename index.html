@@ -1,399 +1,236 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İdil Kale - UI/UX Designer</title>
+    <title>İdil Kale — UI/UX Designer</title>
     <link rel="icon" type="image/png" href="photos/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=boska@400,500,700&f[]=general-sans@400,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="scroll-handler.js" defer></script>
 </head>
 <body class="home-page">
-    <!-- Header Section -->
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="index.html" class="logo-text">
-                        <img src="photos/logo_new_v3.png" alt="İdil Kale">
+                    <a href="index.html" class="logo-text logo-text--home" aria-label="İdil Kale — Home">
+                        <span class="logo-icon-slot" aria-hidden="true">
+                            <img src="idil/logo_White.png" alt="" class="logo-favicon logo-favicon--hero" width="34" height="34" decoding="async">
+                            <img src="photos/favicon.png" alt="" class="logo-favicon logo-favicon--scrolled" width="34" height="34" decoding="async">
+                        </span>
+                        <span class="logo-wordmark-slot">
+                            <img src="photos/idil kale.png" alt="İdil Kale" class="logo-wordmark" width="117" height="35" decoding="async">
+                        </span>
                     </a>
                 </div>
-                <nav class="header-nav">
+                <nav class="header-nav" aria-label="Main">
                     <ul>
                         <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="works.html">Works</a></li>
+                        <li><a href="playground.html">Playground</a></li>
                         <li><a href="about.html">About Me</a></li>
-                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- Compact Header - Appears when scrolling down -->
-    <header class="compact-header">
-        <div class="compact-header-content">
-            <a href="index.html" class="compact-header-logo"><img src="photos/idil kale.png" alt="İdil Kale" style="height: 35px; width: auto;"></a>
-            <nav class="compact-header-nav">
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="works.html">Works</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <main class="home-main">
+        <section class="home-hero" id="homeHero" aria-labelledby="homeHeroTitle">
+            <div class="home-hero-bg" aria-hidden="true">
+                <img src="idil/bg4.jpg" alt="" decoding="async" fetchpriority="high">
+            </div>
+            <div class="home-hero-scrim" aria-hidden="true"></div>
+            <div class="home-hero-intro container">
+                <h1 id="homeHeroTitle" class="home-hero-editorial">
+                    <span class="home-hero-name">
+                        <span class="home-greeting-word" id="greetingWord" lang="en">Hi</span>, I'm İdil<span class="home-hero-mark" aria-hidden="true">*</span>
+                    </span>
+                    <span class="home-hero-statement">
+                        a UI/UX and brand designer with the
+                        <em class="home-hero-accent home-hero-accent--green">curiosity</em>
+                        to explore, the
+                        <em class="home-hero-accent home-hero-accent--blue">versatility</em>
+                        to adapt, and the
+                        <em class="home-hero-accent home-hero-accent--pink">care</em>
+                        to make every detail feel right.
+                    </span>
+                </h1>
+            </div>
+            <a href="#work" class="home-scroll-hint" aria-label="Scroll down">
+                <span class="home-scroll-hint-label">Scroll</span>
+                <span class="home-scroll-hint-icon" aria-hidden="true"></span>
+            </a>
+        </section>
 
-    <!-- Main Content -->
-    <main class="main-content home-main-new">
-        <div class="container">
-            <!-- Hero Section - Top -->
-            <section class="home-hero-top">
-                <div class="hero-content-wrapper">
-                    <div class="hero-text-section">
-                        <div class="greeting-text">
-                            <span class="greeting-word" id="greetingWord">Merhaba</span>.
-                        </div>
-                        <h1 class="hero-name-large">I'm İdil</h1>
-                        <p class="hero-description-text">I'm a designer who finds inspiration in the moments I capture, whether it's the way light falls in a new city, the quiet comfort of home, or the stories people share through their spaces. These images around me aren't just memories; they're reminders of how I see the world and how that perspective shapes my work.<br><br>I believe good design comes from paying attention to details, to people, to what makes an experience feel natural rather than forced. When I'm not designing, I'm often observing, photographing, or simply being present in moments that later inform how I approach a project. I create designs that feel thoughtful and intentional, because that's how I try to live with intention, warmth, and without unnecessary noise.</p>
-                    </div>
-                    <div class="hero-images-section">
-                        <div class="images-slider-container">
-                            <div class="images-slider-track" id="imagesSliderTrack">
-                                <div class="slider-image-item">
-                                    <img src="idil/idil1.png" alt="İdil Kale" fetchpriority="high" decoding="async">
-                                </div>
-                                <div class="slider-image-item">
-                                    <img src="idil/idil2.png" alt="İdil Kale" loading="lazy" decoding="async">
-                                </div>
-                                <div class="slider-image-item">
-                                    <img src="idil/idil3.png" alt="İdil Kale" loading="lazy" decoding="async">
-                                </div>
-                                <div class="slider-image-item">
-                                    <img src="idil/idil4.png" alt="İdil Kale" loading="lazy" decoding="async">
-                                </div>
-                                <div class="slider-image-item">
-                                    <img src="idil/idil5.png" alt="İdil Kale" loading="lazy" decoding="async">
-                                </div>
-                                <div class="slider-image-item">
-                                    <img src="idil/idil6.png" alt="İdil Kale" loading="lazy" decoding="async">
-                                </div>
-                                <div class="slider-image-item">
-                                    <img src="idil/idil7.png" alt="İdil Kale" loading="lazy" decoding="async">
-                                </div>
-                                <!-- Clone of first image for infinite loop -->
-                                <div class="slider-image-item">
-                                    <img src="idil/idil1.png" alt="İdil Kale" loading="lazy" decoding="async">
-                                </div>
-                            </div>
+        <div class="home-page-content">
+        <section class="home-cases" id="work" aria-label="Selected projects">
+            <div class="container home-cases-inner">
+                <article class="home-case">
+                    <div class="home-case-row">
+                        <a href="armoni.html" class="home-case-visual">
+                            <img src="photos/idilkale-item-extra-1.jpg" alt="Armoni brand identity" loading="lazy" decoding="async">
+                        </a>
+                        <div class="home-case-copy">
+                            <p class="home-case-type">Brand identity &amp; signage</p>
+                            <h2 class="home-case-headline">A full brand system and wayfinding for a wellness space</h2>
+                            <p class="home-case-desc">From the logo to signs on the wall, Armoni keeps one clear look across the whole space.</p>
+                            <a href="armoni.html" class="home-case-link">View case study</a>
                         </div>
                     </div>
-                </div>
-            </section>
+                </article>
 
-            <!-- Skills & Interests Section -->
-            <section class="skills-interests-section">
-                <button class="expand-toggle-btn" id="expandToggleBtn" aria-expanded="false">
-                    <span class="expand-icon">+</span>
-                    <span class="expand-text">SKILLS & INTERESTS</span>
-                </button>
-                <div class="expandable-content" id="expandableContent">
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3 class="skill-category-title">Software & Tools</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span class="skill-name">Figma</span>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Adobe Illustrator</span>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Adobe Photoshop</span>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Adobe InDesign</span>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Adobe After Effects</span>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Adobe Lightroom</span>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Canva</span>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Unity</span>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Blender</span>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">HTML & CSS</span>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">JavaScript</span>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">React</span>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Python</span>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">C++</span>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Java</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3 class="skill-category-title">Design & Research Areas</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span class="skill-name">UI/UX Design</span>
-                                    <p class="skill-description">Creating intuitive and user-centered digital experiences</p>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">User Research</span>
-                                    <p class="skill-description">Conducting UX research and usability testing for innovative projects including VR</p>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Wireframing & Prototyping</span>
-                                    <p class="skill-description">From concept to functional prototypes using Figma and development tools</p>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Interaction Design</span>
-                                    <p class="skill-description">Designing engaging interactions based on Human-Computer Interaction principles</p>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Heuristic Evaluation</span>
-                                    <p class="skill-description">Systematic evaluation of interfaces for usability and accessibility</p>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Visual Systems</span>
-                                    <p class="skill-description">Developing cohesive brand identities and visual communication systems</p>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Accessibility</span>
-                                    <p class="skill-description">Designing and developing accessible digital products and interfaces</p>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">VR/AR Design</span>
-                                    <p class="skill-description">Designing immersive virtual environments and spatial interfaces</p>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Design Thinking</span>
-                                    <p class="skill-description">Applying human-centered design methodologies to solve complex problems</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3 class="skill-category-title">Key Strengths</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span class="skill-name">Dual Expertise</span>
-                                    <p class="skill-description">Combining Computer Science and Visual Communication Design for unique interdisciplinary solutions</p>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Interface Design</span>
-                                    <p class="skill-description">Creating intuitive and engaging interfaces that balance aesthetics with functionality</p>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Prototyping to Deployment</span>
-                                    <p class="skill-description">Taking designs from Figma prototypes through development to functional, responsive, and accessible digital products</p>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">VR Design & Implementation</span>
-                                    <p class="skill-description">Hands-on experience designing and implementing interactive VR environments with HCI principles</p>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Visual Storytelling</span>
-                                    <p class="skill-description">Strong visual storytelling capabilities across multiple platforms and media</p>
-                                </div>
-                            </div>
+                <article class="home-case home-case--reverse">
+                    <div class="home-case-row">
+                        <a href="signature.html" class="home-case-visual">
+                            <img src="SIGnature/picture.png" alt="SIGnature Arizona Science Center website redesign" loading="lazy" decoding="async">
+                        </a>
+                        <div class="home-case-copy">
+                            <p class="home-case-type">UX research &amp; redesign</p>
+                            <h2 class="home-case-headline">Redesigning how visitors plan trips to the Arizona Science Center</h2>
+                            <p class="home-case-desc">We audited and redesigned azscience.org — helping families, students, and tourists buy tickets, find events, and plan visits through clearer navigation and a rebuilt ticket flow.</p>
+                            <a href="signature.html" class="home-case-link">View case study</a>
                         </div>
                     </div>
-                </div>
-            </section>
+                </article>
 
-            <!-- Featured Projects Section - Bottom -->
-            <section class="home-projects-bottom">
-                <h2 class="featured-title">Featured Work</h2>
-                <div class="projects-showcase-grid">
-                    <div class="project-showcase-item" onclick="window.location.href='armoni.html'">
-                        <div class="project-showcase-image">
-                            <img src="photos/idilkale-item-extra-1.jpg" alt="Armoni" loading="lazy">
-                            <div class="project-overlay">
-                                <h3>Armoni</h3>
-                                <p>Brand Identity</p>
-                            </div>
+                <article class="home-case">
+                    <div class="home-case-row">
+                        <a href="rts.html" class="home-case-visual">
+                            <img src="RTS/pattern.png" alt="RTS Lab" loading="lazy" decoding="async">
+                        </a>
+                        <div class="home-case-copy">
+                            <p class="home-case-type">Brand identity &amp; UX/UI</p>
+                            <h2 class="home-case-headline">Unifying science, storytelling, and interface for a research lab</h2>
+                            <p class="home-case-desc">RTS Lab pairs a bold brand with a digital experience that feels clear, curious, and easy to trust.</p>
+                            <a href="rts.html" class="home-case-link">View case study</a>
                         </div>
                     </div>
-                    <div class="project-showcase-item" onclick="window.location.href='rts.html'">
-                        <div class="project-showcase-image">
-                            <img src="RTS/pattern.png" alt="RTS Lab" loading="lazy">
-                            <div class="project-overlay">
-                                <h3>RTS Lab</h3>
-                                <p>Brand Identity &amp; UX/UI</p>
-                            </div>
+                </article>
+
+                <article class="home-case home-case--reverse">
+                    <div class="home-case-row">
+                        <a href="unisphere.html" class="home-case-visual">
+                            <img src="unisphere/unisphere_mockup.png" alt="UniSphere" loading="lazy" decoding="async" class="home-case-img-unisphere">
+                        </a>
+                        <div class="home-case-copy">
+                            <p class="home-case-type">UI/UX design</p>
+                            <h2 class="home-case-headline">Designing a campus companion app for international students</h2>
+                            <p class="home-case-desc">UniSphere helps international students find resources, community, and orientation in one friendly app.</p>
+                            <a href="unisphere.html" class="home-case-link">View case study</a>
                         </div>
                     </div>
-                    <div class="project-showcase-item" onclick="window.location.href='signature.html'">
-                        <div class="project-showcase-image">
-                            <img src="SIGnature/picture.png" alt="SIGnature" loading="lazy">
-                            <div class="project-overlay">
-                                <h3>SIGnature</h3>
-                                <p>UX Research &amp; Redesign</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="view-all-link">
-                    <a href="works.html" class="view-all-btn">VIEW ALL PROJECTS →</a>
-                </div>
-            </section>
+                </article>
+
+            </div>
+        </section>
         </div>
     </main>
 
-    <!-- Scroll to Top Button -->
+    <footer class="footer home-footer">
+        <div class="home-footer-inner">
+            <div class="home-footer-quote">
+                <blockquote>
+                    <p>"Curious by nature, careful by design."</p>
+                </blockquote>
+                <p class="home-footer-tagline">Designed &amp; coded by Idil Kale · © 2026</p>
+            </div>
+            <div class="home-footer-navs">
+                <nav class="home-footer-col" aria-labelledby="footerSayHi">
+                    <h2 id="footerSayHi">Say hi</h2>
+                    <ul>
+                        <li><a href="https://www.linkedin.com/in/idilkale1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li><a href="mailto:idilkale2000@hotmail.com">Email</a></li>
+                        <li><a href="idil/IdilKale_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+                    </ul>
+                </nav>
+                <nav class="home-footer-col" aria-labelledby="footerPage">
+                    <h2 id="footerPage">Page</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="works.html">Works</a></li>
+                        <li><a href="playground.html">Playground</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
     <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"></a>
 
     <script>
-        // Greeting text animation - switching between Merhaba and Hi
-        const greetingWords = ['Merhaba', 'Hi'];
-        let currentIndex = 0;
-        const greetingElement = document.getElementById('greetingWord');
-        
-        function changeGreeting() {
-            if (greetingElement) {
-                greetingElement.style.opacity = '0';
-                setTimeout(() => {
-                    currentIndex = (currentIndex + 1) % greetingWords.length;
-                    greetingElement.textContent = greetingWords[currentIndex];
-                    greetingElement.style.opacity = '1';
-                }, 250);
+        (function () {
+            var greetingWords = ['Hi', 'Merhaba'];
+            var greetingIndex = 0;
+            var greetingEl = document.getElementById('greetingWord');
+            if (greetingEl) {
+                setInterval(function () {
+                    greetingEl.style.opacity = '0';
+                    setTimeout(function () {
+                        greetingIndex = (greetingIndex + 1) % greetingWords.length;
+                        greetingEl.textContent = greetingWords[greetingIndex];
+                        greetingEl.lang = greetingWords[greetingIndex] === 'Merhaba' ? 'tr' : 'en';
+                        greetingEl.style.opacity = '1';
+                    }, 220);
+                }, 2800);
             }
-        }
-        
-        // Start greeting animation after page load
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initial delay
-            setTimeout(() => {
-                setInterval(changeGreeting, 2500); // Change every 2.5 seconds
-            }, 1500);
-            
-            // Initialize images slider
-            initImagesSlider();
-            
-            // Initialize expandable skills section
-            initExpandableSection();
-        });
-        
-        // Expandable Skills Section Functionality
-        function initExpandableSection() {
-            const toggleBtn = document.getElementById('expandToggleBtn');
-            const expandableContent = document.getElementById('expandableContent');
-            
-            if (toggleBtn && expandableContent) {
-                toggleBtn.addEventListener('click', function() {
-                    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-                    
-                    if (isExpanded) {
-                        // Close
-                        toggleBtn.setAttribute('aria-expanded', 'false');
-                        expandableContent.classList.remove('expanded');
-                    } else {
-                        // Open
-                        toggleBtn.setAttribute('aria-expanded', 'true');
-                        expandableContent.classList.add('expanded');
+
+            var hero = document.getElementById('homeHero');
+
+            function updateHomeHeader() {
+                if (!hero) {
+                    return;
+                }
+                document.body.classList.toggle('home-scrolled', window.scrollY > hero.offsetHeight - 80);
+            }
+
+            function smoothScrollToY(targetY, duration) {
+                var startY = window.pageYOffset;
+                var distance = targetY - startY;
+                var startTime = null;
+
+                function easeOutCubic(t) {
+                    return 1 - Math.pow(1 - t, 3);
+                }
+
+                function frame(time) {
+                    if (startTime === null) {
+                        startTime = time;
                     }
+                    var progress = Math.min((time - startTime) / duration, 1);
+                    window.scrollTo(0, startY + distance * easeOutCubic(progress));
+                    updateHomeHeader();
+                    if (progress < 1) {
+                        requestAnimationFrame(frame);
+                    }
+                }
+
+                requestAnimationFrame(frame);
+            }
+
+            var scrollHint = document.querySelector('.home-scroll-hint');
+            if (scrollHint) {
+                scrollHint.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    var work = document.getElementById('work');
+                    if (!work) {
+                        return;
+                    }
+                    var targetY = work.getBoundingClientRect().top + window.pageYOffset;
+                    smoothScrollToY(targetY, 1500);
+                    history.replaceState(null, '', '#work');
                 });
             }
-        }
 
-        // Images Slider Functionality
-        function initImagesSlider() {
-            const sliderTrack = document.getElementById('imagesSliderTrack');
-            if (!sliderTrack) return;
-
-            const images = sliderTrack.querySelectorAll('.slider-image-item');
-            if (images.length === 0) return;
-
-            // Total images includes the clone, but we track only real images
-            const totalRealImages = images.length - 1; // Last one is a clone
-            let currentIndex = 0;
-            const slideDuration = 3000; // 3 seconds per image
-            let isResetting = false;
-
-            // Set initial position
-            function updateSlider(instant = false) {
-                if (instant) {
-                    sliderTrack.style.transition = 'none';
-                } else {
-                    sliderTrack.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-                }
-                const translateX = -currentIndex * 100;
-                sliderTrack.style.transform = `translateX(${translateX}%)`;
+            if (hero) {
+                window.addEventListener('scroll', updateHomeHeader, { passive: true });
+                window.addEventListener('resize', updateHomeHeader);
+                updateHomeHeader();
             }
-
-            // Auto-slide function
-            function nextSlide() {
-                if (isResetting) return;
-                
-                currentIndex++;
-                
-                // If we're at the clone (last image), reset to first without transition
-                if (currentIndex >= totalRealImages) {
-                    // Go to clone with transition
-                    updateSlider(false);
-                    isResetting = true;
-                    // Wait for transition to complete, then reset instantly to first
-                    setTimeout(() => {
-                        currentIndex = 0;
-                        updateSlider(true);
-                        // Re-enable transition after reset
-                        setTimeout(() => {
-                            isResetting = false;
-                        }, 50);
-                    }, 800);
-                } else {
-                    updateSlider(false);
-                }
-            }
-
-            // Start auto-sliding
-            updateSlider(true); // Initial position
-            setInterval(nextSlide, slideDuration);
-        }
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.project-showcase-item').forEach(item => {
-            observer.observe(item);
-        });
+        })();
     </script>
 </body>
 </html>

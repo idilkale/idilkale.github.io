@@ -1,64 +1,78 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Armoni - İdil Kale</title>
     <link rel="icon" type="image/png" href="photos/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=boska@400,500,700&f[]=general-sans@400,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="scroll-handler.js" defer></script>
 </head>
-<body class="armoni-page">
+<body class="armoni-page case-study-page">
     <!-- Header Section -->
-    <header class="header">
+        <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="index.html" class="logo-text">
-                        <img src="photos/logo_new_v3.png" alt="İdil Kale">
+                    <a href="index.html" class="logo-text" aria-label="İdil Kale — Home">
+                        <img src="photos/favicon.png" alt="" class="logo-favicon" width="34" height="34" decoding="async">
+                        <img src="photos/idil kale.png" alt="İdil Kale" class="logo-wordmark" decoding="async">
                     </a>
                 </div>
-                                                <nav class="header-nav">
-                    <ul class="header-nav-menu">
-                        <li class="header-nav-row">
-                            <a href="index.html" data-nav="home">Home</a>
-                        </li>
-                        <li class="header-nav-row">
-                            <a href="works.html" data-nav="works">Works</a>
-                        </li>
-                        <li class="header-nav-row">
-                            <a href="about.html" data-nav="about">About Me</a>
-                        </li>
-                        <li class="header-nav-row">
-                            <a href="contact.html" data-nav="contact">Contact</a>
-                        </li>
+                <nav class="header-nav" aria-label="Main">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="works.html">Works</a></li>
+                        <li><a href="playground.html">Playground</a></li>
+                        <li><a href="about.html">About Me</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
+<!-- Main Content -->
+    <main class="armoni-main case-study-main">
+            <section class="cs-band">
+                <div class="case-study-inner">
+                    <section class="cs-hero cs-reveal cs-reveal-visible">
+                        <span class="cs-tag">Brand & Identity Design</span>
+                        <h1 class="cs-title">Armoni</h1>
+                        <p class="cs-hook">A full-scale branding project exploring how visual identity, mascot design, and environmental graphics can shape emotional connection with an audience.</p>
+<dl class="cs-meta">
+                            <div class="cs-meta-item">
+                                <dt>Timeline</dt>
+                                <dd>September 2023 – May 2024</dd>
+                            </div>
+                            <div class="cs-meta-item">
+                                <dt>Role</dt>
+                                <dd>Brand & Identity Designer</dd>
+                            </div>
+                            <div class="cs-meta-item">
+                                <dt>Tools</dt>
+                                <dd>Adobe Illustrator, Photoshop, InDesign, Figma, Wix</dd>
+                            </div>
+                            <div class="cs-meta-item">
+                                <dt>Team</dt>
+                                <dd>Solo project</dd>
+                            </div>
+                        </dl>
+                    </section>
 
-    <!-- Compact Header - Appears when scrolling down -->
-    <header class="compact-header">
-        <div class="compact-header-content">
-            <a href="index.html" class="compact-header-logo"><img src="photos/idil kale.png" alt="İdil Kale" style="height: 35px; width: auto;"></a>
-                                    <nav class="compact-header-nav">
-                <ul>
-                    <li><a href="index.html" data-nav="home">Home</a></li>
-                    <li><a href="works.html" data-nav="works">Works</a></li>
-                    <li><a href="about.html" data-nav="about">About</a></li>
-                    <li><a href="contact.html" data-nav="contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+                    <section class="cs-ps-grid cs-reveal cs-reveal-visible">
+                        <article class="cs-ps-card cs-ps-problem">
+                            <span class="cs-ps-label">Problem</span>
+                            <p>A brand concept needed a complete visual system across digital, print, and physical touchpoints without feeling corporate or fragmented.</p>
+                        </article>
+                        <article class="cs-ps-card cs-ps-solution">
+                            <span class="cs-ps-label">Solution</span>
+                            <p>I built a full identity with logo, mascot, typography, product applications, website, and environmental graphics tied to one harmonious language.</p>
+                        </article>
+                    </section>
+                </div>
+            </section>
 
-
-    <!-- Main Content -->
-    <main class="armoni-main">
         <div class="armoni-content">
             <div class="armoni-text">
                 <h1>Armoni</h1>
@@ -66,19 +80,21 @@
                 <p class="armoni-tools spaced">Adobe Illustrator, Adobe Photoshop, Adobe InDesign, Figma, Wix</p>
                 <p class="armoni-tools" style="margin-top: 0.5rem; font-style: normal;">September 2023 - May 2024</p>
             </div>
-            
+
             <div class="armoni-white-box">
-                <img src="armoni/idilkale_white%20background%20logo.jpeg" alt="Armoni logo on white background" class="armoni-white-img armoni-white-wide">
+                <img src="armoni/logo_transparent_new.png" alt="Armoni logo" class="armoni-white-img armoni-white-wide">
             </div>
-            
-            <div class="unisphere-description" style="margin-top: 2rem;">
+
+            <div class="unisphere-description armoni-sections-flow" style="margin-top: 2rem;">
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Project Overview</span>
                     <h2 class="unisphere-section-title">1. Project Overview</h2>
                     <p class="unisphere-text">Armoni is a full-scale branding project that explores how visual identity can shape emotional connection between a brand and its audience. The project includes a complete brand system: logo design, mascot development, product applications, website design, and environmental branding for both indoor and outdoor spaces. The goal was to create a unified and memorable visual identity that reflects harmony, balance, and accessibility.</p>
                     <p class="unisphere-text">This project was completed as a comprehensive design study and developed using Adobe Illustrator, Photoshop, InDesign, and Figma.</p>
                 </section>
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Brand Strategy</span>
                     <h2 class="unisphere-section-title">2. Concept & Brand Philosophy</h2>
                     <p class="unisphere-text">The name Armoni comes from the idea of harmony and balance—both visually and conceptually. The brand aims to create a cohesive experience across different touchpoints, where color, form, and typography work together without visual noise.</p>
                     <p class="unisphere-text">The design direction focuses on:</p>
@@ -92,20 +108,22 @@
                 </section>
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Logo Design</span>
                     <h2 class="unisphere-section-title">3. Logo Design</h2>
                     <p class="unisphere-text">The logo was designed using simple geometric forms to communicate balance and fluid movement. Rounded shapes and soft edges create a sense of comfort and approachability, while the structured composition reflects order and stability. Multiple logo variations were developed for different applications, including horizontal, stacked, and icon-only formats.</p>
                     <p class="unisphere-text armoni-text-before-clearspace">The spacing system and construction grid ensure scalability and consistency across digital and print formats.</p>
-                    
+
                     <div class="armoni-image-inline armoni-clearspace-inline">
                         <img src="armoni/clearspace-newnew.png" alt="Logo clearspace and computation" class="armoni-inline-img armoni-clearspace-img-cropped">
                     </div>
                 </section>
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Mascot Design</span>
                     <h2 class="unisphere-section-title">4. Mascot Design</h2>
                     <p class="unisphere-text">A mascot was created to bring personality to the brand and strengthen emotional engagement. The character reflects the name Armoni through soft shapes, gentle facial expressions, and a rounded silhouette. The mascot appears across product packaging, environmental graphics, marketing materials, and promotional content, helping the brand feel playful and relatable.</p>
                     <p class="unisphere-text">Different poses and expressions were designed to communicate specific moods, allowing the mascot to support multiple use cases without losing visual cohesion.</p>
-                    
+
                     <div class="armoni-mascots-section">
                         <div class="armoni-mascots-grid">
                             <div class="armoni-mascot-item">
@@ -122,46 +140,46 @@
                 </section>
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Brand System</span>
                     <h2 class="unisphere-section-title">5. Color & Typography System</h2>
                     <p class="unisphere-text">The color palette combines warm, harmonious tones with neutral supporting shades. These colors create visual rhythm across touchpoints and maintain brand consistency while allowing flexibility in layout design.</p>
                     <p class="unisphere-text">Typography follows a functional and clean style. Fira Sans is used throughout the brand identity for both body text and headings, while Montserrat serves as an alternative typeface, particularly in logo applications. This consistent typographic system ensures visual cohesion while maintaining readability across different scales and applications. Hierarchy guidelines were defined for print, web, and signage to ensure clarity across scales.</p>
-                    
+
                     <div class="armoni-flipbook-section">
-                        <h3 class="armoni-subsection-title">Branding Manual</h3>
-                        <div style="position:relative;padding-top:max(50%,300px);width:90%;height:0;margin:2rem auto 0 auto;"><iframe style="position:absolute;border:none;width:100%;height:100%;left:0;top:0;" src="https://online.fliphtml5.com/kmhni/jjdo/" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" title="Armoni Branding Manual"></iframe></div>
+                        <h2 class="armoni-subsection-title">Branding Manual</h2>
+                        <div class="armoni-flipbook-embed"><iframe src="https://online.fliphtml5.com/kmhni/jjdo/" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" title="Armoni Branding Manual"></iframe></div>
                     </div>
                 </section>
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Print Collateral</span>
                     <h2 class="unisphere-section-title">6. Stationery & Corporate Collateral</h2>
                     <p class="unisphere-text">As part of the branding system, a complete stationery package was designed to represent the brand in professional and formal contexts. The package includes business cards, envelopes, presentation folders, letterhead layouts, and printed document materials. Each item follows the core visual guidelines of the brand, using consistent spacing, color accents, and mascot placement.</p>
-                    
+
                     <div class="armoni-image-inline">
                         <img src="armoni/idilkale-stationary-package.jpg" alt="Stationery package" class="armoni-inline-img">
                     </div>
                 </section>
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Product Design</span>
                     <h2 class="unisphere-section-title">7. Product Design</h2>
                     <p class="unisphere-text">Armoni's visual identity extends to custom-designed physical products that reflect the brand's core values and aesthetic language. These items focus on daily usability and tactile interaction, allowing users to experience the brand beyond digital environments. Product designs include functional items that integrate the mascot, color palette, and illustration style in a refined and user-centered way.</p>
                     <p class="unisphere-text">Each product follows consistent visual guidelines such as spacing, rounded forms, and soft color transitions. The designs emphasize harmony, comfort, and familiarity, reinforcing Armoni's brand character through form, material, and surface graphics.</p>
                     <p class="unisphere-text">These products demonstrate how the brand can exist as a tangible experience, not just a visual identity.</p>
                 </section>
-            </div>
-            
+
             <div class="armoni-4item-wrapper">
                 <img src="armoni/4item.png" alt="Product applications" class="armoni-4item-img">
             </div>
-            
-            <div class="unisphere-description">
-                <section class="unisphere-section">
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Merchandise</span>
                     <h2 class="unisphere-section-title">8. Promotional Items & Branded Merchandise</h2>
                     <p class="unisphere-text">In addition to product design, a series of promotional items were created to support brand awareness and communication campaigns. These items serve as accessible touchpoints that help the brand reach wider audiences in events, pop-ups, and social settings.</p>
                     <p class="unisphere-text">The promotional collection includes items such as apparel, tote bags, stickers, notebooks, accessories, and mascot-themed giveaways. Unlike the functional product line, promotional pieces focus on visibility, emotional engagement, and playful expression of the mascot.</p>
                     <p class="unisphere-text">The goal of this collection is to strengthen brand recognition while enabling users to interact with Armoni in a more casual and social way.</p>
-                    
+
                     <div class="armoni-main-products-section">
                         <div class="armoni-main-products-grid">
                             <div class="armoni-main-products-item">
@@ -181,10 +199,11 @@
                 </section>
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Environmental Design</span>
                     <h2 class="unisphere-section-title">9. Environmental Branding</h2>
                     <p class="unisphere-text">The brand was applied to both indoor and outdoor spaces, including storefront signage, display walls, interior graphics, and wayfinding elements. The goal was to create an immersive brand atmosphere that users would experience physically, not just visually.</p>
                     <p class="unisphere-text">Outdoor applications emphasize visibility and recognizability from a distance, while indoor environments focus on comfort, color harmony, and storytelling.</p>
-                    
+
                     <div class="armoni-company-products-section">
                         <div class="armoni-company-products-grid">
                             <div class="armoni-company-products-item">
@@ -198,6 +217,7 @@
                 </section>
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Digital Experience</span>
                     <h2 class="unisphere-section-title">10. Website Design</h2>
                     <p class="unisphere-text">A responsive website was designed to reflect the brand's visual language across digital interactions. The site includes:</p>
                     <ul class="unisphere-list">
@@ -208,29 +228,70 @@
                         <li>Clean navigation and UI structure</li>
                     </ul>
                     <p class="unisphere-text">The UI is built around large visuals, generous spacing, and soft transitions to support the overall brand tone. The website was prototyped using Figma, with a focus on accessibility, legibility, and mobile-first layout principles.</p>
-                    
+
                     <div class="armoni-website-section" id="website">
                         <div class="armoni-website-container">
                             <img src="armoni/website mockup.png" alt="Armoni Website Screenshot" class="armoni-website-img">
                         </div>
                         <p class="armoni-website-link"><a href="https://idilkale.wixsite.com/armonii" target="_blank">https://idilkale.wixsite.com/armonii</a></p>
                     </div>
-                    
-                    <div class="armoni-brochure-section">
-                        <h3 class="armoni-subsection-title">Brochure Design</h3>
-                        <p class="unisphere-text">A promotional brochure was created to present Armoni's brand identity and visual system in a structured print format. The layout prioritizes clarity, clean hierarchy, and balanced compositions, using modular grids and consistent typographic styling to reinforce the concept of visual harmony. Since the brochure focuses on communicating the brand's formal and professional tone.</p>
-                        <div style="position:relative;padding-top:max(50%,300px);width:90%;height:0;margin:2rem auto 0 auto;"><iframe style="position:absolute;border:none;width:100%;height:100%;left:0;top:0;" src="https://online.fliphtml5.com/kmhni/qles/index.html" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" title="Armoni Brochure"></iframe></div>
-                    </div>
+                </section>
+
+                <section class="unisphere-section">
+                    <span class="cs-eyebrow">Print Design</span>
+                    <h2 class="unisphere-section-title">11. Brochure Design</h2>
+                    <p class="unisphere-text">A promotional brochure was created to present Armoni's brand identity and visual system in a structured print format. The layout prioritizes clarity, clean hierarchy, and balanced compositions, using modular grids and consistent typographic styling to reinforce the concept of visual harmony. Since the brochure focuses on communicating the brand's formal and professional tone.</p>
+                    <div class="armoni-flipbook-embed"><iframe src="https://online.fliphtml5.com/kmhni/qles/index.html" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" title="Armoni Brochure"></iframe></div>
                 </section>
             </div>
 
         </div>
-    </main>
+            <section class="cs-band cs-band--cream">
+                <div class="case-study-inner">
+                    <section class="cs-section cs-reflection cs-reveal">
+                        <span class="cs-eyebrow">Reflection</span>
+                        <h2 class="cs-headline">What this project taught me</h2>
+                        <p class="cs-body">Building Armoni taught me that consistency across touchpoints matters more than any single hero image. A mascot only works when spacing, color, and tone stay disciplined everywhere it appears.</p>
+                        <p class="cs-body">If I continued, I would test the identity in more real-world contexts like signage mockups and motion guidelines.</p>
+                    </section>
+                </div>
+            </section>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 İdil Kale. All rights reserved.</p>
+            <section class="cs-band cs-band--white">
+                <div class="case-study-inner">
+                    <div class="cs-back-link cs-reveal">
+                        <a href="works.html" class="cs-text-link">← Back to all work</a>
+                    </div>
+                </div>
+            </section>
+    </main>
+    <footer class="footer home-footer">
+        <div class="home-footer-inner">
+            <div class="home-footer-quote">
+                <blockquote>
+                    <p>"Curious by nature, careful by design."</p>
+                </blockquote>
+                <p class="home-footer-tagline">Designed &amp; coded by Idil Kale · © 2026</p>
+            </div>
+            <div class="home-footer-navs">
+            <nav class="home-footer-col" aria-labelledby="footerSayHi">
+                <h2 id="footerSayHi">Say hi</h2>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/idilkale1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="mailto:idilkale2000@hotmail.com">Email</a></li>
+                    <li><a href="idil/IdilKale_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+                </ul>
+            </nav>
+            <nav class="home-footer-col" aria-labelledby="footerPage">
+                <h2 id="footerPage">Page</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="works.html">Works</a></li>
+                    <li><a href="playground.html">Playground</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            </div>
         </div>
     </footer>
 
@@ -255,9 +316,9 @@
                 const timeElapsed = currentTime - startTime;
                 const progress = Math.min(timeElapsed / duration, 1);
                 const ease = easeInOutCubic(progress);
-                
+
                 window.scrollTo(0, startPosition + distance * ease);
-                
+
                 if (timeElapsed < duration) {
                     requestAnimationFrame(animation);
                 }
@@ -270,7 +331,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             const scrollTarget = urlParams.get('scroll');
-            
+
             if (scrollTarget === 'website') {
                 console.log('Scroll parameter detected, waiting for page to fully load...');
                 // Wait for page to fully load, then scroll
@@ -285,5 +346,6 @@
     <!-- Scroll to Top Button -->
     <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"></a>
     <script src="scroll-handler.js"></script>
+    <script src="case-study.js" defer></script>
 </body>
 </html>

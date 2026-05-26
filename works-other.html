@@ -1,66 +1,42 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Other Works - İdil Kale</title>
     <link rel="icon" type="image/png" href="photos/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=boska@400,500,700&f[]=general-sans@400,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="scroll-handler.js" defer></script>
 </head>
 <body class="works-page works-other-page">
     <!-- Header Section -->
-    <header class="header">
+            <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="index.html" class="logo-text">
-                        <img src="photos/logo_new_v3.png" alt="İdil Kale" style="height: 150px; width: auto;">
+                    <a href="index.html" class="logo-text" aria-label="İdil Kale — Home">
+                        <img src="photos/favicon.png" alt="" class="logo-favicon" width="34" height="34" decoding="async">
+                        <img src="photos/idil kale.png" alt="İdil Kale" class="logo-wordmark" decoding="async">
                     </a>
                 </div>
-                                                <nav class="header-nav">
-                    <ul class="header-nav-menu">
-                        <li class="header-nav-row">
-                            <a href="index.html" data-nav="home">Home</a>
-                        </li>
-                        <li class="header-nav-row">
-                            <a href="works.html" data-nav="works">Works</a>
-                        </li>
-                        <li class="header-nav-row">
-                            <a href="about.html" data-nav="about">About Me</a>
-                        </li>
-                        <li class="header-nav-row">
-                            <a href="contact.html" data-nav="contact">Contact</a>
-                        </li>
+                <nav class="header-nav" aria-label="Main">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="works.html" class="active">Works</a></li>
+                        <li><a href="playground.html">Playground</a></li>
+                        <li><a href="about.html">About Me</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
-
-    <!-- Compact Header - Appears when scrolling down -->
-    <header class="compact-header">
-        <div class="compact-header-content">
-            <a href="index.html" class="compact-header-logo"><img src="photos/idil kale.png" alt="İdil Kale" style="height: 35px; width: auto;"></a>
-                                    <nav class="compact-header-nav">
-                <ul>
-                    <li><a href="index.html" data-nav="home">Home</a></li>
-                    <li><a href="works.html" data-nav="works">Works</a></li>
-                    <li><a href="about.html" data-nav="about">About</a></li>
-                    <li><a href="contact.html" data-nav="contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Works Section -->
+<!-- Works Section -->
     <main class="works-main">
         <div class="container">
             <h1 class="works-title">Other Works</h1>
-            
+
             <!-- Filter Buttons - COMMENTED OUT (can be re-enabled if needed) -->
             <!--
             <div class="filter-buttons">
@@ -71,7 +47,7 @@
                 <button class="filter-btn" data-filter="photography-video">Photography & Video</button>
             </div>
             -->
-            
+
                         <div class="works-grid few-projects">
 <!-- Project 4 - Digital Sun - Medium -->
                 <div class="project-card project-medium" data-category="physical-computing" onclick="window.location.href='digital-sun.html'">
@@ -181,7 +157,7 @@
 
                     projectCards.forEach(card => {
                         const cardCategories = card.getAttribute('data-category').split(' ');
-                        
+
                         if (filterValue === 'photography-video') {
                             // Show both photography and video projects
                             if (cardCategories.includes('photography') || cardCategories.includes('video')) {
@@ -251,9 +227,9 @@
                 const timeElapsed = currentTime - startTime;
                 const progress = Math.min(timeElapsed / duration, 1);
                 const ease = easeInOutCubic(progress);
-                
+
                 window.scrollTo(0, startPosition + distance * ease);
-                
+
                 if (timeElapsed < duration) {
                     requestAnimationFrame(animation);
                 }
@@ -272,7 +248,7 @@
             const imageUrls = [
                 // Digital Sun images
                 'digital sun/new_coverphoto.png',
-                
+
                 // Armoni images
                 'armoni/idilkale_white background logo.jpeg',
                 'armoni/new.png',
@@ -290,37 +266,37 @@
                 'armoni/idilkale-item-main-1.png',
                 'armoni/4item.png',
                 'armoni/website mockup.png',
-                
+
                 // UniSphere images
                 'unisphere/unisphere_mockup.png',
                 'unisphere/ZwOx8rLHV.png',
                 'unisphere/va325.png',
                 'unisphere/va325_figma_mockup_new.png',
                 'unisphere/va325 kopyası.png',
-                
+
                 // VR Lab images
                 'VR_Lab/lab1.png',
                 'VR_Lab/lab2.png',
                 'VR_Lab/a.png',
                 'VR_Lab/b.png',
                 'VR_Lab/c.png',
-                
+
                 // Catastrophe images (first few)
                 'catastrophe/1.png',
                 'catastrophe/2.png',
                 'catastrophe/3.png',
                 'catastrophe/4.png',
                 'catastrophe/5.png',
-                
+
                 // The Ocean images
                 'the_ocean/ocean_new.png',
-                
+
                 // Monogram images
                 'photos/monogram_new.png',
-                
+
                 // Crexrtive images
                 'VR_Lab/young-adult-wearing-futuristic-smart-glasses-indoors-generated-by-ai.jpg',
-                
+
                 // Hepsisurada images
                 'hepsisurada/hepsisurada_new.png',
 

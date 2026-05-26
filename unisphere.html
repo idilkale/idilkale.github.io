@@ -1,64 +1,78 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UniSphere - İdil Kale</title>
     <link rel="icon" type="image/png" href="photos/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=boska@400,500,700&f[]=general-sans@400,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="scroll-handler.js" defer></script>
 </head>
-<body class="unisphere-page">
+<body class="unisphere-page case-study-page">
     <!-- Header Section -->
-    <header class="header">
+        <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="index.html" class="logo-text">
-                        <img src="photos/logo_new_v3.png" alt="İdil Kale">
+                    <a href="index.html" class="logo-text" aria-label="İdil Kale — Home">
+                        <img src="photos/favicon.png" alt="" class="logo-favicon" width="34" height="34" decoding="async">
+                        <img src="photos/idil kale.png" alt="İdil Kale" class="logo-wordmark" decoding="async">
                     </a>
                 </div>
-                                                <nav class="header-nav">
-                    <ul class="header-nav-menu">
-                        <li class="header-nav-row">
-                            <a href="index.html" data-nav="home">Home</a>
-                        </li>
-                        <li class="header-nav-row">
-                            <a href="works.html" data-nav="works">Works</a>
-                        </li>
-                        <li class="header-nav-row">
-                            <a href="about.html" data-nav="about">About Me</a>
-                        </li>
-                        <li class="header-nav-row">
-                            <a href="contact.html" data-nav="contact">Contact</a>
-                        </li>
+                <nav class="header-nav" aria-label="Main">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="works.html">Works</a></li>
+                        <li><a href="playground.html">Playground</a></li>
+                        <li><a href="about.html">About Me</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
+<!-- Main Content -->
+    <main class="armoni-main case-study-main">
+            <section class="cs-band">
+                <div class="case-study-inner">
+                    <section class="cs-hero cs-reveal cs-reveal-visible">
+                        <span class="cs-tag">Mobile App & UI/UX Design</span>
+                        <h1 class="cs-title">UniSphere</h1>
+                        <p class="cs-hook">A mobile app for international students to connect, filter by university and program, and find trustworthy advice before moving abroad.</p>
+<dl class="cs-meta">
+                            <div class="cs-meta-item">
+                                <dt>Timeline</dt>
+                                <dd>September 2022 – February 2023</dd>
+                            </div>
+                            <div class="cs-meta-item">
+                                <dt>Role</dt>
+                                <dd>UI/UX Designer</dd>
+                            </div>
+                            <div class="cs-meta-item">
+                                <dt>Tools</dt>
+                                <dd>Figma</dd>
+                            </div>
+                            <div class="cs-meta-item">
+                                <dt>Team</dt>
+                                <dd>2 designers</dd>
+                            </div>
+                        </dl>
+                    </section>
 
-    <!-- Compact Header - Appears when scrolling down -->
-    <header class="compact-header">
-        <div class="compact-header-content">
-            <a href="index.html" class="compact-header-logo"><img src="photos/idil kale.png" alt="İdil Kale" style="height: 35px; width: auto;"></a>
-                                    <nav class="compact-header-nav">
-                <ul>
-                    <li><a href="index.html" data-nav="home">Home</a></li>
-                    <li><a href="works.html" data-nav="works">Works</a></li>
-                    <li><a href="about.html" data-nav="about">About</a></li>
-                    <li><a href="contact.html" data-nav="contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+                    <section class="cs-ps-grid cs-reveal cs-reveal-visible">
+                        <article class="cs-ps-card cs-ps-problem">
+                            <span class="cs-ps-label">Problem</span>
+                            <p>Students moving abroad lack a structured platform to connect, ask questions, and learn from peers with similar experiences.</p>
+                        </article>
+                        <article class="cs-ps-card cs-ps-solution">
+                            <span class="cs-ps-label">Solution</span>
+                            <p>We designed a mobile app in Figma to filter by university and program and surface trustworthy advice before students relocate.</p>
+                        </article>
+                    </section>
+                </div>
+            </section>
 
-
-    <!-- Main Content -->
-    <main class="armoni-main">
         <div class="armoni-content">
             <div class="armoni-text">
                 <h1>UniSphere</h1>
@@ -66,12 +80,9 @@
                 <p class="armoni-tools spaced">Figma</p>
                 <p class="armoni-tools" style="margin-top: 0.5rem; font-style: normal;">September 2022 - February 2023</p>
             </div>
-            <div class="armoni-logo-container">
-                <img src="unisphere/ZwOx8rLHV.png" alt="UniSphere" class="unisphere-logo" style="max-width: 95%;">
-            </div>
-            
-            <div class="unisphere-description">
+                        <div class="unisphere-description">
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Background</span>
                     <h2 class="unisphere-section-title">1. Project Background</h2>
                     <p class="unisphere-text">Unisphere is a mobile app interface project that I developed with one teammate, fully designed using Figma.</p>
                     <p class="unisphere-text">The idea came from a simple observation: there are many social media apps, but none of them truly focus on students who move to a new city or country for education.</p>
@@ -86,6 +97,7 @@
                 </section>
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Problem &amp; Goals</span>
                     <h2 class="unisphere-section-title">2. Problem & Goals</h2>
                     <p class="unisphere-text"><strong>Problem:</strong></p>
                     <p class="unisphere-text">Students moving abroad for education lack a structured platform to connect, ask questions, and learn from others with similar experiences.</p>
@@ -99,6 +111,7 @@
                 </section>
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Concept</span>
                     <h2 class="unisphere-section-title">3. Concept Development</h2>
                     <p class="unisphere-text">We identified four main user pathways based on purpose:</p>
                     <ol class="unisphere-list unisphere-ordered">
@@ -115,14 +128,15 @@
                         <li>A shared design system created in Figma Components for consistency</li>
                     </ul>
                     <p class="unisphere-text">Short-term programs (Erasmus/Exchange) highlight social life and course choices, while long-term paths (Master/PhD) focus more on research, living arrangements, and career opportunities.</p>
-                    
+
                     <div class="armoni-logo-container" style="margin-top: 3rem;">
                         <img src="unisphere/va325.png" alt="UniSphere Logo" class="unisphere-logo">
                     </div>
-                    <p style="text-align: center; margin-top: 1rem; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 300; color: #666666; letter-spacing: 0.5px;">Figma High-Fidelity Prototype</p>
+                    <p style="text-align: center; margin-top: 1rem; font-family: 'General Sans', sans-serif; font-size: 0.85rem; font-weight: 300; color: #666666; letter-spacing: 0.5px;">Figma High-Fidelity Prototype</p>
                 </section>
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">User Research</span>
                     <h2 class="unisphere-section-title">4. Research & User Needs</h2>
                     <p class="unisphere-text">We conducted informal research by speaking with students who studied abroad. Common needs included:</p>
                     <ul class="unisphere-list">
@@ -142,6 +156,7 @@
                 </section>
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Features</span>
                     <h2 class="unisphere-section-title">5. Key Features</h2>
                     <ul class="unisphere-list">
                         <li><strong>Four main sections (Erasmus / Exchange / Master / PhD)</strong><br>Users start in their own category but can explore others freely.</li>
@@ -159,6 +174,7 @@
                 </section>
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Visual Design</span>
                     <h2 class="unisphere-section-title">6. Visual Design & Color System</h2>
                     <p class="unisphere-text">The main theme color of Unisphere is orange.</p>
                     <p class="unisphere-text">We chose this after testing multiple palettes and reviewing color psychology studies:</p>
@@ -182,6 +198,7 @@
                 </div>
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Process</span>
                     <h2 class="unisphere-section-title">7. My Role & Workflow</h2>
                     <p class="unisphere-text">This was a team project with two designers. My contribution included:</p>
                     <ul class="unisphere-list">
@@ -195,22 +212,64 @@
                 </section>
 
                 <section class="unisphere-section">
+                    <span class="cs-eyebrow">Outcome</span>
                     <h2 class="unisphere-section-title">Outcome</h2>
                     <p class="unisphere-text">Unisphere offers a more structured way for students studying abroad to connect, ask questions, and share experiences. By designing purpose-specific sections, robust filtering, and a warm visual identity built in Figma, the app aims to reduce confusion and help students feel supported during major life transitions.</p>
                 </section>
             </div>
         </div>
+            <section class="cs-band">
+                <div class="case-study-inner">
+                    <section class="cs-section cs-reflection cs-reveal">
+                        <span class="cs-eyebrow">Reflection</span>
+                        <h2 class="cs-headline">What this project taught me</h2>
+                        <p class="cs-body">UniSphere showed me how purpose-based navigation reduces noise. When users already feel overwhelmed, structure and warm color do more than decorative UI.</p>
+                        <p class="cs-body">Next I would validate flows with students in different countries and refine onboarding for first-time arrivals.</p>
+                    </section>
+                </div>
+            </section>
+
+            <section class="cs-band">
+                <div class="case-study-inner">
+                    <div class="cs-back-link cs-reveal">
+                        <a href="works.html" class="cs-text-link">← Back to all work</a>
+                    </div>
+                </div>
+            </section>
     </main>
 
     <!-- Scroll to Top Button -->
     <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"></a>
-
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 İdil Kale. All rights reserved.</p>
+    <footer class="footer home-footer">
+        <div class="home-footer-inner">
+            <div class="home-footer-quote">
+                <blockquote>
+                    <p>"Curious by nature, careful by design."</p>
+                </blockquote>
+                <p class="home-footer-tagline">Designed &amp; coded by Idil Kale · © 2026</p>
+            </div>
+            <div class="home-footer-navs">
+            <nav class="home-footer-col" aria-labelledby="footerSayHi">
+                <h2 id="footerSayHi">Say hi</h2>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/idilkale1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="mailto:idilkale2000@hotmail.com">Email</a></li>
+                    <li><a href="idil/IdilKale_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+                </ul>
+            </nav>
+            <nav class="home-footer-col" aria-labelledby="footerPage">
+                <h2 id="footerPage">Page</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="works.html">Works</a></li>
+                    <li><a href="playground.html">Playground</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            </div>
         </div>
     </footer>
     <script src="scroll-handler.js"></script>
+    <script src="case-study.js" defer></script>
 </body>
 </html>
