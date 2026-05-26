@@ -11,6 +11,9 @@
     --footer-bg: #dce9e0;
     --weight-heading: 700;
     --weight-body: 400;
+    --page-title-size: 2.5rem;
+    --page-title-size-mobile: 2rem;
+    --page-title-color: #111111;
 }
 
 * {
@@ -2849,13 +2852,14 @@ footer.footer.home-footer a:hover {
 
 .works-title {
     text-align: center;
-    font-size: 2.5rem;
-    font-weight: 600;
+    font-size: var(--page-title-size);
+    font-weight: var(--weight-heading);
     margin-top: 0.5rem;
     padding-top: 0 !important;
-    color: #000000;
+    color: var(--page-title-color);
     margin-bottom: 2.5rem;
     font-family: var(--font-serif);
+    line-height: 1.15;
     position: relative;
 }
 
@@ -3550,7 +3554,6 @@ body.works-page .project-info .armoni-description,
     }
     
     .works-title {
-        font-size: 2rem;
         margin-bottom: 3rem;
     }
     
@@ -4190,8 +4193,10 @@ body.contact-page .armoni-main {
 body.about-page .armoni-text h1,
 body.contact-page .armoni-text h1 {
     font-family: var(--font-serif);
+    font-size: var(--page-title-size);
     font-weight: var(--weight-heading);
-    color: #111;
+    color: var(--page-title-color);
+    line-height: 1.15;
 }
 
 body.about-page .armoni-tools,
@@ -6575,9 +6580,10 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 
 .playground-title {
     font-family: var(--font-serif);
-    font-size: clamp(1.65rem, 3vw, 2.15rem);
+    font-size: var(--page-title-size);
     font-weight: var(--weight-heading);
-    color: #111;
+    color: var(--page-title-color);
+    line-height: 1.15;
     margin: 0;
     text-align: center;
     padding: 0;
@@ -6920,12 +6926,6 @@ body.contact-page .armoni-main {
     background: var(--site-bg);
 }
 
-body.about-page .armoni-text h1,
-body.contact-page .armoni-text h1 {
-    font-family: var(--font-serif);
-    font-weight: var(--weight-heading);
-}
-
 body.about-page .armoni-tools,
 body.contact-page .armoni-tools {
     font-family: var(--font-sans);
@@ -6961,10 +6961,25 @@ body.rts-page.case-study-page .rts-top-hero {
 
 /* Site typography enforcement */
 .works-title,
+.playground-title,
+body.about-page .armoni-text h1,
+body.contact-page .armoni-text h1,
 .featured-title,
 .hero-name-large {
     font-family: var(--font-serif);
+    font-size: var(--page-title-size);
     font-weight: var(--weight-heading);
+    color: var(--page-title-color);
+    line-height: 1.15;
+}
+
+@media (max-width: 768px) {
+    .works-title,
+    .playground-title,
+    body.about-page .armoni-text h1,
+    body.contact-page .armoni-text h1 {
+        font-size: var(--page-title-size-mobile);
+    }
 }
 
 /* Works grid: title bold is scoped in body.works-page .project-card rules above */
@@ -7001,12 +7016,6 @@ body:not(.works-page) .project-info p {
 }
 
 /* Playground — Boska headings, General Sans body */
-.playground-page .playground-title {
-    font-family: var(--font-serif);
-    font-weight: var(--weight-heading);
-    font-style: normal;
-}
-
 .playground-page .playground-card-copy h2 {
     font-family: var(--font-serif);
     font-weight: var(--weight-body);
