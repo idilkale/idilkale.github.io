@@ -10,6 +10,7 @@
     var scrollStart = 0;
     var dragDistance = 0;
     var loopWidth = 0;
+    var loopAnchor = 0;
     var isAdjusting = false;
     var scrollNormalizeTimer = null;
 
@@ -19,8 +20,12 @@
         return finePointerQuery.matches;
     }
 
+    function getOriginalCards() {
+        return Array.from(track.querySelectorAll('.playground-card:not([data-loop-clone])'));
+    }
+
     function cloneCardsForLoop() {
-        var cards = Array.from(track.querySelectorAll('.playground-card:not([data-loop-clone])'));
+        var cards = getOriginalCards();
 
         cards.slice().reverse().forEach(function (card) {
             var pre = card.cloneNode(true);
@@ -42,7 +47,19 @@
     }
 
     function measureLoop() {
-        loopWidth = track.scrollWidth / 3;
+        var originals = getOriginalCards();
+        if (!originals.length) {
+            loopWidth = 0;
+            loopAnchor = 0;
+            return;
+        }
+
+        var first = originals[0];
+        var last = originals[originals.length - 1];
+        var gap = parseFloat(getComputedStyle(track).gap) || 0;
+
+        loopAnchor = first.offsetLeft;
+        loopWidth = last.offsetLeft + last.offsetWidth - first.offsetLeft + gap;
     }
 
     function maxScrollLeft() {
@@ -54,33 +71,37 @@
             return;
         }
 
-        var left = viewport.scrollLeft;
-        var maxScroll = maxScrollLeft();
-        var changed = false;
-
         isAdjusting = true;
 
-        while (loopWidth > 0) {
-            left = viewport.scrollLeft;
-            changed = false;
+        for (var guard = 0; guard < 6; guard += 1) {
+            var left = viewport.scrollLeft;
+            var changed = false;
+            var maxScroll = maxScrollLeft();
+            var appendThreshold = loopAnchor + loopWidth * 2 - viewport.clientWidth - 40;
 
-            if (left < loopWidth * 0.5) {
+            if (left < loopWidth * 0.4) {
                 viewport.scrollLeft = left + loopWidth;
+                if (isDragging) {
+                    scrollStart += loopWidth;
+                }
                 changed = true;
-            } else if (left >= 2 * loopWidth - 1 || (maxScroll > 0 && left >= maxScroll - 1)) {
+            } else if (left >= maxScroll - 1 && maxScroll > 0) {
                 viewport.scrollLeft = left - loopWidth;
+                if (isDragging) {
+                    scrollStart -= loopWidth;
+                }
+                changed = true;
+            } else if (left > appendThreshold) {
+                viewport.scrollLeft = left - loopWidth;
+                if (isDragging) {
+                    scrollStart -= loopWidth;
+                }
                 changed = true;
             }
 
             if (!changed) {
                 break;
             }
-
-            maxScroll = maxScrollLeft();
-        }
-
-        if (isDragging) {
-            scrollStart = viewport.scrollLeft;
         }
 
         isAdjusting = false;
@@ -88,7 +109,7 @@
 
     function scheduleNormalizeScroll() {
         clearTimeout(scrollNormalizeTimer);
-        scrollNormalizeTimer = setTimeout(normalizeScroll, 120);
+        scrollNormalizeTimer = setTimeout(normalizeScroll, 80);
     }
 
     function bindCardLinks(scope) {
@@ -116,7 +137,7 @@
     function initScrollPosition() {
         measureLoop();
         if (loopWidth) {
-            viewport.scrollLeft = loopWidth;
+            viewport.scrollLeft = loopAnchor;
         }
     }
 
@@ -130,20 +151,20 @@
             return;
         }
         img.addEventListener('load', function () {
-            var offset = loopWidth ? viewport.scrollLeft - loopWidth : 0;
+            var offset = loopWidth ? viewport.scrollLeft - loopAnchor : 0;
             initScrollPosition();
             if (loopWidth) {
-                viewport.scrollLeft = loopWidth + offset;
+                viewport.scrollLeft = loopAnchor + offset;
                 normalizeScroll();
             }
         });
     });
 
     window.addEventListener('resize', function () {
-        var offset = loopWidth ? viewport.scrollLeft - loopWidth : 0;
+        var offset = loopWidth ? viewport.scrollLeft - loopAnchor : 0;
         initScrollPosition();
         if (loopWidth) {
-            viewport.scrollLeft = loopWidth + offset;
+            viewport.scrollLeft = loopAnchor + offset;
             normalizeScroll();
         }
     });
@@ -163,6 +184,7 @@
         var walk = clientX - startX;
         dragDistance = Math.max(dragDistance, Math.abs(walk));
         viewport.scrollLeft = scrollStart - walk;
+        normalizeScroll();
     }
 
     function endDrag() {
@@ -177,7 +199,7 @@
     viewport.addEventListener(
         'scroll',
         function () {
-            if (isDragging) {
+            if (isAdjusting) {
                 return;
             }
             scheduleNormalizeScroll();
@@ -193,7 +215,7 @@
             }
             viewport.scrollLeft += event.deltaX;
             event.preventDefault();
-            scheduleNormalizeScroll();
+            normalizeScroll();
         },
         { passive: false }
     );
@@ -218,4 +240,10 @@
             moveDrag(event.pageX);
         });
     }
+
+    finePointerQuery.addEventListener('change', function () {
+        if (!usesMouseDrag() && isDragging) {
+            endDrag();
+        }
+    });
 })();

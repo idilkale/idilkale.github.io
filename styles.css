@@ -595,31 +595,52 @@ body.mobile-nav-open {
         min-width: 0;
     }
 
-    .header .logo-text {
-        gap: 0;
+    .logo-favicon {
+        height: 26px !important;
+        width: 26px !important;
     }
 
-    .logo-favicon {
-        height: 28px !important;
-        width: 28px !important;
+    .header .logo-text {
+        gap: 0.4rem;
+        max-width: calc(100% - 3rem);
     }
 
     .logo-wordmark,
-    .logo-text img.logo-wordmark,
+    .logo-text img.logo-wordmark {
+        display: block !important;
+        height: 22px !important;
+        width: auto !important;
+        max-width: min(42vw, 140px);
+        object-fit: contain;
+        object-position: left center;
+    }
+
     .logo-wordmark-slot {
-        display: none !important;
+        display: flex !important;
+        align-items: center;
+        flex: 0 1 auto;
+        min-width: 0;
+        overflow: hidden;
     }
 
     body.home-page .logo-text--home {
-        width: 28px;
-        min-width: 28px;
-        height: 28px;
+        width: auto;
+        min-width: 0;
+        max-width: calc(100% - 3rem);
+        height: 26px;
+        gap: 0.4rem;
     }
 
     body.home-page .logo-icon-slot {
-        flex: 0 0 28px;
-        width: 28px;
-        height: 28px;
+        flex: 0 0 26px;
+        width: 26px;
+        height: 26px;
+    }
+
+    body.home-page .logo-wordmark-slot {
+        display: flex !important;
+        width: auto;
+        height: 26px;
     }
     
     .header-nav {
@@ -637,36 +658,37 @@ body.mobile-nav-open {
     }
 
     body.mobile-nav-open .header {
-        z-index: 12002;
+        z-index: 20002;
     }
 
     .header-menu-btn {
         display: flex;
         flex-shrink: 0;
         position: relative;
-        z-index: 1;
+        z-index: 20003;
     }
 
     .header-mobile-nav {
-        display: block;
+        display: none;
         position: fixed;
         top: 0;
         right: 0;
-        z-index: 12001;
-        width: min(18rem, 100vw);
+        z-index: 20001;
+        width: min(17.5rem, 82vw);
         height: 100dvh;
         padding: calc(1.1rem + 27px + 0.75rem) 1.35rem 2rem;
-        background: var(--cs-page-bg, var(--site-bg));
+        background: var(--cs-page-bg, #ffffff);
         border-left: 1px solid rgba(0, 0, 0, 0.08);
-        box-shadow: -12px 0 40px rgba(0, 0, 0, 0.1);
+        box-shadow: -12px 0 40px rgba(0, 0, 0, 0.08);
         box-sizing: border-box;
         overflow-y: auto;
         pointer-events: auto;
         -webkit-overflow-scrolling: touch;
+        touch-action: manipulation;
     }
 
-    .header-mobile-nav[hidden] {
-        display: none !important;
+    .header-mobile-nav.is-open {
+        display: block;
     }
 
     .header-mobile-nav ul {
@@ -682,10 +704,10 @@ body.mobile-nav-open {
     .header-mobile-nav a {
         display: block;
         position: relative;
-        z-index: 1;
-        padding: 0.85rem 0.25rem;
+        z-index: 2;
+        padding: 0.95rem 0.35rem;
         font-family: var(--font-sans);
-        font-size: 0.82rem;
+        font-size: 0.85rem;
         font-weight: 400;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -693,7 +715,8 @@ body.mobile-nav-open {
         text-decoration: none;
         border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         cursor: pointer;
-        -webkit-tap-highlight-color: rgba(47, 143, 99, 0.15);
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(47, 143, 99, 0.2);
     }
 
     .header-mobile-nav li:last-child a {
@@ -706,16 +729,19 @@ body.mobile-nav-open {
     }
 
     .header-mobile-backdrop {
-        display: block;
+        display: none;
         position: fixed;
-        inset: 0;
-        z-index: 12000;
-        background: rgba(0, 0, 0, 0.28);
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: min(17.5rem, 82vw);
+        z-index: 20000;
+        background: rgba(0, 0, 0, 0.1);
         pointer-events: auto;
     }
 
-    .header-mobile-backdrop[hidden] {
-        display: none !important;
+    .header-mobile-backdrop.is-open {
+        display: block;
     }
 
     body.home-page:not(.home-scrolled) .header-menu-btn {
@@ -6510,9 +6536,11 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 }
 
 .playground-header {
-    max-width: none;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem 2rem 1.15rem;
+    padding: 2rem 2rem 0;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .playground-title {
@@ -6520,26 +6548,22 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     font-size: clamp(1.65rem, 3vw, 2.15rem);
     font-weight: var(--weight-body);
     color: #111;
-    margin: 0 0 0.65rem;
-    text-align: left;
-    max-width: 920px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 2rem;
-    box-sizing: border-box;
+    margin: 0;
+    text-align: center;
+    padding: 0;
 }
 
 .playground-intro {
     font-family: var(--font-sans);
-    font-size: clamp(0.78rem, 1.35vw, 0.95rem);
+    font-size: clamp(0.88rem, 1.35vw, 0.95rem);
     font-weight: var(--weight-body);
     color: #555;
-    line-height: 1.4;
-    max-width: none;
-    margin: 0 auto;
-    padding: 0 2rem;
-    box-sizing: border-box;
-    white-space: nowrap;
+    line-height: 1.5;
+    max-width: 38rem;
+    margin: 0 auto 0.85rem;
+    padding: 0;
+    text-align: center;
+    white-space: normal;
 }
 
 .playground-hint {
@@ -6552,23 +6576,14 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     margin: 0;
 }
 
-.playground-scroll-band {
-    width: 100%;
-    background: #f0eeea;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    padding: 0.7rem 1rem;
-    box-sizing: border-box;
-}
-
 .playground-scroll-hint {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.55rem;
-    margin: 0;
+    margin: 0 0 0.35rem;
     padding: 0;
-    color: #888888;
+    color: #a8a8a8;
     font-family: var(--font-sans);
     font-size: 0.72rem;
     font-weight: 400;
@@ -6600,15 +6615,16 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 }
 
 .playground-viewport {
+    width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
     cursor: grab;
-    margin-top: 0;
-    padding: 1.25rem 0 4rem;
+    margin-top: 2.25rem;
+    padding: 0 0 4rem;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    touch-action: auto;
-    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+    overscroll-behavior-x: none;
     overscroll-behavior-y: auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -6627,7 +6643,7 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     align-items: flex-start;
     gap: 1.5rem;
     width: max-content;
-    padding: 0 1.5rem 2rem;
+    padding: 0 2rem 2rem;
 }
 
 .playground-card {
@@ -6694,30 +6710,11 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 
 @media (max-width: 768px) {
     .playground-header {
-        padding: 1.5rem 1.25rem 0.75rem;
-    }
-
-    .playground-header {
-        padding: 1.5rem 0 1rem;
-    }
-
-    .playground-title,
-    .playground-intro {
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
-    }
-
-    .playground-intro {
-        white-space: normal;
-        font-size: 0.88rem;
-        line-height: 1.5;
-    }
-
-    .playground-scroll-band {
-        padding: 0.65rem 1.25rem;
+        padding: 1.5rem 1.25rem 0;
     }
 
     .playground-viewport {
+        margin-top: 1.75rem;
         cursor: default;
     }
 
