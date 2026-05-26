@@ -38,8 +38,8 @@
     backdrop.hidden = true;
 
     content.appendChild(btn);
-    header.appendChild(panel);
     document.body.appendChild(backdrop);
+    document.body.appendChild(panel);
 
     function setOpen(open) {
         document.body.classList.toggle('mobile-nav-open', open);
@@ -59,8 +59,12 @@
 
     backdrop.addEventListener('click', closeMenu);
 
-    panel.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', closeMenu);
+    panel.addEventListener('click', function (event) {
+        var link = event.target.closest('a[href]');
+        if (!link) {
+            return;
+        }
+        closeMenu();
     });
 
     document.addEventListener('keydown', function (event) {
