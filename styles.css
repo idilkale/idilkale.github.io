@@ -473,6 +473,12 @@ body.mobile-nav-open {
     line-height: 1;
 }
 
+@media (max-width: 768px) {
+    .scroll-to-top {
+        display: none !important;
+    }
+}
+
 /* Main Content */
 .main-content {
     display: flex;
