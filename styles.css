@@ -4905,7 +4905,7 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 
 .home-greeting-word {
     color: #ffffff;
-    transition: opacity 0.22s ease;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .home-hero-mark {
@@ -5091,12 +5091,6 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     text-transform: uppercase;
     color: var(--accent-color);
     margin: 0 0 0.75rem;
-}
-
-.home-case-type::before {
-    content: "· ";
-    color: #999;
-    letter-spacing: 0;
 }
 
 .home-case-headline {

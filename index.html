@@ -168,15 +168,19 @@
             var greetingIndex = 0;
             var greetingEl = document.getElementById('greetingWord');
             if (greetingEl) {
+                var greetingFadeMs = 500;
+
                 setInterval(function () {
                     greetingEl.style.opacity = '0';
                     setTimeout(function () {
                         greetingIndex = (greetingIndex + 1) % greetingWords.length;
                         greetingEl.textContent = greetingWords[greetingIndex];
                         greetingEl.lang = greetingWords[greetingIndex] === 'Merhaba' ? 'tr' : 'en';
-                        greetingEl.style.opacity = '1';
-                    }, 220);
-                }, 2800);
+                        requestAnimationFrame(function () {
+                            greetingEl.style.opacity = '1';
+                        });
+                    }, greetingFadeMs);
+                }, 3600);
             }
 
             var hero = document.getElementById('homeHero');
