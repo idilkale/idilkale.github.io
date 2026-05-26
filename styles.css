@@ -6599,7 +6599,7 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     align-items: center;
     justify-content: center;
     gap: 0.55rem;
-    margin: 1.35rem auto 0.5rem;
+    margin: 1.75rem auto 1.75rem;
     padding: 0;
     color: #a8a8a8;
     font-family: var(--font-sans);
@@ -6637,7 +6637,7 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     overflow-x: auto;
     overflow-y: hidden;
     cursor: grab;
-    margin-top: 0.65rem;
+    margin-top: 2.75rem;
     padding: 0 0 4rem;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -6732,12 +6732,12 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     }
 
     .playground-scroll-hint {
-        margin-top: 1rem;
-        margin-bottom: 0.4rem;
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
     }
 
     .playground-viewport {
-        margin-top: 0.5rem;
+        margin-top: 2rem;
         cursor: default;
     }
 
