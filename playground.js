@@ -11,6 +11,13 @@
     var dragDistance = 0;
     var loopWidth = 0;
     var isAdjusting = false;
+    var scrollNormalizeTimer = null;
+
+    var nativeScrollQuery = window.matchMedia('(max-width: 768px), (pointer: coarse)');
+
+    function prefersNativeScroll() {
+        return nativeScrollQuery.matches;
+    }
 
     function cloneCardsForLoop() {
         var cards = Array.from(track.querySelectorAll('.playground-card:not([data-loop-clone])'));
@@ -77,6 +84,11 @@
         }
 
         isAdjusting = false;
+    }
+
+    function scheduleNormalizeScroll() {
+        clearTimeout(scrollNormalizeTimer);
+        scrollNormalizeTimer = setTimeout(normalizeScroll, prefersNativeScroll() ? 120 : 0);
     }
 
     function bindCardLinks(scope) {
@@ -154,68 +166,78 @@
         var walk = clientX - startX;
         dragDistance = Math.max(dragDistance, Math.abs(walk));
         viewport.scrollLeft = scrollStart - walk;
-        normalizeScroll();
     }
 
     function endDrag() {
+        if (!isDragging) {
+            return;
+        }
         isDragging = false;
         viewport.classList.remove('is-dragging');
+        normalizeScroll();
     }
 
-    viewport.addEventListener('mousedown', function (event) {
-        startDrag(event.pageX);
-    });
+    viewport.addEventListener('scroll', function () {
+        if (isDragging) {
+            return;
+        }
+        scheduleNormalizeScroll();
+    }, { passive: true });
 
-    window.addEventListener('mouseup', endDrag);
-
-    viewport.addEventListener('mouseleave', endDrag);
-
-    viewport.addEventListener('mousemove', function (event) {
-        moveDrag(event.pageX, function () {
-            event.preventDefault();
+    if (!prefersNativeScroll()) {
+        viewport.addEventListener('mousedown', function (event) {
+            startDrag(event.pageX);
         });
-    });
 
-    viewport.addEventListener(
-        'touchstart',
-        function (event) {
-            if (event.touches.length !== 1) {
-                return;
-            }
-            startDrag(event.touches[0].pageX);
-        },
-        { passive: true }
-    );
+        window.addEventListener('mouseup', endDrag);
 
-    viewport.addEventListener(
-        'touchmove',
-        function (event) {
-            if (event.touches.length !== 1) {
-                return;
-            }
-            moveDrag(event.touches[0].pageX, function () {
+        viewport.addEventListener('mouseleave', endDrag);
+
+        viewport.addEventListener('mousemove', function (event) {
+            moveDrag(event.pageX, function () {
                 event.preventDefault();
             });
-        },
-        { passive: false }
-    );
+        });
 
-    viewport.addEventListener('touchend', endDrag);
-    viewport.addEventListener('touchcancel', endDrag);
+        viewport.addEventListener(
+            'touchstart',
+            function (event) {
+                if (event.touches.length !== 1) {
+                    return;
+                }
+                startDrag(event.touches[0].pageX);
+            },
+            { passive: true }
+        );
 
-    viewport.addEventListener(
-        'wheel',
-        function (event) {
-            if (Math.abs(event.deltaX) < Math.abs(event.deltaY)) {
-                viewport.scrollLeft += event.deltaY;
-            } else {
-                viewport.scrollLeft += event.deltaX;
-            }
-            event.preventDefault();
-            normalizeScroll();
-        },
-        { passive: false }
-    );
+        viewport.addEventListener(
+            'touchmove',
+            function (event) {
+                if (event.touches.length !== 1) {
+                    return;
+                }
+                moveDrag(event.touches[0].pageX, function () {
+                    event.preventDefault();
+                });
+            },
+            { passive: false }
+        );
 
-    viewport.addEventListener('scroll', normalizeScroll, { passive: true });
+        viewport.addEventListener('touchend', endDrag);
+        viewport.addEventListener('touchcancel', endDrag);
+
+        viewport.addEventListener(
+            'wheel',
+            function (event) {
+                if (Math.abs(event.deltaX) < Math.abs(event.deltaY)) {
+                    viewport.scrollLeft += event.deltaY;
+                } else {
+                    viewport.scrollLeft += event.deltaX;
+                }
+                event.preventDefault();
+                scheduleNormalizeScroll();
+            },
+            { passive: false }
+        );
+    }
 })();
