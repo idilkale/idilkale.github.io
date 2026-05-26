@@ -585,32 +585,39 @@ body.mobile-nav-open {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        gap: 0.75rem;
+        gap: 0.5rem;
         padding: 0.6rem 1rem;
         overflow: visible;
     }
 
     .header .logo {
-        flex: 0 1 auto;
+        flex: 1 1 auto;
         min-width: 0;
+        overflow: visible;
     }
 
     .logo-favicon {
         height: 26px !important;
         width: 26px !important;
+        flex-shrink: 0;
     }
 
     .header .logo-text {
-        gap: 0.4rem;
-        max-width: calc(100% - 3rem);
+        gap: 0.45rem;
+        max-width: calc(100vw - 4.25rem);
+        min-width: 0;
+        overflow: visible;
     }
 
     .logo-wordmark,
     .logo-text img.logo-wordmark {
         display: block !important;
-        height: 22px !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        height: 24px !important;
         width: auto !important;
-        max-width: min(42vw, 140px);
+        max-width: min(52vw, 168px);
+        flex-shrink: 1;
         object-fit: contain;
         object-position: left center;
     }
@@ -618,17 +625,19 @@ body.mobile-nav-open {
     .logo-wordmark-slot {
         display: flex !important;
         align-items: center;
-        flex: 0 1 auto;
+        flex: 1 1 auto;
         min-width: 0;
-        overflow: hidden;
+        max-width: min(52vw, 168px);
+        overflow: visible;
     }
 
     body.home-page .logo-text--home {
         width: auto;
         min-width: 0;
-        max-width: calc(100% - 3rem);
+        max-width: calc(100vw - 4.25rem);
         height: 26px;
-        gap: 0.4rem;
+        gap: 0.45rem;
+        contain: none;
     }
 
     body.home-page .logo-icon-slot {
@@ -639,8 +648,17 @@ body.mobile-nav-open {
 
     body.home-page .logo-wordmark-slot {
         display: flex !important;
+        flex: 1 1 auto;
         width: auto;
+        max-width: min(52vw, 168px);
         height: 26px;
+        overflow: visible;
+    }
+
+    body.home-page .logo-wordmark-slot .logo-wordmark {
+        width: auto !important;
+        height: 24px !important;
+        max-width: 100%;
     }
     
     .header-nav {
@@ -671,15 +689,18 @@ body.mobile-nav-open {
     .header-mobile-nav {
         display: none;
         position: fixed;
-        top: 0;
+        top: var(--mobile-header-height, 3.15rem);
         right: 0;
         z-index: 20001;
-        width: min(17.5rem, 82vw);
-        height: 100dvh;
-        padding: calc(1.1rem + 27px + 0.75rem) 1.35rem 2rem;
+        width: min(12.5rem, 72vw);
+        height: auto;
+        max-height: calc(100dvh - var(--mobile-header-height, 3.15rem) - 0.75rem);
+        padding: 0.4rem 0.9rem 0.65rem;
         background: var(--cs-page-bg, #ffffff);
-        border-left: 1px solid rgba(0, 0, 0, 0.08);
-        box-shadow: -12px 0 40px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-top: none;
+        border-radius: 0 0 0 12px;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
         box-sizing: border-box;
         overflow-y: auto;
         pointer-events: auto;
@@ -705,9 +726,9 @@ body.mobile-nav-open {
         display: block;
         position: relative;
         z-index: 2;
-        padding: 0.95rem 0.35rem;
+        padding: 0.72rem 0.2rem;
         font-family: var(--font-sans);
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         font-weight: 400;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -731,12 +752,9 @@ body.mobile-nav-open {
     .header-mobile-backdrop {
         display: none;
         position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: min(17.5rem, 82vw);
+        inset: 0;
         z-index: 20000;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgba(0, 0, 0, 0.08);
         pointer-events: auto;
     }
 
@@ -6581,7 +6599,7 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     align-items: center;
     justify-content: center;
     gap: 0.55rem;
-    margin: 0 0 0.35rem;
+    margin: 1.35rem auto 0.5rem;
     padding: 0;
     color: #a8a8a8;
     font-family: var(--font-sans);
@@ -6619,7 +6637,7 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     overflow-x: auto;
     overflow-y: hidden;
     cursor: grab;
-    margin-top: 2.25rem;
+    margin-top: 0.65rem;
     padding: 0 0 4rem;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -6713,8 +6731,13 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
         padding: 1.5rem 1.25rem 0;
     }
 
+    .playground-scroll-hint {
+        margin-top: 1rem;
+        margin-bottom: 0.4rem;
+    }
+
     .playground-viewport {
-        margin-top: 1.75rem;
+        margin-top: 0.5rem;
         cursor: default;
     }
 

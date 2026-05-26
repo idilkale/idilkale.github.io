@@ -41,6 +41,13 @@
     document.body.appendChild(backdrop);
     document.body.appendChild(panel);
 
+    function syncHeaderHeight() {
+        document.documentElement.style.setProperty(
+            '--mobile-header-height',
+            header.getBoundingClientRect().height + 'px'
+        );
+    }
+
     function setOpen(open) {
         document.body.classList.toggle('mobile-nav-open', open);
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -57,6 +64,7 @@
 
     btn.addEventListener('click', function (event) {
         event.stopPropagation();
+        syncHeaderHeight();
         setOpen(!document.body.classList.contains('mobile-nav-open'));
     });
 
@@ -88,6 +96,11 @@
         }
     }
 
-    window.addEventListener('resize', syncNavMode);
+    window.addEventListener('resize', function () {
+        syncHeaderHeight();
+        syncNavMode();
+    });
+    window.addEventListener('scroll', syncHeaderHeight, { passive: true });
+    syncHeaderHeight();
     syncNavMode();
 })();
