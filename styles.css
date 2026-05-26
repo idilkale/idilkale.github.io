@@ -14,6 +14,12 @@
     --page-title-size: 2.5rem;
     --page-title-size-mobile: 2rem;
     --page-title-color: #111111;
+    --page-shell-max: 1400px;
+    --page-shell-padding-x: 2rem;
+    --page-main-padding-top: 7.5rem;
+    --page-main-padding-top-mobile: 5rem;
+    --page-title-margin-bottom: 2.5rem;
+    --page-title-margin-bottom-mobile: 2.5rem;
 }
 
 * {
@@ -2840,7 +2846,7 @@ footer.footer.home-footer a:hover {
 
 /* Works Page Styles */
 .works-main {
-    padding-top: 7.5rem;
+    padding-top: var(--page-main-padding-top);
     padding-bottom: 4rem;
     min-height: 100vh;
     background-color: #ffffff;
@@ -2854,10 +2860,10 @@ footer.footer.home-footer a:hover {
     text-align: center;
     font-size: var(--page-title-size);
     font-weight: var(--weight-heading);
-    margin-top: 0.5rem;
+    margin-top: 0;
     padding-top: 0 !important;
     color: var(--page-title-color);
-    margin-bottom: 2.5rem;
+    margin-bottom: var(--page-title-margin-bottom);
     font-family: var(--font-serif);
     line-height: 1.15;
     position: relative;
@@ -3540,7 +3546,7 @@ body.works-page .project-info .armoni-description,
 
 @media (max-width: 768px) {
     .works-main {
-        padding-top: 5rem;
+        padding-top: var(--page-main-padding-top-mobile);
         padding-bottom: 2rem;
         overflow-x: hidden;
         width: 100%;
@@ -3554,7 +3560,7 @@ body.works-page .project-info .armoni-description,
     }
     
     .works-title {
-        margin-bottom: 3rem;
+        margin-bottom: var(--page-title-margin-bottom-mobile);
     }
     
     .works-title::after {
@@ -4197,6 +4203,19 @@ body.contact-page .armoni-text h1 {
     font-weight: var(--weight-heading);
     color: var(--page-title-color);
     line-height: 1.15;
+    margin-top: 0;
+    margin-bottom: var(--page-title-margin-bottom);
+}
+
+body.about-page .armoni-content {
+    max-width: var(--page-shell-max);
+    padding-left: var(--page-shell-padding-x);
+    padding-right: var(--page-shell-padding-x);
+}
+
+body.about-page .armoni-text {
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 body.about-page .armoni-tools,
@@ -4297,16 +4316,17 @@ body.contact-page .email-text {
 
 /* About Me Responsive */
 @media (max-width: 768px) {
-    body.about-page .armoni-main {
-        padding-top: 6.25rem;
+    body.about-page .armoni-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     body.about-page .armoni-text {
-        margin-bottom: 1.25rem;
+        margin-bottom: 0.75rem;
     }
 
     body.about-page .armoni-text h1 {
-        margin-bottom: 0.65rem;
+        margin-bottom: var(--page-title-margin-bottom-mobile);
     }
 
     .about-content {
@@ -6565,15 +6585,15 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 }
 
 .playground-main {
-    padding-top: 5.5rem;
+    padding-top: var(--page-main-padding-top);
     min-height: 100vh;
     overflow: hidden;
 }
 
 .playground-header {
-    max-width: 1400px;
+    max-width: var(--page-shell-max);
     margin: 0 auto;
-    padding: 2rem 2rem 0;
+    padding: 0 var(--page-shell-padding-x);
     box-sizing: border-box;
     text-align: center;
 }
@@ -6745,8 +6765,13 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 }
 
 @media (max-width: 768px) {
+    .playground-main {
+        padding-top: var(--page-main-padding-top-mobile);
+    }
+
     .playground-header {
-        padding: 1.5rem 1.25rem 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     .playground-scroll-hint {
@@ -6973,12 +6998,40 @@ body.contact-page .armoni-text h1,
     line-height: 1.15;
 }
 
+/* Works / Playground / About — same title position & alignment */
+body.works-page .works-main,
+body.playground-page .playground-main,
+body.about-page .armoni-main {
+    padding-top: var(--page-main-padding-top);
+}
+
+.works-title,
+.playground-title,
+body.about-page .armoni-text h1 {
+    margin-top: 0;
+    margin-bottom: var(--page-title-margin-bottom);
+    text-align: center;
+    width: 100%;
+}
+
 @media (max-width: 768px) {
     .works-title,
     .playground-title,
     body.about-page .armoni-text h1,
     body.contact-page .armoni-text h1 {
         font-size: var(--page-title-size-mobile);
+    }
+
+    body.works-page .works-main,
+    body.playground-page .playground-main,
+    body.about-page .armoni-main {
+        padding-top: var(--page-main-padding-top-mobile);
+    }
+
+    .works-title,
+    .playground-title,
+    body.about-page .armoni-text h1 {
+        margin-bottom: var(--page-title-margin-bottom-mobile);
     }
 }
 
