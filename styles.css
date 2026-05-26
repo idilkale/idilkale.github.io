@@ -4292,6 +4292,18 @@ body.contact-page .email-text {
 
 /* About Me Responsive */
 @media (max-width: 768px) {
+    body.about-page .armoni-main {
+        padding-top: 6.25rem;
+    }
+
+    body.about-page .armoni-text {
+        margin-bottom: 1.25rem;
+    }
+
+    body.about-page .armoni-text h1 {
+        margin-bottom: 0.65rem;
+    }
+
     .about-content {
         padding: 1rem 0;
         max-width: 100%;
@@ -6564,7 +6576,7 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 .playground-title {
     font-family: var(--font-serif);
     font-size: clamp(1.65rem, 3vw, 2.15rem);
-    font-weight: var(--weight-body);
+    font-weight: var(--weight-heading);
     color: #111;
     margin: 0;
     text-align: center;
@@ -6637,7 +6649,7 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     overflow-x: auto;
     overflow-y: hidden;
     cursor: grab;
-    margin-top: 2.75rem;
+    margin-top: 3.75rem;
     padding: 0 0 4rem;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -6737,7 +6749,7 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     }
 
     .playground-viewport {
-        margin-top: 2rem;
+        margin-top: 2.75rem;
         cursor: default;
     }
 
@@ -6988,8 +7000,13 @@ body:not(.works-page) .project-info p {
     font-weight: var(--weight-heading);
 }
 
-/* Playground — Boska headings (normal), General Sans body */
-.playground-page .playground-title,
+/* Playground — Boska headings, General Sans body */
+.playground-page .playground-title {
+    font-family: var(--font-serif);
+    font-weight: var(--weight-heading);
+    font-style: normal;
+}
+
 .playground-page .playground-card-copy h2 {
     font-family: var(--font-serif);
     font-weight: var(--weight-body);
