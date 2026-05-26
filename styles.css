@@ -6550,7 +6550,9 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     padding: 1rem 0 4rem;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    touch-action: pan-x;
+    touch-action: auto;
+    overscroll-behavior-x: contain;
+    overscroll-behavior-y: auto;
     -webkit-overflow-scrolling: touch;
 }
 

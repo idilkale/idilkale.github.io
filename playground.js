@@ -13,10 +13,10 @@
     var isAdjusting = false;
     var scrollNormalizeTimer = null;
 
-    var nativeScrollQuery = window.matchMedia('(max-width: 768px), (pointer: coarse)');
+    var finePointerQuery = window.matchMedia('(pointer: fine)');
 
-    function prefersNativeScroll() {
-        return nativeScrollQuery.matches;
+    function usesMouseDrag() {
+        return finePointerQuery.matches;
     }
 
     function cloneCardsForLoop() {
@@ -88,7 +88,7 @@
 
     function scheduleNormalizeScroll() {
         clearTimeout(scrollNormalizeTimer);
-        scrollNormalizeTimer = setTimeout(normalizeScroll, prefersNativeScroll() ? 120 : 0);
+        scrollNormalizeTimer = setTimeout(normalizeScroll, 120);
     }
 
     function bindCardLinks(scope) {
@@ -156,12 +156,9 @@
         scrollStart = viewport.scrollLeft;
     }
 
-    function moveDrag(clientX, preventDefault) {
+    function moveDrag(clientX) {
         if (!isDragging) {
             return;
-        }
-        if (preventDefault) {
-            preventDefault();
         }
         var walk = clientX - startX;
         dragDistance = Math.max(dragDistance, Math.abs(walk));
@@ -177,15 +174,35 @@
         normalizeScroll();
     }
 
-    viewport.addEventListener('scroll', function () {
-        if (isDragging) {
-            return;
-        }
-        scheduleNormalizeScroll();
-    }, { passive: true });
+    viewport.addEventListener(
+        'scroll',
+        function () {
+            if (isDragging) {
+                return;
+            }
+            scheduleNormalizeScroll();
+        },
+        { passive: true }
+    );
 
-    if (!prefersNativeScroll()) {
+    viewport.addEventListener(
+        'wheel',
+        function (event) {
+            if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) {
+                return;
+            }
+            viewport.scrollLeft += event.deltaX;
+            event.preventDefault();
+            scheduleNormalizeScroll();
+        },
+        { passive: false }
+    );
+
+    if (usesMouseDrag()) {
         viewport.addEventListener('mousedown', function (event) {
+            if (event.button !== 0) {
+                return;
+            }
             startDrag(event.pageX);
         });
 
@@ -194,50 +211,11 @@
         viewport.addEventListener('mouseleave', endDrag);
 
         viewport.addEventListener('mousemove', function (event) {
-            moveDrag(event.pageX, function () {
-                event.preventDefault();
-            });
+            if (!isDragging) {
+                return;
+            }
+            event.preventDefault();
+            moveDrag(event.pageX);
         });
-
-        viewport.addEventListener(
-            'touchstart',
-            function (event) {
-                if (event.touches.length !== 1) {
-                    return;
-                }
-                startDrag(event.touches[0].pageX);
-            },
-            { passive: true }
-        );
-
-        viewport.addEventListener(
-            'touchmove',
-            function (event) {
-                if (event.touches.length !== 1) {
-                    return;
-                }
-                moveDrag(event.touches[0].pageX, function () {
-                    event.preventDefault();
-                });
-            },
-            { passive: false }
-        );
-
-        viewport.addEventListener('touchend', endDrag);
-        viewport.addEventListener('touchcancel', endDrag);
-
-        viewport.addEventListener(
-            'wheel',
-            function (event) {
-                if (Math.abs(event.deltaX) < Math.abs(event.deltaY)) {
-                    viewport.scrollLeft += event.deltaY;
-                } else {
-                    viewport.scrollLeft += event.deltaX;
-                }
-                event.preventDefault();
-                scheduleNormalizeScroll();
-            },
-            { passive: false }
-        );
     }
 })();
