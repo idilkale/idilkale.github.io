@@ -13,6 +13,7 @@
     var loopAnchor = 0;
     var isAdjusting = false;
     var scrollNormalizeTimer = null;
+    var smoothScrollRaf = null;
 
     var finePointerQuery = window.matchMedia('(pointer: fine)');
 
@@ -110,6 +111,40 @@
     function scheduleNormalizeScroll() {
         clearTimeout(scrollNormalizeTimer);
         scrollNormalizeTimer = setTimeout(normalizeScroll, 80);
+    }
+
+    function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+    }
+
+    function smoothScrollBy(delta, duration) {
+        if (smoothScrollRaf) {
+            cancelAnimationFrame(smoothScrollRaf);
+            smoothScrollRaf = null;
+        }
+
+        var startLeft = viewport.scrollLeft;
+        var targetLeft = startLeft + delta;
+        var startTime = null;
+        duration = duration || 520;
+
+        function frame(time) {
+            if (startTime === null) {
+                startTime = time;
+            }
+            var progress = Math.min((time - startTime) / duration, 1);
+            viewport.scrollLeft = startLeft + (targetLeft - startLeft) * easeOutCubic(progress);
+
+            if (progress < 1) {
+                smoothScrollRaf = requestAnimationFrame(frame);
+                return;
+            }
+
+            smoothScrollRaf = null;
+            normalizeScroll();
+        }
+
+        smoothScrollRaf = requestAnimationFrame(frame);
     }
 
     function resolveCardFromTarget(target) {
@@ -221,11 +256,24 @@
     viewport.addEventListener(
         'wheel',
         function (event) {
-            if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) {
+            var delta = 0;
+
+            if (usesMouseDrag()) {
+                if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
+                    delta = event.deltaX;
+                } else if (event.deltaY !== 0) {
+                    delta = event.deltaY;
+                }
+            } else if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
+                delta = event.deltaX;
+            }
+
+            if (!delta) {
                 return;
             }
-            viewport.scrollLeft += event.deltaX;
+
             event.preventDefault();
+            viewport.scrollLeft += delta;
             normalizeScroll();
         },
         { passive: false }
@@ -244,9 +292,8 @@
         }
 
         event.preventDefault();
-        var step = Math.max(120, Math.round(viewport.clientWidth * 0.2));
-        viewport.scrollLeft += event.key === 'ArrowRight' ? step : -step;
-        normalizeScroll();
+        var step = Math.max(220, Math.round(viewport.clientWidth * 0.38));
+        smoothScrollBy(event.key === 'ArrowRight' ? step : -step, 520);
     }
 
     viewport.setAttribute('tabindex', '0');
