@@ -112,23 +112,34 @@
         scrollNormalizeTimer = setTimeout(normalizeScroll, 80);
     }
 
+    function resolveCardFromTarget(target) {
+        if (!target || typeof target.closest !== 'function') {
+            return null;
+        }
+        return target.closest('.playground-card[data-href]');
+    }
+
     function bindCardLinks(scope) {
-        scope.querySelectorAll('.playground-card[data-href]').forEach(function (card) {
-            if (card.getAttribute('data-loop-clone')) {
+        scope.addEventListener('click', function (event) {
+            var card = resolveCardFromTarget(event.target);
+            if (!card || dragDistance > 8) {
                 return;
             }
 
-            card.addEventListener('click', function () {
-                if (dragDistance > 8) {
-                    return;
-                }
-                window.location.href = card.getAttribute('data-href');
-            });
+            var href = card.getAttribute('data-href');
+            if (href) {
+                window.location.href = href;
+            }
+        });
 
+        scope.querySelectorAll('.playground-card[data-href]').forEach(function (card) {
             card.addEventListener('keydown', function (event) {
                 if (event.key === 'Enter' || event.key === ' ') {
                     event.preventDefault();
-                    window.location.href = card.getAttribute('data-href');
+                    var href = card.getAttribute('data-href');
+                    if (href) {
+                        window.location.href = href;
+                    }
                 }
             });
         });
@@ -219,6 +230,28 @@
         },
         { passive: false }
     );
+
+    function handleArrowScroll(event) {
+        if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
+            return;
+        }
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') {
+            return;
+        }
+        var tag = event.target && event.target.tagName ? event.target.tagName.toLowerCase() : '';
+        if (tag === 'input' || tag === 'textarea' || tag === 'select' || (event.target && event.target.isContentEditable)) {
+            return;
+        }
+
+        event.preventDefault();
+        var step = Math.max(120, Math.round(viewport.clientWidth * 0.2));
+        viewport.scrollLeft += event.key === 'ArrowRight' ? step : -step;
+        normalizeScroll();
+    }
+
+    viewport.setAttribute('tabindex', '0');
+    viewport.addEventListener('keydown', handleArrowScroll);
+    document.addEventListener('keydown', handleArrowScroll);
 
     if (usesMouseDrag()) {
         viewport.addEventListener('mousedown', function (event) {
