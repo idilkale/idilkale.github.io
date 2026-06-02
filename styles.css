@@ -6140,7 +6140,7 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 }
 
 .cs-hero-visual--video {
-    max-width: min(100%, 480px);
+    max-width: min(100%, 620px);
     margin: 0 auto 1.5rem;
 }
 
@@ -6148,7 +6148,7 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     display: block;
     width: 100%;
     max-width: 100%;
-    max-height: min(56vw, 340px);
+    max-height: min(62vw, 420px);
     height: auto;
     margin: 0 auto;
     border-radius: 8px;
