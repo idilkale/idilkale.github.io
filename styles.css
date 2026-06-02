@@ -6139,6 +6139,28 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     transform: translateY(-4px) scale(1.01);
 }
 
+.cs-hero-visual--video {
+    max-width: min(100%, 920px);
+    margin: 0 auto 2rem;
+}
+
+.cs-hero-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background: #111;
+}
+
+.crisis-type-page .cs-hero .cs-hero-visual--video {
+    order: 4;
+    margin-bottom: 1.5rem;
+}
+
+.crisis-type-page .cs-hero .cs-meta {
+    order: 5;
+}
+
 .cs-meta {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
