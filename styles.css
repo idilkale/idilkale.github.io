@@ -6165,13 +6165,15 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     order: 4;
     max-width: none;
     width: 100%;
-    margin-bottom: 2.25rem;
+    margin-bottom: 3.25rem;
 }
 
 .crisis-type-page .cs-hero .cs-hero-visual--video {
     order: 5;
-    margin-bottom: 2.5rem;
-    align-self: flex-start;
+    margin: 0 auto 3.5rem;
+    align-self: center;
+    width: fit-content;
+    max-width: min(100%, 620px);
 }
 
 .crisis-type-page .cs-hero .cs-body {
