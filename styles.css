@@ -6143,8 +6143,8 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     max-width: min(100%, 620px);
     width: fit-content;
     margin: 0 0 1.5rem;
-    background: var(--cs-page-bg, var(--site-bg));
-    overflow: hidden;
+    background: transparent;
+    overflow: visible;
 }
 
 .cs-hero-video {
@@ -6153,7 +6153,7 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     height: auto;
     margin: 0;
     border-radius: 8px;
-    background: var(--cs-page-bg, var(--site-bg));
+    background: transparent;
     vertical-align: top;
 }
 
@@ -6173,19 +6173,18 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
     order: 5;
     margin: 0 auto 3.5rem;
     align-self: center;
-    width: min(100%, 580px);
-    max-width: min(100%, 580px);
+    width: fit-content;
+    max-width: min(100%, 620px);
     border-radius: 8px;
 }
 
 .crisis-type-page .cs-hero .cs-hero-video {
-    width: 114%;
-    max-width: none;
-    margin-left: -7%;
-    height: auto;
+    width: min(100%, 620px);
+    max-width: 100%;
+    margin: 0;
     display: block;
-    border-radius: 0;
-    background: var(--cs-page-bg, var(--site-bg));
+    border-radius: 8px;
+    background: transparent;
 }
 
 .crisis-type-page .cs-hero .cs-body {
