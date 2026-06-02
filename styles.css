@@ -6163,6 +6163,8 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 
 .crisis-type-page .cs-hero .cs-hook {
     order: 4;
+    max-width: none;
+    width: 100%;
     margin-bottom: 2.25rem;
 }
 
@@ -6174,8 +6176,13 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 
 .crisis-type-page .cs-hero .cs-body {
     order: 6;
-    max-width: 640px;
+    max-width: none;
+    width: 100%;
     margin: 0 0 0.5rem;
+}
+
+.crisis-type-page .case-study-inner {
+    max-width: 960px;
 }
 
 .cs-meta {
