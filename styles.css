@@ -6141,41 +6141,41 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 
 .cs-hero-visual--video {
     max-width: min(100%, 620px);
-    margin: 0 auto 1.5rem;
+    width: fit-content;
+    margin: 0 0 1.5rem;
+    background: transparent;
 }
 
 .cs-hero-video {
     display: block;
-    width: 100%;
-    max-width: 100%;
-    max-height: min(62vw, 420px);
+    width: min(100%, 620px);
     height: auto;
-    margin: 0 auto;
+    margin: 0;
     border-radius: 8px;
-    background: #111;
-    object-fit: contain;
+    background: transparent;
+    vertical-align: top;
 }
 
 .crisis-type-page .cs-hero .cs-meta {
     order: 3;
-    margin: 0 0 1.5rem;
+    margin: 0 0 2.25rem;
 }
 
 .crisis-type-page .cs-hero .cs-hook {
     order: 4;
-    margin-bottom: 1rem;
-}
-
-.crisis-type-page .cs-hero .cs-body {
-    order: 5;
-    max-width: 640px;
-    margin: 0 0 1.75rem;
+    margin-bottom: 1.75rem;
 }
 
 .crisis-type-page .cs-hero .cs-hero-visual--video {
-    order: 6;
-    margin-bottom: 0;
+    order: 5;
+    margin-bottom: 1.75rem;
     align-self: flex-start;
+}
+
+.crisis-type-page .cs-hero .cs-body {
+    order: 6;
+    max-width: 640px;
+    margin: 0;
 }
 
 .cs-meta {
