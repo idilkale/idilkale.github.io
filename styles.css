@@ -6140,16 +6140,20 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 }
 
 .cs-hero-visual--video {
-    max-width: min(100%, 920px);
-    margin: 0 auto 2rem;
+    max-width: min(100%, 480px);
+    margin: 0 auto 1.5rem;
 }
 
 .cs-hero-video {
     display: block;
     width: 100%;
+    max-width: 100%;
+    max-height: min(56vw, 340px);
     height: auto;
+    margin: 0 auto;
     border-radius: 8px;
     background: #111;
+    object-fit: contain;
 }
 
 .crisis-type-page .cs-hero .cs-hero-visual--video {
