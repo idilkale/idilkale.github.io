@@ -6163,19 +6163,19 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 
 .crisis-type-page .cs-hero .cs-hook {
     order: 4;
-    margin-bottom: 1.75rem;
+    margin-bottom: 2.25rem;
 }
 
 .crisis-type-page .cs-hero .cs-hero-visual--video {
     order: 5;
-    margin-bottom: 1.75rem;
+    margin-bottom: 2.5rem;
     align-self: flex-start;
 }
 
 .crisis-type-page .cs-hero .cs-body {
     order: 6;
     max-width: 640px;
-    margin: 0;
+    margin: 0 0 0.5rem;
 }
 
 .cs-meta {
