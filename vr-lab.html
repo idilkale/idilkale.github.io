@@ -30,7 +30,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="index.html" class="logo-text" aria-label="İdil Kale — Home">
+                    <a href="index.html" class="logo-text" aria-label="İdil Kale - Home">
                         <img src="photos/favicon.png" alt="" class="logo-favicon" width="34" height="34" decoding="async">
                         <img src="photos/idil kale.png" alt="İdil Kale" class="logo-wordmark" decoding="async">
                     </a>
@@ -53,7 +53,7 @@
                     <section class="cs-hero cs-reveal cs-reveal-visible">
                         <span class="cs-tag">VR Development</span>
                         <h1 class="cs-title">Multi-User VR Laboratory</h1>
-                        <p class="cs-hook">A capstone VR experience built in Unity with networked interaction, motion capture, and collaborative lab scenarios.</p>
+                        <p class="cs-hook">Our capstone project: a VR lab built in Unity where multiple people can share a session, complete with networked interaction, motion capture, and real lab scenarios.</p>
 <dl class="cs-meta">
                             <div class="cs-meta-item">
                                 <dt>Timeline</dt>
@@ -77,11 +77,11 @@
                     <section class="cs-ps-grid cs-reveal cs-reveal-visible">
                         <article class="cs-ps-card cs-ps-problem">
                             <span class="cs-ps-label">Problem</span>
-                            <p>Most VR educational tools are single-user and fail to simulate the collaboration real laboratory work requires.</p>
+                            <p>Most VR educational tools are built for one person at a time, so they miss the collaboration that real lab work actually requires.</p>
                         </article>
                         <article class="cs-ps-card cs-ps-solution">
                             <span class="cs-ps-label">Solution</span>
-                            <p>A Unity capstone with Photon Fusion lets multiple users share sessions, sync equipment, and complete lab tasks together in VR.</p>
+                            <p>We built a Unity capstone using Photon Fusion so multiple people could share a session, sync equipment, and get through lab tasks together in VR.</p>
                         </article>
                     </section>
                 </div>
@@ -96,7 +96,7 @@
             </div>
 
             <div class="unisphere-description" style="margin-top: 2rem;">
-                <p class="unisphere-text">This project is a multi-user virtual reality laboratory experience developed as my senior capstone project. The goal was to design a shared VR environment where multiple users can join the same session, interact with lab equipment in real time, and collaboratively perform experimental procedures. The project was built in Unity for Oculus Quest headsets, and Meta provided the hardware support specifically for this project. Real-time networking and synchronization were implemented using Photon Fusion.</p>
+                <p class="unisphere-text">This was our senior capstone project: a multi-user VR lab where several people can join the same session, interact with lab equipment in real time, and work through experiments together. We built it in Unity for Oculus Quest headsets (Meta actually provided hardware support for this one), and used Photon Fusion to handle the real-time networking and syncing.</p>
             </div>
 
             <div class="vr-lab-featured-image">
@@ -108,8 +108,8 @@
                 <section class="unisphere-section">
                     <span class="cs-eyebrow">Background</span>
                     <h2 class="unisphere-section-title">Background & Motivation</h2>
-                    <p class="unisphere-text">Most VR educational tools focus on single-user interactions. While these systems are useful for learning basic concepts, they fail to simulate the collaborative nature of real laboratory environments, where communication and shared activity are essential.</p>
-                    <p class="unisphere-text">We aimed to bridge this gap by creating a VR environment that supports true multi-user interaction, synchronized object states, and collaborative workflows. The experience focuses on laboratory tasks that require coordination, such as transferring liquids between test tubes, preparing chemical solutions, and using scientific tools.</p>
+                    <p class="unisphere-text">Most VR educational tools are designed for one person at a time. They're fine for teaching basic concepts, but they miss what actually makes a lab work: people communicating and doing things together.</p>
+                    <p class="unisphere-text">We wanted to close that gap with an environment built around real multi-user interaction, where object states stay synced and people can actually work together. We focused on lab tasks that need coordination, like transferring liquids between test tubes, preparing solutions, and handling scientific tools.</p>
 
                     <div class="vr-lab-two-images-inline">
                         <img src="VR_Lab/a.png" alt="VR Lab Image A" class="vr-lab-small-img">
@@ -120,8 +120,8 @@
                 <section class="unisphere-section">
                     <span class="cs-eyebrow">Development</span>
                     <h2 class="unisphere-section-title">Development Process</h2>
-                    <p class="unisphere-text">The environment and interactions were developed in Unity, with a physics-based system that allows users to grab objects, manipulate lab tools, and observe changes in real time. All major interactions—holding objects, changing liquid levels, activating equipment—are network-synchronized so each user sees the same state.</p>
-                    <p class="unisphere-text">I implemented core interaction logic, collider-based fluid manipulation, object ownership transfer through Photon, and custom VR controller handling.</p>
+                    <p class="unisphere-text">We built the environment and interactions in Unity with a physics-based system, so people can grab objects, manipulate lab tools, and watch changes happen in real time. Everything (holding objects, changing liquid levels, activating equipment) stays network-synced so everyone sees the same state.</p>
+                    <p class="unisphere-text">We implemented core interaction logic, collider-based fluid manipulation, object ownership transfer through Photon, and custom VR controller handling.</p>
 
                     <div class="armoni-image-inline">
                         <img src="VR_Lab/c.png" alt="VR Lab Image C" class="armoni-inline-img">
@@ -131,16 +131,16 @@
                 <section class="unisphere-section">
                     <span class="cs-eyebrow">Multi-User Systems</span>
                     <h2 class="unisphere-section-title">Networking & Multi-User Experience</h2>
-                    <p class="unisphere-text">We used Photon Fusion to build stable real-time connections between users. Each participant appears in the environment as an avatar and can observe others' actions. Object states, transforms, and procedural steps are replicated across the network, enabling shared workflows.</p>
-                    <p class="unisphere-text">This multi-user design allows learners to communicate, follow each other's actions, and complete tasks together, reflecting real-life lab settings more accurately than single-user VR experiences.</p>
+                    <p class="unisphere-text">We used Photon Fusion to keep real-time connections between users stable. Everyone shows up as an avatar and can watch what everyone else is doing, with object states, transforms, and procedural steps all synced across the network.</p>
+                    <p class="unisphere-text">That's what lets learners actually talk to each other, follow what someone else is doing, and get through tasks as a group, closer to what a real lab feels like than any single-user VR experience could be.</p>
                 </section>
 
                 <section class="unisphere-section">
                     <span class="cs-eyebrow">Motion Capture</span>
                     <h2 class="unisphere-section-title">Motion Capture & Realistic Animation</h2>
-                    <p class="unisphere-text">To enhance realism, we recorded the movements of an actual laboratory worker using a Rokoko motion capture suit. The captured data was processed and cleaned in Blender, then retargeted to a humanoid rig used in Unity.</p>
-                    <p class="unisphere-text">We also modeled the avatar's face to resemble the real lab worker (with permission), allowing the VR demonstrator to reflect an authentic human presence. This figure performs proper lab procedures inside the environment, guiding users and demonstrating workflows they later replicate.</p>
-                    <p class="unisphere-text">This grounded motion data made the experience feel more natural and professional, especially for instructional sequences.</p>
+                    <p class="unisphere-text">To make it feel more real, we recorded an actual lab worker's movements with a Rokoko motion capture suit, cleaned up the data in Blender, and retargeted it onto a humanoid rig in Unity.</p>
+                    <p class="unisphere-text">We also modeled the avatar's face to look like the real lab worker, with their permission, so the VR demonstrator felt like an actual person instead of a generic character. That figure walks users through proper lab procedures inside the environment, and they replicate the workflow afterward.</p>
+                    <p class="unisphere-text">Using real motion data instead of animated presets made the instructional parts feel a lot more natural.</p>
                 </section>
 
                 <!-- Video placed in the middle -->
@@ -168,19 +168,20 @@
                 <section class="unisphere-section">
                     <span class="cs-eyebrow">Outcome</span>
                     <h2 class="unisphere-section-title">Outcome</h2>
-                    <p class="unisphere-text">The final system demonstrates how VR can support collaborative scientific training by combining realistic motion, networked interactions, and immersive spatial design. The environment allows users to work together, observe demonstrations, and learn hands-on procedures in a virtual space.</p>
-                    <p class="unisphere-text">The project serves as a foundation for scalable VR laboratory education, with potential future directions including AI-assisted instruction, expanded procedural content, and extended multi-role lab simulations.</p>
+                    <p class="unisphere-text">The final system shows how VR can support collaborative scientific training, combining real motion data, networked interactions, and a space that actually feels three-dimensional. People can work together, watch demonstrations, and learn procedures hands-on instead of just reading about them.</p>
+                    <p class="unisphere-text">It's a starting point for something bigger. We could see this growing into AI-assisted instruction, more procedural content, or simulations with different roles for each user.</p>
                 </section>
             </div>
         </div>
             <section class="cs-band">
                 <div class="case-study-inner">
-                    <section class="cs-section cs-reflection cs-reveal">
-                        <span class="cs-eyebrow">Reflection</span>
-                        <h2 class="cs-headline">What this project taught me</h2>
-                        <p class="cs-body">VR projects fail fast when interaction feedback is unclear. I learned to prototype early in-headset instead of polishing flat mockups too long.</p>
-                        <p class="cs-body">I would expand usability testing with users unfamiliar with VR to reduce onboarding friction.</p>
-                    </section>
+                    <div class="cs-reflection-frame">
+                        <section class="cs-section cs-reflection cs-reveal">
+                            <span class="cs-eyebrow">Reflection</span>
+                            <h2 class="cs-headline">What this project taught me</h2>
+                            <p class="cs-body">The technical side of this project pushed us the hardest: things like image quality on headset hardware, and designing interactions in an actual 3D space instead of a flat screen. In a normal interface, you can predict pretty much every way someone will click or scroll. In VR, people move in ways you don't expect, reaching for objects at odd angles, walking into things they shouldn't, or grabbing something before you meant for them to. We had to think ahead about those differences and design around them before they became a problem, instead of just fixing them after.</p>
+                        </section>
+                    </div>
                 </div>
             </section>
 
@@ -199,7 +200,7 @@
         <div class="home-footer-inner">
             <div class="home-footer-quote">
                 <blockquote>
-                    <p>"Curious by nature, careful by design."</p>
+                    <p>"Made with a lot of curiosity and a little trial and error."</p>
                 </blockquote>
                 <p class="home-footer-tagline">Designed &amp; coded by Idil Kale · © 2026</p>
             </div>
