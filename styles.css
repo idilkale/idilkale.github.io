@@ -6544,13 +6544,6 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 }
 
 /* Reflection */
-.cs-reflection-frame {
-    background: #f6f5f2;
-    border: 1px solid #ececea;
-    border-radius: 20px;
-    padding: 2.25rem;
-}
-
 .cs-reflection {
     margin-bottom: 0;
     padding: 1.75rem 2rem;
@@ -6561,11 +6554,6 @@ body.home-page.home-scrolled .logo-text--home .logo-wordmark-slot {
 }
 
 @media (max-width: 640px) {
-    .cs-reflection-frame {
-        padding: 1.25rem;
-        border-radius: 16px;
-    }
-
     .cs-reflection {
         padding: 1.35rem 1.5rem;
     }
