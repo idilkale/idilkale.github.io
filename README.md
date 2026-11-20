@@ -1,56 +1,29 @@
-# İdil Kale - Portfolio Website
+# İdil Kale · Portfolio
 
-Bu proje, mor temalı minimalist bir portföy web sitesi ana sayfasıdır. Fotoğraftaki tasarıma uygun olarak geliştirilmiştir.
+Source for [idilkale.com](https://www.idilkale.com): UI/UX & product designer and human-AI interaction researcher.
 
-## Özellikler
+Plain HTML, CSS and JavaScript, served by GitHub Pages. No build step.
 
-- **Mor Tema**: Siyah arka plan üzerinde açık mor/lavanta renkli metinler
-- **Zarif Tipografi**: Playfair Display serif yazı tipi kullanımı
-- **Minimalist Tasarım**: Temiz ve sade arayüz
-- **Responsive**: Mobil ve tablet uyumlu tasarım
-- **Izgara Sistemi**: Düzenli ve dengeli yerleşim
-- **Smooth Animasyonlar**: Sayfa yüklenme animasyonları
+## Structure
 
-## Dosya Yapısı
+| Page | File |
+|---|---|
+| Home | `index.html` |
+| My Works (case studies + side projects) | `works.html` |
+| My Research | `research.html` |
+| My Path (education, experience, toolbox) | `path.html` |
+| Case studies | `rts.html`, `signature.html`, `armoni.html`, `vr-lab.html`, `unisphere.html` |
+| Side projects | `friend.html`, `hepsisurada.html`, `crexrtive.html`, `digital-sun.html`, `crisis-type.html`, `catastrophe.html`, `the-ocean.html`, `monogram.html` |
 
-```
-portfolio-website/
-├── index.html          # Ana HTML dosyası
-├── styles.css          # CSS stilleri
-└── README.md           # Proje dokümantasyonu
-```
+- `site.css`: the whole design system (tab nav, type, bands, case-study blocks, galleries).
+- `site.js`: back-to-top, the "Who I am" carousel, the side-project gallery and the skills tabs.
+- `assets/`: images made for this design (portrait cut-out, share image, web-sized Armoni mockups).
+- Project folders (`RTS/`, `SIGnature/`, `armoni/`, …) hold the original project media.
+- `about.html`, `playground.html`, `fontplay.html`, `works-ui-ux.html`, `works-other.html` only redirect old links to the new pages.
 
-## Kullanım
+## Design tokens
 
-1. Dosyaları bir web sunucusuna yükleyin
-2. `index.html` dosyasını tarayıcıda açın
-3. Web sitesi otomatik olarak yüklenecektir
+Colors live as CSS variables at the top of `site.css` (`--band` berry, `--display` pink, `--paper`, `--ink`).
+Keep body text on the berry band light (`--band-ink`); dark text there fails contrast.
 
-## Özelleştirme
-
-### Renkleri Değiştirme
-`styles.css` dosyasında aşağıdaki renk değişkenlerini düzenleyebilirsiniz:
-- `#000000` - Arka plan rengi (siyah)
-- `#B19CD9` - Ana metin rengi (açık mor)
-- `#D4C5F9` - Hover rengi (daha açık mor)
-
-### İçerik Değiştirme
-`index.html` dosyasında:
-- "İdil Kale" yazısını kendi adınızla değiştirin
-- Navigasyon menü öğelerini düzenleyin
-- Yeni sayfalar ekleyin
-
-## Tarayıcı Desteği
-
-- Chrome (önerilen)
-- Firefox
-- Safari
-- Edge
-
-## Lisans
-
-Bu proje kişisel kullanım için oluşturulmuştur.
-
-## İletişim
-
-Herhangi bir sorunuz için iletişime geçebilirsiniz.
+Fonts: League Gothic (display), Newsreader (serif), IBM Plex Mono (labels), General Sans (body).

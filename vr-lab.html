@@ -3,226 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="UI/UX and brand design portfolio by İdil Kale.">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="İdil Kale">
-    <meta property="og:title" content="Multiuser VR Biology Lab - İdil Kale">
-    <meta property="og:description" content="UI/UX and brand design portfolio by İdil Kale.">
-    <meta property="og:url" content="https://www.idilkale.com/vr-lab.html">
-    <meta property="og:image" content="https://www.idilkale.com/idil/bg4.jpg">
-    <meta property="og:image:width" content="3544">
-    <meta property="og:image:height" content="2363">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Multiuser VR Biology Lab - İdil Kale">
-    <meta name="twitter:description" content="UI/UX and brand design portfolio by İdil Kale.">
-    <meta name="twitter:image" content="https://www.idilkale.com/idil/bg4.jpg">
-    <title>Multiuser VR Biology Lab - İdil Kale</title>
+    <title>Multi-User VR Lab · İdil Kale</title>
+    <meta name="description" content="A multi-user VR biology lab built in Unity with Photon Fusion networking and motion-captured demonstrations, a senior capstone at Sabancı University.">
     <link rel="icon" type="image/png" href="photos/favicon.png">
-    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-    <link href="https://api.fontshare.com/v2/css?f[]=boska@400,500,700&f[]=general-sans@400,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="scroll-handler.js" defer></script>
-    <script src="mobile-nav.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=League+Gothic&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+    <script src="site.js" defer></script>
 </head>
-<body class="vr-lab-page case-study-page">
-    <!-- Header Section -->
-        <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html" class="logo-text" aria-label="İdil Kale - Home">
-                        <img src="photos/favicon.png" alt="" class="logo-favicon" width="34" height="34" decoding="async">
-                        <img src="photos/idil kale.png" alt="İdil Kale" class="logo-wordmark" decoding="async">
-                    </a>
-                </div>
-                <nav class="header-nav" aria-label="Main">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="works.html">Works</a></li>
-                        <li><a href="playground.html">Playground</a></li>
-                        <li><a href="research.html">Research</a></li>
-                        <li><a href="about.html">About Me</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-<!-- Main Content -->
-    <main class="armoni-main case-study-main">
-            <section class="cs-band">
-                <div class="case-study-inner">
-                    <section class="cs-hero cs-reveal cs-reveal-visible">
-                        <span class="cs-tag">VR Development</span>
-                        <h1 class="cs-title">Multi-User VR Laboratory</h1>
-                        <p class="cs-hook">Our capstone project: a VR lab built in Unity where multiple people can share a session, complete with networked interaction, motion capture, and real lab scenarios.</p>
-<dl class="cs-meta">
-                            <div class="cs-meta-item">
-                                <dt>Timeline</dt>
-                                <dd>February 2024 – May 2025</dd>
-                            </div>
-                            <div class="cs-meta-item">
-                                <dt>Role</dt>
-                                <dd>VR Developer & Designer</dd>
-                            </div>
-                            <div class="cs-meta-item">
-                                <dt>Tools</dt>
-                                <dd>Unity, Blender, Photon Fusion, Oculus Quest, Rokoko SmartSuit Pro</dd>
-                            </div>
-                            <div class="cs-meta-item">
-                                <dt>Team</dt>
-                                <dd>Capstone team</dd>
-                            </div>
-                        </dl>
-                    </section>
+<body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="ast" viewBox="0 0 100 100"><g fill="currentColor"><rect x="42" y="0" width="16" height="100" rx="8"/><rect x="42" y="0" width="16" height="100" rx="8" transform="rotate(60 50 50)"/><rect x="42" y="0" width="16" height="100" rx="8" transform="rotate(120 50 50)"/></g></symbol>
+    </svg>
+    <a class="skip mono" href="#main">Skip to content</a>
+    <nav class="nav mono" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="works.html" aria-current="page">My Works</a>
+        <a href="research.html">My Research</a>
+        <a href="path.html">My Path</a>
+    </nav>
 
-                    <section class="cs-ps-grid cs-reveal cs-reveal-visible">
-                        <article class="cs-ps-card cs-ps-problem">
-                            <span class="cs-ps-label">Problem</span>
-                            <p>Most VR educational tools are built for one person at a time, so they miss the collaboration that real lab work actually requires.</p>
-                        </article>
-                        <article class="cs-ps-card cs-ps-solution">
-                            <span class="cs-ps-label">Solution</span>
-                            <p>We built a Unity capstone using Photon Fusion so multiple people could share a session, sync equipment, and get through lab tasks together in VR.</p>
-                        </article>
-                    </section>
+    <main id="main">
+        <header class="cs-hero">
+            <div class="wrap">
+                <p class="crumbs mono"><a href="works.html">← My works</a><span>/ 04</span></p>
+                <p class="cs-kicker mono">VR development &amp; HCI research · 2023 – 2025</p>
+                <h1 class="display cs-title">Multi-User VR Lab</h1>
+                <p class="cs-hook">Real lab work is collaborative, but most VR learning tools are built for one person. Our capstone: a lab where several people share one session.</p>
+                <dl class="cs-meta">
+                    <div><dt>Timeline</dt><dd>2023 – 2025 · Sabancı University</dd></div>
+                    <div><dt>My role</dt><dd>VR Developer &amp; Designer</dd></div>
+                    <div><dt>Tools</dt><dd>Unity, Blender, Photon Fusion, Oculus Quest, Rokoko SmartSuit Pro</dd></div>
+                    <div><dt>Team</dt><dd>Senior capstone team, with hardware support from Meta</dd></div>
+                </dl>
+            </div>
+        </header>
+
+        <div class="wrap">
+            <figure class="cs-cover"><img src="VR_Lab/lab2.png" alt="Inside the multi-user VR lab" fetchpriority="high"></figure>
+        </div>
+
+        <section class="band ps" aria-label="Problem and solution">
+            <span class="asterisk" aria-hidden="true"><svg><use href="#ast"/></svg></span>
+            <div class="wrap ps-grid">
+                <div>
+                    <p class="mono">The problem</p>
+                    <p>Most VR educational tools are built for one person at a time, so they miss the collaboration real lab work requires.</p>
+                </div>
+                <div>
+                    <p class="mono">What we did</p>
+                    <p>A Unity lab on Photon Fusion where several people share a session, sync equipment, and get through lab tasks together.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="wrap" style="padding-top:clamp(56px,9vh,96px)">
+            <section class="cs-sec" aria-labelledby="s1">
+                <div class="cs-sec-label"><span class="mono">01</span><h2 id="s1" class="display">Background</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">A lab is a team sport</h3>
+                    <p>Single-user VR is fine for teaching basic concepts, but it misses what makes a lab work: people communicating and doing things together.</p>
+                    <p>We built around real multi-user interaction, where object states stay synced, and focused on tasks that need coordination: transferring liquids between test tubes, preparing solutions and handling scientific tools.</p>
+                    <div class="figs figs--fill">
+                        <figure><div class="frame"><img src="VR_Lab/a.png" alt="A motion-captured lab demonstrator in the VR lab" loading="lazy"></div></figure>
+                        <figure><div class="frame"><img src="VR_Lab/b.png" alt="Another view of the VR lab" loading="lazy"></div></figure>
+                    </div>
                 </div>
             </section>
 
-        <div class="armoni-content">
-            <div class="armoni-text">
-                <h1>Multi-User VR Laboratory</h1>
-                <p class="armoni-description-short">VR Development</p>
-                <p class="armoni-tools spaced">Unity, Blender, Photon Fusion, Oculus Quest, Rokoko SmartSuit Pro</p>
-                <p class="armoni-tools" style="margin-top: 0.5rem; font-style: normal;">February 2024 - May 2025</p>
-            </div>
-
-            <div class="unisphere-description" style="margin-top: 2rem;">
-                <p class="unisphere-text">This was our senior capstone project: a multi-user VR lab where several people can join the same session, interact with lab equipment in real time, and work through experiments together. We built it in Unity for Oculus Quest headsets (Meta actually provided hardware support for this one), and used Photon Fusion to handle the real-time networking and syncing.</p>
-            </div>
-
-            <div class="vr-lab-featured-image">
-                <img src="VR_Lab/lab2.png" alt="VR Lab Featured Image" class="vr-lab-featured-img">
-            </div>
-
-            <div class="unisphere-description">
-
-                <section class="unisphere-section">
-                    <span class="cs-eyebrow">Background</span>
-                    <h2 class="unisphere-section-title">Background & Motivation</h2>
-                    <p class="unisphere-text">Most VR educational tools are designed for one person at a time. They're fine for teaching basic concepts, but they miss what actually makes a lab work: people communicating and doing things together.</p>
-                    <p class="unisphere-text">We wanted to close that gap with an environment built around real multi-user interaction, where object states stay synced and people can actually work together. We focused on lab tasks that need coordination, like transferring liquids between test tubes, preparing solutions, and handling scientific tools.</p>
-
-                    <div class="vr-lab-two-images-inline">
-                        <img src="VR_Lab/a.png" alt="VR Lab Image A" class="vr-lab-small-img">
-                        <img src="VR_Lab/b.png" alt="VR Lab Image B" class="vr-lab-small-img">
-                    </div>
-                </section>
-
-                <section class="unisphere-section">
-                    <span class="cs-eyebrow">Development</span>
-                    <h2 class="unisphere-section-title">Development Process</h2>
-                    <p class="unisphere-text">We built the environment and interactions in Unity with a physics-based system, so people can grab objects, manipulate lab tools, and watch changes happen in real time. Everything (holding objects, changing liquid levels, activating equipment) stays network-synced so everyone sees the same state.</p>
-                    <p class="unisphere-text">We implemented core interaction logic, collider-based fluid manipulation, object ownership transfer through Photon, and custom VR controller handling.</p>
-
-                    <div class="armoni-image-inline">
-                        <img src="VR_Lab/c.png" alt="VR Lab Image C" class="armoni-inline-img">
-                    </div>
-                </section>
-
-                <section class="unisphere-section">
-                    <span class="cs-eyebrow">Multi-User Systems</span>
-                    <h2 class="unisphere-section-title">Networking & Multi-User Experience</h2>
-                    <p class="unisphere-text">We used Photon Fusion to keep real-time connections between users stable. Everyone shows up as an avatar and can watch what everyone else is doing, with object states, transforms, and procedural steps all synced across the network.</p>
-                    <p class="unisphere-text">That's what lets learners actually talk to each other, follow what someone else is doing, and get through tasks as a group, closer to what a real lab feels like than any single-user VR experience could be.</p>
-                </section>
-
-                <section class="unisphere-section">
-                    <span class="cs-eyebrow">Motion Capture</span>
-                    <h2 class="unisphere-section-title">Motion Capture & Realistic Animation</h2>
-                    <p class="unisphere-text">To make it feel more real, we recorded an actual lab worker's movements with a Rokoko motion capture suit, cleaned up the data in Blender, and retargeted it onto a humanoid rig in Unity.</p>
-                    <p class="unisphere-text">We also modeled the avatar's face to look like the real lab worker, with their permission, so the VR demonstrator felt like an actual person instead of a generic character. That figure walks users through proper lab procedures inside the environment, and they replicate the workflow afterward.</p>
-                    <p class="unisphere-text">Using real motion data instead of animated presets made the instructional parts feel a lot more natural.</p>
-                </section>
-
-                <!-- Video placed in the middle -->
-                <div class="armoni-video-container vr-lab-video-middle">
-                    <video controls autoplay muted loop preload="metadata" class="armoni-video">
-                        <source src="VR_Lab/VR_Lab.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+            <section class="cs-sec" aria-labelledby="s2">
+                <div class="cs-sec-label"><span class="mono">02</span><h2 id="s2" class="display">Development</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">Grab it, pour it, and everyone sees it</h3>
+                    <p>We built the environment in Unity with a physics-based system, so people can grab objects, manipulate lab tools and watch changes happen in real time. Holding objects, changing liquid levels, activating equipment: everything stays network-synced.</p>
+                    <ul class="ticks">
+                        <li>Core interaction logic</li>
+                        <li>Collider-based fluid manipulation</li>
+                        <li>Object ownership transfer through Photon</li>
+                        <li>Custom VR controller handling</li>
+                    </ul>
+                    <figure class="cs-fig"><div class="frame"><img src="VR_Lab/c.png" alt="Overview of the VR lab room" loading="lazy"></div></figure>
                 </div>
+            </section>
 
-                <section class="unisphere-section">
-                    <span class="cs-eyebrow">Tools</span>
-                    <h2 class="unisphere-section-title">Hardware & Tools</h2>
-                    <p class="unisphere-text">The project was developed using:</p>
-                    <ul class="unisphere-list">
+            <section class="cs-sec" aria-labelledby="s3">
+                <div class="cs-sec-label"><span class="mono">03</span><h2 id="s3" class="display">Multi-user</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">Seeing what everyone else is doing</h3>
+                    <p>Photon Fusion keeps real-time connections stable. Everyone shows up as an avatar, with object states, transforms and procedural steps synced across the network.</p>
+                    <p class="callout">That's what lets learners talk to each other, follow what someone else is doing, and finish tasks as a group.</p>
+                </div>
+            </section>
+
+            <section class="cs-sec" aria-labelledby="s4">
+                <div class="cs-sec-label"><span class="mono">04</span><h2 id="s4" class="display">Motion capture</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">A real person, not a preset</h3>
+                    <p>We recorded an actual lab worker's movements with a Rokoko suit, cleaned up the data in Blender, and retargeted it onto a humanoid rig in Unity. With their permission, we modeled the avatar's face on them too.</p>
+                    <p>That demonstrator walks users through proper lab procedures, and they replicate the workflow afterward. Real motion data made the instruction feel far more natural than animated presets.</p>
+                    <figure class="cs-video">
+                        <video controls muted loop playsinline preload="none" poster="VR_Lab/lab1.png">
+                            <source src="VR_Lab/VR_Lab.mp4" type="video/mp4">
+                        </video>
+                    </figure>
+                    <span class="cs-cap">Walkthrough of the lab</span>
+                </div>
+            </section>
+
+            <section class="cs-sec" aria-labelledby="s5">
+                <div class="cs-sec-label"><span class="mono">05</span><h2 id="s5" class="display">Tools</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">Tested on the headset, all the way through</h3>
+                    <ul class="ticks ticks--cols">
                         <li>Unity (C#)</li>
                         <li>Photon Fusion</li>
-                        <li>Oculus Quest </li>
+                        <li>Oculus Quest</li>
                         <li>Blender</li>
                         <li>Rokoko SmartSuit Pro</li>
+                        <li>Eye tracking</li>
                     </ul>
-                    <p class="unisphere-text">We tested interactions directly on headset hardware throughout development.</p>
-                </section>
+                </div>
+            </section>
 
-                <section class="unisphere-section">
-                    <span class="cs-eyebrow">Outcome</span>
-                    <h2 class="unisphere-section-title">Outcome</h2>
-                    <p class="unisphere-text">The final system shows how VR can support collaborative scientific training, combining real motion data, networked interactions, and a space that actually feels three-dimensional. People can work together, watch demonstrations, and learn procedures hands-on instead of just reading about them.</p>
-                    <p class="unisphere-text">It's a starting point for something bigger. We could see this growing into AI-assisted instruction, more procedural content, or simulations with different roles for each user.</p>
-                </section>
-            </div>
+            <section class="cs-sec" aria-labelledby="s6">
+                <div class="cs-sec-label"><span class="mono">06</span><h2 id="s6" class="display">Outcome</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">Learning by doing, together</h3>
+                    <p>The final system shows how VR can support collaborative scientific training: real motion data, networked interaction and a space that feels three-dimensional. People work together, watch demonstrations and learn procedures hands-on instead of reading about them.</p>
+                    <p>It's a starting point for something bigger: AI-assisted instruction, more procedural content, or simulations with a different role for each user.</p>
+                    <div class="cs-actions"><a class="pill mono" href="research.html#vr">The research behind it →</a></div>
+                </div>
+            </section>
         </div>
-            <section class="cs-band">
-                <div class="case-study-inner">
-                    <section class="cs-section cs-reflection cs-reveal">
-                        <span class="cs-eyebrow">Reflection</span>
-                        <h2 class="cs-headline">What this project taught me</h2>
-                        <p class="cs-body">The technical side of this project pushed us the hardest: things like image quality on headset hardware, and designing interactions in an actual 3D space instead of a flat screen. In a normal interface, you can predict pretty much every way someone will click or scroll. In VR, people move in ways you don't expect, reaching for objects at odd angles, walking into things they shouldn't, or grabbing something before you meant for them to. We had to think ahead about those differences and design around them before they became a problem, instead of just fixing them after.</p>
-                    </section>
-                </div>
-            </section>
 
-            <section class="cs-band">
-                <div class="case-study-inner">
-                    <div class="cs-back-link cs-reveal">
-                        <a href="works.html" class="cs-text-link">← Back to all work</a>
-                    </div>
-                </div>
-            </section>
+        <section class="dark reflection" aria-labelledby="refTitle">
+            <span class="asterisk" aria-hidden="true"><svg><use href="#ast"/></svg></span>
+            <div class="wrap">
+                <p class="section-kicker mono">Reflection</p>
+                <h2 id="refTitle" class="display section-title">What this taught me</h2>
+                <p>On a screen you can predict almost every click. In VR, people reach at odd angles, walk into things, and grab objects before you meant them to. We had to design around those differences before they became problems, instead of fixing them after.</p>
+            </div>
+        </section>
+
+        <a class="band next-project" href="unisphere.html">
+            <div class="wrap">
+                <p class="mono">Next project · 05</p>
+                <p class="display">UniSphere <span aria-hidden="true">→</span></p>
+                <p>A mobile app that helps international students find advice they can actually trust.</p>
+            </div>
+        </a>
     </main>
 
-    <!-- Scroll to Top Button -->
-    <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"></a>
-    <footer class="footer home-footer">
-        <div class="home-footer-inner">
-            <div class="home-footer-quote">
-                <p class="home-footer-tagline">© 2026 İdil Kale</p>
+    <footer class="site-footer">
+        <div class="wrap">
+            <p class="section-kicker mono" style="color:#bdb6b1">Hiring, collaborating, or just curious?</p>
+            <h2 class="display say-hi">Say hi<span>*</span></h2>
+            <div class="footer-links">
+                <a class="pill mono" href="mailto:idilkale2000@hotmail.com">Email</a>
+                <a class="pill mono" href="https://www.linkedin.com/in/idilkale1/" target="_blank" rel="noopener">LinkedIn ↗</a>
+                <a class="pill mono" href="idil/IdilKale_Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
             </div>
-            <div class="home-footer-navs">
-            <nav class="home-footer-col" aria-labelledby="footerSayHi">
-                <h2 id="footerSayHi">Say hi</h2>
-                <ul>
-                    <li><a href="https://www.linkedin.com/in/idilkale1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a href="mailto:idilkale2000@hotmail.com">Email</a></li>
-                    <li><a href="idil/IdilKale_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
-                </ul>
-            </nav>
-            <nav class="home-footer-col" aria-labelledby="footerPage">
-                <h2 id="footerPage">Page</h2>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="works.html">Works</a></li>
-                    <li><a href="playground.html">Playground</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-            </nav>
-            </div>
+            <div class="footer-base mono"><span>© 2026 İdil Kale</span><span>Human-AI Designer</span></div>
         </div>
     </footer>
-    <script src="scroll-handler.js"></script>
-    <script src="case-study.js" defer></script>
+    <a class="to-top" id="toTop" href="#main" aria-label="Back to top"><svg viewBox="0 0 26 30"><path d="M13 29V2M2 13 13 2l11 11" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
 </body>
 </html>

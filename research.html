@@ -3,115 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="UI/UX and brand design portfolio by İdil Kale.">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="İdil Kale">
-    <meta property="og:title" content="Research - İdil Kale">
-    <meta property="og:description" content="UI/UX and brand design portfolio by İdil Kale.">
-    <meta property="og:url" content="https://www.idilkale.com/research.html">
-    <meta property="og:image" content="https://www.idilkale.com/idil/bg4.jpg">
-    <meta property="og:image:width" content="3544">
-    <meta property="og:image:height" content="2363">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Research - İdil Kale">
-    <meta name="twitter:description" content="UI/UX and brand design portfolio by İdil Kale.">
-    <meta name="twitter:image" content="https://www.idilkale.com/idil/bg4.jpg">
-    <title>Research - İdil Kale</title>
+    <title>My Research · İdil Kale</title>
+    <meta name="description" content="İdil Kale's human-AI interaction research: AI responses after user refusal, learner-owned AI memory, and collaborative VR learning.">
     <link rel="icon" type="image/png" href="photos/favicon.png">
-    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-    <link href="https://api.fontshare.com/v2/css?f[]=boska@400,500,700&f[]=general-sans@400,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="scroll-handler.js" defer></script>
-    <script src="mobile-nav.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=League+Gothic&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+    <script src="site.js" defer></script>
 </head>
-<body class="research-page">
+<body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="ast" viewBox="0 0 100 100"><g fill="currentColor"><rect x="42" y="0" width="16" height="100" rx="8"/><rect x="42" y="0" width="16" height="100" rx="8" transform="rotate(60 50 50)"/><rect x="42" y="0" width="16" height="100" rx="8" transform="rotate(120 50 50)"/></g></symbol>
+    </svg>
+    <a class="skip mono" href="#main">Skip to content</a>
+    <nav class="nav mono" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="works.html">My Works</a>
+        <a href="research.html" aria-current="page">My Research</a>
+        <a href="path.html">My Path</a>
+    </nav>
 
-    <!-- Header Section -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html" class="logo-text" aria-label="İdil Kale - Home">
-                        <img src="photos/favicon.png" alt="" class="logo-favicon" width="34" height="34" decoding="async">
-                        <img src="photos/idil kale.png" alt="İdil Kale" class="logo-wordmark" decoding="async">
-                    </a>
+    <main id="main">
+        <section class="section">
+            <div class="wrap">
+                <p class="section-kicker mono">Human-AI interaction · HCI</p>
+                <h1 class="display section-title">My research</h1>
+                <p class="section-lead">I don't start with a technology. I start with a question about people.</p>
+            </div>
+        </section>
+
+        <div class="band statement" style="min-height:56vh">
+            <span class="asterisk asterisk--a" aria-hidden="true"><svg><use href="#ast"/></svg></span>
+            <p>What happens to trust when people say <em>no</em> to AI?</p>
+            <span class="circle" aria-hidden="true"></span>
+        </div>
+
+        <section class="section" aria-label="Research projects">
+            <div class="wrap">
+                <h2 class="display section-title">The questions<br>I'm asking</h2>
+                <div class="rows">
+                    <article class="row" id="refusal">
+                        <div>
+                            <p class="meta mono">Ongoing research · Arizona State University</p>
+                            <h3 class="q-title">What should AI do after you say no?</h3>
+                        </div>
+                        <div>
+                            <p class="pull">When you turn down an AI's suggestion, the next move matters.</p>
+                            <p>Does it push again, back off, or explain itself? I'm studying how different post-refusal strategies shape people's sense of autonomy, their trust, and their willingness to keep working with the system.</p>
+                            <ul class="chips"><li>Conversational AI</li><li>Autonomy</li><li>Trust</li><li>Psychological reactance</li><li>Interaction design</li></ul>
+                        </div>
+                    </article>
+                    <article class="row" id="archie">
+                        <div>
+                            <p class="meta mono">Research &amp; development · Arizona State University</p>
+                            <h3 class="q-title">What if learners owned their AI's memory?</h3>
+                        </div>
+                        <div>
+                            <p class="pull">Archie is an AI-native learning companion where the learner, not the platform, owns their context.</p>
+                            <p>I design the interactions and build the harness behind them: a RAG pipeline over course material, an agent, and the guardrails that keep the learner in the driver's seat.</p>
+                            <ul class="chips"><li>AI in education</li><li>Agentic systems</li><li>RAG</li><li>AI harnesses</li><li>Learner-owned memory</li></ul>
+                        </div>
+                    </article>
+                    <article class="row" id="vr">
+                        <div>
+                            <p class="meta mono">HCI research · Sabancı University</p>
+                            <h3 class="q-title">Can learning in VR feel like learning together?</h3>
+                        </div>
+                        <div>
+                            <p class="pull">We built a multi-user virtual biology lab, then put people in it.</p>
+                            <p>The study looked at how shared, immersive interaction affects learning and engagement, combining system development with user-centered evaluation.</p>
+                            <ul class="chips"><li>Virtual reality</li><li>Collaborative learning</li><li>Spatial interaction</li><li>Eye tracking</li><li>Motion capture</li></ul>
+                            <p style="margin-top:1.4rem"><a class="text-link mono" href="vr-lab.html">Read the case study →</a></p>
+                        </div>
+                    </article>
                 </div>
-                <nav class="header-nav" aria-label="Main">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="works.html">Works</a></li>
-                        <li><a href="playground.html">Playground</a></li>
-                        <li><a href="research.html" class="active">Research</a></li>
-                        <li><a href="about.html">About Me</a></li>
-                    </ul>
-                </nav>
             </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="armoni-main">
-        <div class="armoni-content">
-            <div class="armoni-text">
-                <h1>Research</h1>
-                <p class="armoni-tools">Selected ongoing research</p>
-            </div>
-
-            <div class="research-list">
-                <article class="research-card">
-                    <h2 class="research-card-title">Designing AI Responses After User Refusal</h2>
-                    <p class="research-card-meta">Ongoing Research · Arizona State University</p>
-                    <p class="research-card-desc">Exploring how AI systems should respond after users reject a suggestion, with a focus on how different post-refusal interaction strategies may shape autonomy, trust, and willingness to continue interacting with the system.</p>
-                    <p class="research-card-tags">Areas: Human-AI Interaction · Conversational AI · User Autonomy · Trust · Psychological Reactance · Interaction Design</p>
-                </article>
-
-                <article class="research-card">
-                    <h2 class="research-card-title">Archie: AI-Native Learning Companion</h2>
-                    <p class="research-card-meta">Ongoing Research &amp; Development · Arizona State University</p>
-                    <p class="research-card-desc">Exploring how agentic AI systems can support learning while giving learners greater ownership over their context, memory, and interactions with AI.</p>
-                    <p class="research-card-tags">Areas: Human-AI Interaction · AI in Education · Agentic Systems · AI Harnesses · Learner-Owned Memory · Human-Centered AI</p>
-                </article>
-
-                <article class="research-card">
-                    <h2 class="research-card-title">Collaborative VR Learning Environment</h2>
-                    <p class="research-card-meta">HCI Research · Sabancı University</p>
-                    <p class="research-card-desc">Investigated how immersive and collaborative VR interactions can support learning and engagement in a virtual biology laboratory, combining system development with user-centered HCI research and evaluation.</p>
-                    <p class="research-card-tags">Areas: Human-Computer Interaction · Virtual Reality · Immersive Learning · Collaborative Interaction · Spatial Interaction · Usability Research</p>
-                    <p class="research-card-tags">Tools: Unity · Meta/Oculus Quest · Photon · Eye Tracking · Rokoko Motion Capture · Blender</p>
-                </article>
-            </div>
-        </div>
+        </section>
     </main>
 
-    <!-- Scroll to Top Button -->
-    <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"></a>
-    <footer class="footer home-footer">
-        <div class="home-footer-inner">
-            <div class="home-footer-quote">
-                <p class="home-footer-tagline">© 2026 İdil Kale</p>
+    <footer class="site-footer">
+        <div class="wrap">
+            <p class="section-kicker mono" style="color:#bdb6b1">Hiring, collaborating, or just curious?</p>
+            <h2 class="display say-hi">Say hi<span>*</span></h2>
+            <div class="footer-links">
+                <a class="pill mono" href="mailto:idilkale2000@hotmail.com">Email</a>
+                <a class="pill mono" href="https://www.linkedin.com/in/idilkale1/" target="_blank" rel="noopener">LinkedIn ↗</a>
+                <a class="pill mono" href="idil/IdilKale_Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
             </div>
-            <div class="home-footer-navs">
-            <nav class="home-footer-col" aria-labelledby="footerSayHi">
-                <h2 id="footerSayHi">Say hi</h2>
-                <ul>
-                    <li><a href="https://www.linkedin.com/in/idilkale1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a href="mailto:idilkale2000@hotmail.com">Email</a></li>
-                    <li><a href="idil/IdilKale_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
-                </ul>
-            </nav>
-            <nav class="home-footer-col" aria-labelledby="footerPage">
-                <h2 id="footerPage">Page</h2>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="works.html">Works</a></li>
-                    <li><a href="playground.html">Playground</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-            </nav>
-            </div>
+            <div class="footer-base mono"><span>© 2026 İdil Kale</span><span>Human-AI Designer</span></div>
         </div>
     </footer>
-    <script src="scroll-handler.js"></script>
+    <a class="to-top" id="toTop" href="#main" aria-label="Back to top"><svg viewBox="0 0 26 30"><path d="M13 29V2M2 13 13 2l11 11" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
 </body>
 </html>
