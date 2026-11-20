@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Sun · İdil Kale</title>
+    <meta name="description" content="Digital Sun: an Arduino and TouchDesigner installation where real-world light controls a 3D sun.">
+    <link rel="icon" type="image/png" href="../photos/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=League+Gothic&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="v2.css">
+    <script src="v2.js" defer></script>
+</head>
+<body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="ast" viewBox="0 0 100 100"><g fill="currentColor"><rect x="42" y="0" width="16" height="100" rx="8"/><rect x="42" y="0" width="16" height="100" rx="8" transform="rotate(60 50 50)"/><rect x="42" y="0" width="16" height="100" rx="8" transform="rotate(120 50 50)"/></g></symbol>
+    </svg>
+    <a class="skip mono" href="#main">Skip to content</a>
+    <nav class="nav mono" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="works.html" aria-current="page">My Works</a>
+        <a href="research.html">My Research</a>
+        <a href="path.html">My Path</a>
+    </nav>
+
+    <main id="main">
+        <header class="cs-hero">
+            <div class="wrap">
+                <p class="crumbs mono"><a href="works.html#side-projects">← Side projects</a><span>/ 04 of 08</span></p>
+                <p class="cs-kicker mono">Physical computing · 2024</p>
+                <h1 class="display cs-title">Digital Sun</h1>
+                <p class="cs-hook">Shine a light on a sensor and a 3D sun on screen gets brighter. Light is the only input.</p>
+                <dl class="cs-meta">
+                    <div><dt>Timeline</dt><dd>March 2024</dd></div>
+                    <div><dt>My role</dt><dd>Physical Computing Designer</dd></div>
+                    <div><dt>Tools</dt><dd>Arduino, Arduino IDE, photoresistor, TouchDesigner</dd></div>
+                    <div><dt>Team</dt><dd>Solo project</dd></div>
+                </dl>
+            </div>
+        </header>
+
+        <div class="wrap">
+            <figure class="cs-cover"><img src="../digital%20sun/new_coverphoto2.png" alt="Digital Sun, a glowing 3D sun" fetchpriority="high"></figure>
+        </div>
+
+        <div class="wrap">
+            <section class="cs-sec" aria-labelledby="s1">
+                <div class="cs-sec-label"><span class="mono">01</span><h2 id="s1" class="display">The idea</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">Physical light, digital sun</h3>
+                    <p>Made for a Physical Computing course, where the brief was a physical input that controls a digital 3D object in real time.</p><p>A photoresistor reads light in the room. Arduino sends the values over serial to TouchDesigner, where they drive the brightness and intensity of a 3D sun. More light in the room, brighter sun; less light, darker sun.</p><figure class="cs-video"><video controls playsinline preload="metadata"><source src="../digital%20sun/video.mp4" type="video/mp4"></video></figure>
+                </div>
+            </section>
+            <section class="cs-sec" aria-labelledby="s2">
+                <div class="cs-sec-label"><span class="mono">02</span><h2 id="s2" class="display">Hardware</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">Five parts on a breadboard</h3>
+                    <ul class="ticks ticks--cols"><li>Arduino board</li><li>Photoresistor</li><li>Resistor</li><li>Breadboard</li><li>Jumper cables</li></ul><p style="margin-top:1.2em">The photoresistor measures light as an analog value, and Arduino reads it and sends it to the computer continuously.</p>
+                </div>
+            </section>
+            <section class="cs-sec" aria-labelledby="s3">
+                <div class="cs-sec-label"><span class="mono">03</span><h2 id="s3" class="display">Code</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">From a number to a glow</h3>
+                    <p><strong>On the Arduino side</strong> I read the analog value, normalized it, and sent it over serial.</p><p><strong>In TouchDesigner</strong> I received the live data, smoothed it, and mapped it to the light and brightness of the 3D sun.</p><figure class="cs-video"><video controls playsinline preload="metadata"><source src="../digital%20sun/touchdesigner.mp4" type="video/mp4"></video></figure><span class="cs-cap">The TouchDesigner network</span>
+                </div>
+            </section>
+            <section class="cs-sec" aria-labelledby="s4">
+                <div class="cs-sec-label"><span class="mono">04</span><h2 id="s4" class="display">Interaction</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">Bring your own light</h3>
+                    <p>A flashlight, a desk lamp or the light in the room changes how the sun behaves.</p><p class="callout">No keyboard, no mouse, no touch. Just light.</p><p style="margin-top:1.4em">It shows the core loop of physical computing in one small system: sensing, sending data, and responding visually in real time.</p>
+                </div>
+            </section>
+        </div>
+
+        <a class="band next-project" href="crisis-type.html">
+            <div class="wrap">
+                <p class="mono">Next side project · 05</p>
+                <p class="display">Crisis Type <span aria-hidden="true">→</span></p>
+                <p>Climate words transformed through coded, reactive letterforms.</p>
+            </div>
+        </a>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <p class="section-kicker mono" style="color:#bdb6b1">Hiring, collaborating, or just curious?</p>
+            <h2 class="display say-hi">Say hi<span>*</span></h2>
+            <div class="footer-links">
+                <a class="pill mono" href="mailto:idilkale2000@hotmail.com">Email</a>
+                <a class="pill mono" href="https://www.linkedin.com/in/idilkale1/" target="_blank" rel="noopener">LinkedIn ↗</a>
+                <a class="pill mono" href="../idil/IdilKale_Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+            </div>
+            <div class="footer-base mono"><span>© 2026 İdil Kale</span><span>Human-AI Designer</span></div>
+        </div>
+    </footer>
+    <a class="to-top" id="toTop" href="#main" aria-label="Back to top"><svg viewBox="0 0 26 30"><path d="M13 29V2M2 13 13 2l11 11" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+</body>
+</html>

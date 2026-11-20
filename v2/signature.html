@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGnature · İdil Kale</title>
+    <meta name="description" content="SIGnature: a UX audit and redesign of azscience.org, the site families, students and tourists use to plan visits to the Arizona Science Center.">
+    <link rel="icon" type="image/png" href="../photos/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=League+Gothic&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="v2.css">
+    <script src="v2.js" defer></script>
+</head>
+<body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="ast" viewBox="0 0 100 100"><g fill="currentColor"><rect x="42" y="0" width="16" height="100" rx="8"/><rect x="42" y="0" width="16" height="100" rx="8" transform="rotate(60 50 50)"/><rect x="42" y="0" width="16" height="100" rx="8" transform="rotate(120 50 50)"/></g></symbol>
+    </svg>
+    <a class="skip mono" href="#main">Skip to content</a>
+    <nav class="nav mono" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="works.html" aria-current="page">My Works</a>
+        <a href="research.html">My Research</a>
+        <a href="path.html">My Path</a>
+    </nav>
+
+    <main id="main">
+        <!-- ===== Intro ===== -->
+        <header class="cs-hero">
+            <div class="wrap">
+                <p class="crumbs mono"><a href="works.html">← My works</a><span>/ 02</span></p>
+                <p class="cs-kicker mono">UX research &amp; redesign · Fall 2025</p>
+                <h1 class="display cs-title">SIGnature</h1>
+                <p class="cs-hook">Planning a family trip to a science museum shouldn't feel like a puzzle. We audited azscience.org and rebuilt the pages where people kept getting stuck.</p>
+                <dl class="cs-meta">
+                    <div><dt>Timeline</dt><dd>Fall 2025 · Arizona State University</dd></div>
+                    <div><dt>My role</dt><dd>UX Researcher &amp; Designer</dd></div>
+                    <div><dt>Tools</dt><dd>Figma, WAVE, Google Forms</dd></div>
+                    <div><dt>Team</dt><dd>Stephan Bui, İdil Kale, Gunikaa Agarwal</dd></div>
+                </dl>
+            </div>
+        </header>
+
+        <div class="wrap">
+            <figure class="cs-cover"><img src="../SIGnature/mockup.png" alt="Redesigned SIGnature screens for the Arizona Science Center" fetchpriority="high"></figure>
+        </div>
+
+        <!-- ===== Problem / Solution ===== -->
+        <section class="band ps" aria-label="Problem and solution">
+            <span class="asterisk" aria-hidden="true"><svg><use href="#ast"/></svg></span>
+            <div class="wrap ps-grid">
+                <div>
+                    <p class="mono">The problem</p>
+                    <p>People couldn't figure out how to buy a ticket, find an event, or plan a basic visit. The navigation was broken and the ticket flow just didn't go anywhere.</p>
+                </div>
+                <div>
+                    <p class="mono">What we did</p>
+                    <p>We rebuilt the three pages people struggled with most: home, tickets and events, based on a heuristic evaluation, an accessibility audit, surveys and usability tests.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Numbers ===== -->
+        <section class="section" aria-label="Project in numbers">
+            <div class="wrap">
+                <div class="stats">
+                    <div class="stat"><span class="stat-num">27</span><span class="stat-label mono">Survey participants</span></div>
+                    <div class="stat"><span class="stat-num">9</span><span class="stat-label mono">Usability sessions</span></div>
+                    <div class="stat"><span class="stat-num">3</span><span class="stat-label mono">Pages redesigned</span></div>
+                    <div class="stat"><span class="stat-num">3</span><span class="stat-label mono">Researchers</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Story ===== -->
+        <div class="wrap">
+            <section class="cs-sec" aria-labelledby="s1">
+                <div class="cs-sec-label"><span class="mono">01</span><h2 id="s1" class="display">Overview</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">Planning a visit shouldn't feel this hard</h3>
+                    <p>azscience.org is how most people plan their visit to the Arizona Science Center. The three of us ran a full UX audit and rebuilt the pages where people kept getting stuck, so the site would finally be clear enough to just scan and go.</p>
+                </div>
+            </section>
+
+            <section class="cs-sec" aria-labelledby="s2">
+                <div class="cs-sec-label"><span class="mono">02</span><h2 id="s2" class="display">Heuristic evaluation</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">Where the site breaks down</h3>
+                    <p>Each of us went through the site on our own using Nielsen's heuristics, and we flagged the exact same critical issues at the exact same severity. That's when we knew the problems weren't just our opinion.</p>
+                    <div class="findings">
+                        <article class="finding"><span class="sev sev--critical">Critical</span><h4>“Buy Tickets” leads nowhere</h4><p>The nav item takes users to a page with no way to purchase. Exhibition selections redirect without explanation.</p></article>
+                        <article class="finding"><span class="sev sev--critical">Critical</span><h4>No guidance after redirects</h4><p>During ticket purchasing, users are never told what's happening, so they get lost mid-flow.</p></article>
+                        <article class="finding"><span class="sev">Major</span><h4>Two navigation systems</h4><p>Two competing nav bars behave differently on every page, breaking consistency and predictability.</p></article>
+                        <article class="finding"><span class="sev">Major</span><h4>Events are buried</h4><p>Event content is hard to find and scan, even though users ranked events as a top priority.</p></article>
+                    </div>
+                    <div class="cs-actions"><a class="pill mono" href="../SIGnature/SIGnature%20Usability%20Recommendations-2.pdf" target="_blank" rel="noopener">Full heuristic report (PDF) ↗</a></div>
+                </div>
+            </section>
+
+            <section class="cs-sec" aria-labelledby="s3">
+                <div class="cs-sec-label"><span class="mono">03</span><h2 id="s3" class="display">User research</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">What people told us</h3>
+                    <p>Between the survey and nine moderated usability sessions, we kept hearing the same story: people were curious to explore, but friction wore them down, and nobody walked away feeling confident.</p>
+                    <div class="quotes">
+                        <blockquote class="quote"><p>“I couldn't figure out how to actually buy a ticket. I kept getting sent to pages that didn't let me purchase anything.”</p><cite>Survey participant · Ticket flow</cite></blockquote>
+                        <blockquote class="quote"><p>“I wanted to see what events were happening, but I couldn't find them without digging through the whole site.”</p><cite>Survey participant · Event discovery</cite></blockquote>
+                        <blockquote class="quote quote--band"><p>Every participant hit friction trying to buy a ticket, and not one of them felt confident afterward.</p><cite>Research synthesis · 27 surveys + 9 usability tests</cite></blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cs-sec" aria-labelledby="s4">
+                <div class="cs-sec-label"><span class="mono">04</span><h2 id="s4" class="display">Accessibility audit</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">One profile at a time isn't enough</h3>
+                    <p>We ran WAVE and WCAG-informed manual checks. The site does have an accessibility menu, but it only lets you pick one profile at a time.</p>
+                    <p class="callout">People's needs overlap. Forcing one choice locks out the exact people the feature was built for.</p>
+                </div>
+            </section>
+
+            <section class="cs-sec" aria-labelledby="s5">
+                <div class="cs-sec-label"><span class="mono">05</span><h2 id="s5" class="display">Personas</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">Three journeys, one broken site</h3>
+                    <p>The patterns in our survey responses shaped three personas. Each wanted something different from the site, but they all ran into the same walls.</p>
+                    <div class="strip" tabindex="0" aria-label="Personas, scroll sideways">
+                        <figure><div class="frame"><img src="../SIGnature/persona1.png" alt="Persona: Alex Martinez, the efficient ticket planner" loading="lazy"></div><figcaption class="mono">Alex · The efficient ticket planner</figcaption></figure>
+                        <figure><div class="frame"><img src="../SIGnature/persona2.png" alt="Persona: Maya Thompson, the event explorer" loading="lazy"></div><figcaption class="mono">Maya · The event explorer</figcaption></figure>
+                        <figure><div class="frame"><img src="../SIGnature/persona3.png" alt="Persona: Jordan Lee, the curious learner" loading="lazy"></div><figcaption class="mono">Jordan · The curious learner</figcaption></figure>
+                    </div>
+                    <p class="strip-hint mono">Scroll sideways →</p>
+                </div>
+            </section>
+
+            <section class="cs-sec" aria-labelledby="s6">
+                <div class="cs-sec-label"><span class="mono">06</span><h2 id="s6" class="display">Usability testing</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">Completion hid the friction</h3>
+                    <p>All nine people finished their tasks, but almost every session hit the same walls: scrolling to the footer for basic info, clicking sidebar items that did nothing, or being sent through a ticket flow with zero explanation.</p>
+                    <p class="callout">Finishing a task didn't mean the experience worked. People admitted far more uncertainty afterward than their think-aloud let on.</p>
+                </div>
+            </section>
+
+            <section class="cs-sec" aria-labelledby="s7">
+                <div class="cs-sec-label"><span class="mono">07</span><h2 id="s7" class="display">Redesign</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">Three pages, rebuilt from research</h3>
+                    <p>Every change came straight out of what we found in testing: a clearer hierarchy, fewer dead ends, and a next step that's always obvious.</p>
+                    <div class="screens">
+                        <article class="card"><div class="card-img"><img src="../SIGnature/Home.png" alt="Redesigned homepage" loading="lazy"></div><div class="card-body"><span class="card-name">Homepage</span><span class="card-fact">One stable navigation, direct ticket access, and content you can scan.</span></div></article>
+                        <article class="card"><div class="card-img"><img src="../SIGnature/Tickets%20Payment.png" alt="Redesigned ticket flow" loading="lazy"></div><div class="card-body"><span class="card-name">Tickets</span><span class="card-fact">Four clear steps (date, admission, extras, review) with a persistent cart.</span></div></article>
+                        <article class="card"><div class="card-img"><img src="../SIGnature/Events.png" alt="Redesigned events page" loading="lazy"></div><div class="card-body"><span class="card-name">Events</span><span class="card-fact">Featured cards, top-level filters and visible calls to action.</span></div></article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cs-sec" aria-labelledby="s8">
+                <div class="cs-sec-label"><span class="mono">08</span><h2 id="s8" class="display">Prototype</h2></div>
+                <div class="cs-body">
+                    <h3 class="cs-headline">Try the redesign</h3>
+                    <p>A clickable walkthrough of all three pages. Go ahead and buy a ticket.</p>
+                    <div class="proto">
+                        <iframe src="../SIGnature/signature_mockup/index.html" title="SIGnature interactive prototype" loading="lazy"></iframe>
+                        <div class="proto-bar"><span class="mono" style="color:var(--ink-soft)">Interactive prototype</span><a class="text-link mono" href="../SIGnature/signature_mockup/index.html" target="_blank" rel="noopener">Open full screen ↗</a></div>
+                    </div>
+                    <div class="cs-actions"><a class="pill mono" href="../SIGnature/SIGnature%20Usability%20Recommendations-2.pdf" target="_blank" rel="noopener">Full recommendations deck (PDF) ↗</a></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ===== Reflection ===== -->
+        <section class="dark reflection" aria-labelledby="refTitle">
+            <span class="asterisk" aria-hidden="true"><svg><use href="#ast"/></svg></span>
+            <div class="wrap">
+                <p class="section-kicker mono">Reflection</p>
+                <h2 id="refTitle" class="display section-title">What this taught me</h2>
+                <p>Designing from research means trusting what people did over what they said afterward. The real finding wasn't in the survey answers; it was in the gap between finishing a task and still feeling unsure. Completion rates alone would never have shown us that.</p>
+            </div>
+        </section>
+
+        <!-- ===== Next ===== -->
+        <a class="band next-project" href="armoni.html">
+            <div class="wrap">
+                <p class="mono">Next project · 03</p>
+                <p class="display">Armoni <span aria-hidden="true">→</span></p>
+                <p>A warm, cohesive brand world, from logo and mascot to stationery, signage and a website.</p>
+            </div>
+        </a>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <p class="section-kicker mono" style="color:#bdb6b1">Hiring, collaborating, or just curious?</p>
+            <h2 class="display say-hi">Say hi<span>*</span></h2>
+            <div class="footer-links">
+                <a class="pill mono" href="mailto:idilkale2000@hotmail.com">Email</a>
+                <a class="pill mono" href="https://www.linkedin.com/in/idilkale1/" target="_blank" rel="noopener">LinkedIn ↗</a>
+                <a class="pill mono" href="../idil/IdilKale_Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+            </div>
+            <div class="footer-base mono"><span>© 2026 İdil Kale</span><span>Human-AI Designer</span></div>
+        </div>
+    </footer>
+    <a class="to-top" id="toTop" href="#main" aria-label="Back to top"><svg viewBox="0 0 26 30"><path d="M13 29V2M2 13 13 2l11 11" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+</body>
+</html>
