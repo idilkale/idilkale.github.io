@@ -96,24 +96,20 @@
         onScroll();
     }
 
-    /* "People describe me as.." carousel (home) */
-    var nameEl = document.getElementById('traitName');
-    if (nameEl) {
-        var traits = [
-            ['Curious', 'I’d rather ask one more question than ship one more screen. Most of my best design decisions started with someone saying, “wait, why does it work like that?”'],
-            ['Playful', 'I always have something on the side that has nothing to do with work. Play is how I find ideas I would never find on purpose.'],
-            ['Detail-obsessed', 'A label that finally makes sense, a button in the right place: small details are what make something feel right. I’ll happily spend an afternoon on one.'],
-            ['In-between', 'I code like a designer and design like an engineer. Most of my work happens where those two meet.'],
-            ['Honest', 'I’d rather hear “this doesn’t work” in a usability test than after launch, and I try to give feedback the same way: clearly, and kindly.']
-        ];
-        var i = 0;
-        var textEl = document.getElementById('traitText');
+    /* "People describe me as.." carousel (home): every trait is in the HTML,
+       stacked in one grid cell, so the band keeps the height of the longest one */
+    var stack = document.getElementById('traitStack');
+    if (stack) {
+        var items = stack.querySelectorAll('.trait');
         var countEl = document.getElementById('traitCount');
+        var i = 0;
         var show = function (n) {
-            i = (n + traits.length) % traits.length;
-            nameEl.textContent = traits[i][0];
-            textEl.textContent = traits[i][1];
-            countEl.textContent = '0' + (i + 1) + ' / 0' + traits.length;
+            i = (n + items.length) % items.length;
+            items.forEach(function (el, k) {
+                el.classList.toggle('is-on', k === i);
+                if (k === i) el.removeAttribute('aria-hidden'); else el.setAttribute('aria-hidden', 'true');
+            });
+            countEl.textContent = '0' + (i + 1) + ' / 0' + items.length;
         };
         document.getElementById('traitPrev').addEventListener('click', function () { show(i - 1); });
         document.getElementById('traitNext').addEventListener('click', function () { show(i + 1); });
