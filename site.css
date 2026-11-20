@@ -687,3 +687,5 @@ a.work:focus-visible { outline: 3px solid var(--display); outline-offset: 4px; }
 .trait-stack .trait { grid-area: 1 / 1; min-height: 0; visibility: hidden; opacity: 0; transition: opacity .35s ease, visibility 0s linear .35s; }
 .trait-stack .trait.is-on { visibility: visible; opacity: 1; transition: opacity .35s ease; }
 .who-inner .trait-stack .trait h3 { font-size: clamp(2.6rem, 5vw, 5.2rem); white-space: nowrap; }
+.gallery { position: relative; }
+.gcard.is-clone { pointer-events: auto; }

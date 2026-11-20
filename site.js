@@ -1,59 +1,115 @@
 (function () {
     document.documentElement.classList.add('js');
 
-    /* Side-project gallery: cards arrive one by one, drag / buttons / keys to scroll */
+    /* Side-project gallery: an endless strip that drifts left to right.
+       The cards are cloned on both sides and the position wraps by one set,
+       so auto-drift, drag, buttons, keys and touch all share one loop. */
     var gallery = document.querySelector('[data-gallery]');
     if (gallery) {
-        var cards = gallery.querySelectorAll('.gcard');
-        cards.forEach(function (c, n) { c.style.setProperty('--i', n); });
-
-        if ('IntersectionObserver' in window) {
-            var io = new IntersectionObserver(function (entries) {
-                entries.forEach(function (e) {
-                    if (e.isIntersecting) { gallery.classList.add('is-in'); io.disconnect(); }
-                });
-            }, { threshold: 0.2 });
-            io.observe(gallery);
-        } else {
-            gallery.classList.add('is-in');
-        }
-
-        var btns = document.querySelectorAll('.gallery-btn');
-        var step = function () { return Math.max(300, gallery.clientWidth * 0.7); };
-        var syncBtns = function () {
-            var max = gallery.scrollWidth - gallery.clientWidth - 2;
-            btns.forEach(function (b) {
-                b.disabled = b.dataset.dir === '-1' ? gallery.scrollLeft <= 2 : gallery.scrollLeft >= max;
-            });
+        var originals = Array.prototype.slice.call(gallery.querySelectorAll('.gcard'));
+        var makeClone = function (card) {
+            var c = card.cloneNode(true);
+            c.setAttribute('aria-hidden', 'true');
+            c.setAttribute('tabindex', '-1');
+            c.classList.add('is-clone');
+            return c;
         };
-        btns.forEach(function (b) {
-            b.addEventListener('click', function () {
-                gallery.scrollBy({ left: step() * Number(b.dataset.dir), behavior: 'smooth' });
-            });
+        var first = originals[0];
+        originals.forEach(function (card) { gallery.insertBefore(makeClone(card), first); });
+        originals.forEach(function (card) { gallery.appendChild(makeClone(card)); });
+        gallery.querySelectorAll('.gcard').forEach(function (c, n) {
+            c.style.setProperty('--i', Math.abs(n - originals.length));
         });
-        gallery.addEventListener('scroll', syncBtns, { passive: true });
-        window.addEventListener('resize', syncBtns);
-        syncBtns();
 
+        var setWidth = 0, pos = 0, lastSet = null;
+        var measure = function () {
+            var oldSet = setWidth;
+            setWidth = gallery.querySelectorAll('.gcard')[originals.length * 2].offsetLeft - first.offsetLeft;
+            if (!oldSet) pos = first.offsetLeft - parseFloat(getComputedStyle(gallery).paddingLeft);
+            else pos = pos * setWidth / oldSet;
+            apply();
+        };
+        var wrap = function () {
+            if (!setWidth) return;
+            var start = first.offsetLeft - parseFloat(getComputedStyle(gallery).paddingLeft);
+            while (pos < start - setWidth / 2) pos += setWidth;
+            while (pos > start + setWidth / 2) pos -= setWidth;
+        };
+        var applying = false;
+        var apply = function () { wrap(); applying = true; gallery.scrollLeft = pos; };
+
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var SPEED = 38;                 /* px per second; negative direction = content moves right */
+        var paused = false, inView = false, tween = null, last = 0;
+
+        var tick = function (t) {
+            var dt = last ? Math.min(t - last, 64) / 1000 : 0;
+            last = t;
+            if (tween) {
+                var k = Math.min((t - tween.t0) / 520, 1);
+                var e = 1 - Math.pow(1 - k, 3);
+                pos = tween.from + (tween.to - tween.from) * e;
+                if (k >= 1) tween = null;
+                apply();
+            } else if (!paused && inView && !reduce && !down) {
+                pos -= SPEED * dt;
+                apply();
+            }
+            requestAnimationFrame(tick);
+        };
+
+        /* entrance (cards arrive one by one) + only drift while visible */
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (entries) {
+                entries.forEach(function (en) {
+                    inView = en.isIntersecting;
+                    if (en.isIntersecting) gallery.classList.add('is-in');
+                });
+            }, { threshold: 0.15 }).observe(gallery);
+        } else { gallery.classList.add('is-in'); inView = true; }
+
+        /* pause while the visitor is looking or interacting */
+        var resumeTimer = null;
+        var pause = function () { paused = true; clearTimeout(resumeTimer); };
+        var resumeSoon = function (ms) { clearTimeout(resumeTimer); resumeTimer = setTimeout(function () { paused = false; }, ms || 0); };
+        gallery.addEventListener('mouseenter', pause);
+        gallery.addEventListener('mouseleave', function () { resumeSoon(300); });
+        gallery.addEventListener('focusin', pause);
+        gallery.addEventListener('focusout', function () { resumeSoon(1500); });
+        gallery.addEventListener('touchstart', pause, { passive: true });
+        gallery.addEventListener('touchend', function () { resumeSoon(2500); }, { passive: true });
+
+        /* native scrolling (touch / trackpad) feeds back into the loop */
+        gallery.addEventListener('scroll', function () {
+            if (applying) { applying = false; return; }
+            pos = gallery.scrollLeft;
+            if (!tween) { wrap(); if (Math.abs(gallery.scrollLeft - pos) > 1) { applying = true; gallery.scrollLeft = pos; } }
+        }, { passive: true });
+
+        var step = function () { return Math.max(300, gallery.clientWidth * 0.7); };
+        var nudge = function (dir) {
+            pause(); resumeSoon(2500);
+            tween = { from: pos, to: pos + dir * step(), t0: performance.now() };
+        };
+        document.querySelectorAll('.gallery-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () { nudge(Number(btn.dataset.dir)); });
+        });
         gallery.addEventListener('keydown', function (e) {
             if (e.target !== gallery) return;
-            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-                e.preventDefault();
-                gallery.scrollBy({ left: (e.key === 'ArrowRight' ? 1 : -1) * step(), behavior: 'smooth' });
-            }
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); nudge(e.key === 'ArrowRight' ? 1 : -1); }
         });
 
-        /* mouse drag (touch already scrolls natively) */
-        var down = false, moved = false, startX = 0, startLeft = 0;
+        /* mouse drag */
+        var down = false, moved = false, startX = 0, startPos = 0;
         gallery.addEventListener('pointerdown', function (e) {
             if (e.pointerType !== 'mouse' || e.button !== 0) return;
-            down = true; moved = false; startX = e.clientX; startLeft = gallery.scrollLeft;
+            down = true; moved = false; startX = e.clientX; startPos = pos; tween = null;
         });
         window.addEventListener('pointermove', function (e) {
             if (!down) return;
             var dx = e.clientX - startX;
             if (!moved && Math.abs(dx) > 6) { moved = true; gallery.classList.add('is-dragging'); }
-            if (moved) gallery.scrollLeft = startLeft - dx;
+            if (moved) { pos = startPos - dx; apply(); if (Math.abs(pos - (startPos - dx)) > 1) { startPos = pos + dx; } }
         });
         window.addEventListener('pointerup', function () {
             if (!down) return;
@@ -63,6 +119,11 @@
         gallery.addEventListener('click', function (e) {
             if (moved) { e.preventDefault(); moved = false; }
         }, true);
+
+        window.addEventListener('resize', measure);
+        window.addEventListener('load', measure);
+        measure();
+        requestAnimationFrame(tick);
     }
 
     /* Switchable tabs (Essential skills) */
