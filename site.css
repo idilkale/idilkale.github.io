@@ -691,5 +691,5 @@ a.work:focus-visible { outline: 3px solid var(--display); outline-offset: 4px; }
 .gcard.is-clone { pointer-events: auto; }
 
 /* hero: one sentence instead of a label */
-.hero-title--line { font-size: clamp(2.6rem, 4.6vw, 4.6rem); line-height: .98; max-width: 11em; text-wrap: balance; }
+.hero-title--line { font-size: clamp(2.6rem, 4.6vw, 4.6rem); line-height: .98; max-width: 11em; text-wrap: balance; text-transform: none; }
 .hero-title--line span + span { margin-top: .12em; }
