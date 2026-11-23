@@ -690,6 +690,7 @@ a.work:focus-visible { outline: 3px solid var(--display); outline-offset: 4px; }
 .gallery { position: relative; }
 .gcard.is-clone { pointer-events: auto; }
 
-/* hero: one sentence instead of a label */
-.hero-title--line { font-size: clamp(2.6rem, 4.6vw, 4.6rem); line-height: .98; max-width: 11em; text-wrap: balance; text-transform: none; }
-.hero-title--line span + span { margin-top: .12em; }
+/* hero: name first, role, then a short statement */
+.hero-title--name { font-size: clamp(4rem, 9vw, 8.4rem); line-height: .9; }
+.hero-sub--role { margin-top: 1.1em; font-size: clamp(.8rem, 1vw, .95rem); }
+.hero-statement { font-family: var(--f-serif); font-size: clamp(1.4rem, 2.2vw, 2rem); line-height: 1.25; color: var(--ink); margin: clamp(1.4rem, 4vh, 2.4rem) 0 0; max-width: 22em; }
