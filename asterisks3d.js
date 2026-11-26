@@ -12,6 +12,10 @@ const targets = [...document.querySelectorAll('.asterisk, .say-hi span')].filter
 if (targets.length) init();
 
 async function init() {
+    // on the home page the hero goes first; the stars below the fold can wait a moment
+    if (document.querySelector('.hero-3d')) {
+        await new Promise(r => { addEventListener('hero:live', r, { once: true }); setTimeout(r, 4000); });
+    }
     const canvas = document.createElement('canvas');
     canvas.className = 'ast-layer';
     canvas.setAttribute('aria-hidden', 'true');

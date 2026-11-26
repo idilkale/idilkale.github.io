@@ -57,10 +57,12 @@ body { background: var(--paper); }
 .hero-statement { margin: clamp(.9rem, 2.4svh, 1.6rem) auto 0; max-width: 24em; }
 .hero .hero-actions { justify-content: center; margin-top: clamp(1.1rem, 3svh, 2rem); }
 
-/* until the 3D word loads (or without WebGL) a flat one shows */
-.hello-flat { font-size: clamp(5rem, 14vw, 13rem); color: var(--display); margin: 0; transition: opacity .4s ease; }
-.hello-flat span { color: var(--pop-1); }
-.hero.has-3d .hello-flat { opacity: 0; }
+/* An image of the exact first 3D frame shows instantly; the live scene fades in
+   over it once every model, texture and shader is ready, so the switch is invisible. */
+.hello-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; transition: opacity .5s ease .15s; }
+.hero-3d { opacity: 0; transition: opacity .5s ease; }
+.hero.is-live .hero-3d { opacity: 1; }
+.hero.is-live .hello-poster { opacity: 0; }
 @media (max-width: 960px) {
     .hero { min-height: 0; grid-template-rows: auto auto; }
     .hero-hello { min-height: clamp(240px, 38svh, 360px); margin: 16px 0 8px; }

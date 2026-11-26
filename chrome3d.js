@@ -55,25 +55,21 @@ export const pinkChrome = chrome.clone();
 pinkChrome.color.set(0xff9cc8);
 
 /* ---------- inflated shapes ---------- */
-const loader = new THREE.TextureLoader();
 const cache = {};
 
 /* Loads assets/hello/<name>.bin (made from the outline's distance field) and
-   returns { geometry, mask, w, h }: a closed, round-edged solid; w/h are the
-   outline's size inside the unit square, mask is the flat outline (for fur). */
+   returns { geometry, w, h }: a closed, round-edged solid; w/h are the
+   outline's size inside the unit square. */
 export function loadShape(name, base = 'assets/hello/') {
     if (!cache[name]) cache[name] = (async () => {
-        const [buf, mask] = await Promise.all([
-            fetch(base + name + '.bin').then(r => r.arrayBuffer()),
-            loader.loadAsync(base + name + '.png'),
-        ]);
+        const buf = await fetch(base + name + '.bin').then(r => r.arrayBuffer());
         const dv = new DataView(buf);
         const G = dv.getUint16(0, true), w = dv.getFloat32(2, true), h = dv.getFloat32(6, true), depth = dv.getFloat32(10, true);
         const n = G * G, o = 14;
         const flag = new Uint8Array(buf, o, n);
         const dx = new Int8Array(buf, o + n, n), dy = new Int8Array(buf, o + 2 * n, n);
         const H = new Uint16Array(buf.slice(o + 3 * n, o + 3 * n + 2 * n));
-        return { geometry: solidGeometry(G, flag, dx, dy, H, depth), mask, w, h };
+        return { geometry: solidGeometry(G, flag, dx, dy, H, depth), w, h };
     })();
     return cache[name];
 }

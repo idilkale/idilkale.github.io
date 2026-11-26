@@ -25,6 +25,20 @@
     <script type="importmap">{"imports":{"three":"./vendor/three/three.module.min.js","three/addons/":"./vendor/three/addons/"}}</script>
     <script type="module" src="asterisks3d.js"></script>
     <script type="module" src="hero3d.js"></script>
+    <!-- start every hero download at once instead of one after another -->
+    <link rel="preload" as="image" href="assets/hello/poster-wide.webp" media="(min-width: 641px)" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/hello/poster-narrow.webp" media="(max-width: 640px)" fetchpriority="high">
+    <link rel="modulepreload" href="vendor/three/three.module.min.js">
+    <link rel="modulepreload" href="chrome3d.js">
+    <link rel="modulepreload" href="hero3d.js">
+    <link rel="modulepreload" href="asterisks3d.js">
+    <link rel="preload" as="fetch" href="assets/hello/H.bin" crossorigin>
+    <link rel="preload" as="fetch" href="assets/hello/E.bin" crossorigin>
+    <link rel="preload" as="fetch" href="assets/hello/L.bin" crossorigin>
+    <link rel="preload" as="fetch" href="assets/hello/O.bin" crossorigin>
+    <link rel="preload" as="fetch" href="assets/hello/ast.bin" crossorigin>
+    <link rel="preload" as="image" href="assets/hello/marble.webp" crossorigin>
+    <link rel="preload" as="image" href="assets/hello/E-fur.png" crossorigin>
     <script src="site.js" defer></script>
 </head>
 <body>
@@ -55,7 +69,10 @@
                 </a>
             </div>
             <div class="hero-hello" aria-hidden="true">
-                <p class="display hello-flat">Hello<span>*</span></p>
+                <picture>
+                    <source media="(max-width: 640px)" srcset="assets/hello/poster-narrow.webp">
+                    <img class="hello-poster" src="assets/hello/poster-wide.webp" alt="" fetchpriority="high" decoding="async">
+                </picture>
             </div>
         </section>
 

@@ -9,12 +9,14 @@ const hero = document.querySelector('.hero');
 const canvas = document.querySelector('.hero-3d');
 const area = document.querySelector('.hero-hello');
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const posterMode = new URLSearchParams(location.search).has('poster');   // freeze the first frame
+const loader = new THREE.TextureLoader();
 
 let renderer;
 try {
     renderer = makeRenderer(canvas);
 } catch (e) {
-    canvas.remove();          // no WebGL: the flat "Hello" stays
+    canvas.remove();          // no WebGL: the preview image stays
     throw e;
 }
 
@@ -28,41 +30,6 @@ const rim = new THREE.DirectionalLight(0xf0569a, 1.2); rim.position.set(4, -2, -
 scene.add(new THREE.AmbientLight(0xffffff, 0.25));
 
 /* ---------- materials ---------- */
-/* Blue marble with navy and white veins, drawn once: fractal noise bent through sines. */
-function marbleTexture() {
-    const N = 512, c = document.createElement('canvas'); c.width = c.height = N;
-    const g = c.getContext('2d'), img = g.createImageData(N, N);
-    const G = 64, grid = new Float32Array((G + 1) * (G + 1)).map(() => Math.random());
-    const noise = (x, y) => {                       // tiling value noise on a 64-cell grid
-        const xi = Math.floor(x) % G, yi = Math.floor(y) % G, xf = x - Math.floor(x), yf = y - Math.floor(y);
-        const at = (i, j) => grid[(j % G) * (G + 1) + (i % G)];
-        const sx = xf * xf * (3 - 2 * xf), sy = yf * yf * (3 - 2 * yf);
-        const top = at(xi, yi) + (at(xi + 1, yi) - at(xi, yi)) * sx;
-        const bot = at(xi, yi + 1) + (at(xi + 1, yi + 1) - at(xi, yi + 1)) * sx;
-        return top + (bot - top) * sy;
-    };
-    const fbm = (x, y) => { let v = 0, a = 0.5, f = 1; for (let o = 0; o < 5; o++) { v += a * noise(x * f, y * f); a *= 0.5; f *= 2; } return v; };
-    for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
-        const u = x / N * 8, v = y / N * 8;
-        const f = fbm(u, v);
-        const t = Math.abs(Math.sin((u * 1.3 + v * 0.7) * 1.6 + f * 7));               // 0 on a dark vein
-        const t2 = Math.abs(Math.sin((u * 0.6 - v * 1.1) * 2.1 + f * 9 + 1.7));        // 0 on a white vein
-        const dark = Math.pow(1 - t, 7), light = Math.pow(1 - t2, 10), cloud = f * 0.35;
-        // cornflower blue stone, navy veins, a few white threads
-        let r = 112 + cloud * 90, gg = 146 + cloud * 80, b = 245;
-        r += (22 - r) * dark; gg += (38 - gg) * dark; b += (140 - b) * dark;
-        r += (245 - r) * light; gg += (248 - gg) * light; b += (255 - b) * light;
-        const k = (y * N + x) * 4;
-        img.data[k] = r; img.data[k + 1] = gg; img.data[k + 2] = b;
-        img.data[k + 3] = 255;
-    }
-    g.putImageData(img, 0, 0);
-    const tex = new THREE.CanvasTexture(c);
-    tex.colorSpace = THREE.SRGBColorSpace;
-    tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
-    tex.repeat.set(1.3, 1.3);
-    return tex;
-}
 const M = {
     jelly: new THREE.MeshPhysicalMaterial({
         color: 0xd8ff5c, roughness: 0.05, transmission: 0.55, thickness: 0.6, ior: 1.45,
@@ -71,7 +38,7 @@ const M = {
     }),
     furBase: new THREE.MeshStandardMaterial({ color: 0xa0245e, roughness: 1 }),
     chrome,
-    marble: new THREE.MeshPhysicalMaterial({ map: marbleTexture(), roughness: 0.12, clearcoat: 1, clearcoatRoughness: 0.04, sheen: 0.3, sheenColor: 0xc9d4ff }),
+    marble: new THREE.MeshPhysicalMaterial({ roughness: 0.12, clearcoat: 1, clearcoatRoughness: 0.04, sheen: 0.3, sheenColor: 0xc9d4ff }),
     pearl: new THREE.MeshPhysicalMaterial({
         color: 0xf6eef6, roughness: 0.14, metalness: 0.25, iridescence: 1, iridescenceIOR: 1.7,
         iridescenceThicknessRange: [180, 820], clearcoat: 1, clearcoatRoughness: 0.06, sheen: 0.5, sheenColor: 0xffd6ea,
@@ -81,7 +48,7 @@ const M = {
 /* Fur: stacked shells pushed out along the surface; each shell keeps only the
    strands long enough to reach it, which reads as soft fur. */
 async function furShells(geometry, letter) {
-    const strands = await new THREE.TextureLoader().loadAsync('assets/hello/E-fur.png');
+    const strands = await loader.loadAsync('assets/hello/E-fur.png');
     const N = 18, len = 0.036;
     const base = geometry.attributes.position.array, nrm = geometry.attributes.normal.array;
     const dark = new THREE.Color(0xa0245e), light = new THREE.Color(0xff8fc0);
@@ -111,23 +78,36 @@ const letters = [];
 let star = null, starGeo = null;
 
 async function build() {
-    await Promise.all(WORD.map(async (w, i) => {
+    // blue marble (navy and white veins), pre-rendered so nothing is computed here
+    const marbleReady = loader.loadAsync('assets/hello/marble.webp').then(t => {
+        t.colorSpace = THREE.SRGBColorSpace;
+        t.wrapS = t.wrapT = THREE.RepeatWrapping;
+        t.repeat.set(1.3, 1.3);
+        M.marble.map = t;
+    });
+    await Promise.all([marbleReady, ...WORD.map(async (w, i) => {
         const shape = await loadShape(w.ch);
         const group = new THREE.Group();
-        const mat = cutout(w.mat === 'fur' ? M.furBase : M[w.mat], shape.mask);
-        group.add(new THREE.Mesh(shape.geometry, mat));
+        group.add(new THREE.Mesh(shape.geometry, cutout(w.mat === 'fur' ? M.furBase : M[w.mat])));
         if (w.mat === 'fur') await furShells(shape.geometry, group);
         scene.add(group);
         letters[i] = { ...w, group, w: shape.w * (w.scale || 1), angle: 0, target: 0, squish: 0, seed: i * 1.37, size: 1 };
-    }));
+    })]);
     const s = await loadShape('ast');
     starGeo = s.geometry.clone();
     starGeo.userData = { ...s.geometry.userData, baseZ: s.geometry.userData.baseZ.slice() };
-    star = new THREE.Mesh(starGeo, cutout(pinkChrome, s.mask));
+    star = new THREE.Mesh(starGeo, cutout(pinkChrome));
     scene.add(star);
-    hero.classList.add('has-3d');
     layout();
-    if (!running) frame();
+    frame();
+    // compile every shader before showing anything, so the first visible frame is
+    // the finished one (the preview image stays up until then)
+    if (renderer.compileAsync) await renderer.compileAsync(scene, camera);
+    frame();
+    requestAnimationFrame(() => {
+        hero.classList.add('has-3d', 'is-live');
+        dispatchEvent(new Event('hero:live'));
+    });
 }
 
 /* ---------- layout: place things relative to the page ---------- */
@@ -149,14 +129,18 @@ function layout() {
     const ax = a.left - r.left, ay = a.top - r.top;
     // one row on wide screens, "HEL / LO" on narrow ones. Letters are spaced by
     // their real widths and overlap a little, like they were piled up by hand.
-    const oneRow = a.width / a.height > 1.7;
+    const oneRow = matchMedia('(min-width: 641px)').matches;   // same breakpoint as the preview images
     const rowsOf = oneRow ? [[0, 1, 2, 3, 4]] : [[0, 1, 2], [3, 4]];
     const overlap = 0.84;                                // < 1: neighbours lean into each other
     const rowWidth = row => row.reduce((sum, i, k) => sum + (k ? (letters[row[k - 1]].w + letters[i].w) / 2 * overlap : 0), 0)
         + (letters[row[0]].w + letters[row[row.length - 1]].w) / 2;      // in letter-square units
     const widest = Math.max(...rowsOf.map(rowWidth));
     const rows = rowsOf.length;
-    const S = Math.min(a.width / (widest + 0.15), a.height / (rows * 0.62 + 0.2)) * 0.9;
+    // Size the word exactly like the preview image is sized (object-fit: contain of
+    // the frame it was captured from), so preview and live scene line up at any size.
+    const CAP = oneRow ? { w: 1440, h: 489.75 } : { w: 390, h: 320.71875 };   // poster capture frames
+    const fitS = (w, h) => Math.min(w / (widest + 0.15), h / (rows * 0.62 + 0.2)) * 0.9;
+    const S = fitS(CAP.w, CAP.h) * Math.min(a.width / CAP.w, a.height / CAP.h);
     const rowH = S * 0.58;
     const yMid = ay + a.height / 2 - rowH * (rows - 1) / 2;
     let right = 0, top = 0;
@@ -178,6 +162,7 @@ function layout() {
 /* ---------- pointer ---------- */
 const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
 addEventListener('pointermove', e => {
+    if (posterMode) return;
     // measured from the word itself, so a cursor resting on the text below
     // doesn't make the letters lean back
     const a = area.getBoundingClientRect();
@@ -209,7 +194,7 @@ const clock = new THREE.Clock();
 let running = false;
 
 function frame() {
-    const t = clock.getElapsedTime();
+    const t = posterMode ? 0 : clock.getElapsedTime();
     pointer.x += (pointer.tx - pointer.x) * 0.06;
     pointer.y += (pointer.ty - pointer.y) * 0.06;
 
@@ -235,7 +220,7 @@ function frame() {
     if (running) requestAnimationFrame(frame);
 }
 
-function start() { if (!running && !reduceMotion) { running = true; clock.start(); requestAnimationFrame(frame); } }
+function start() { if (!running && !reduceMotion && !posterMode) { running = true; clock.start(); requestAnimationFrame(frame); } }
 function stop() { running = false; }
 
 layout();
