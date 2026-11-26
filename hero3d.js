@@ -12,6 +12,17 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const posterMode = new URLSearchParams(location.search).has('poster');   // freeze the first frame
 const loader = new THREE.TextureLoader();
 
+// Let the preview image reach the screen first: everything below keeps the main
+// thread busy for a while, and a busy thread can't paint the picture it already has.
+const nextFrame = () => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+const breathe = () => new Promise(r => setTimeout(r, 0));          // let the browser paint/scroll between chunks
+const poster = document.querySelector('.hello-poster');
+if (!posterMode && poster) {
+    await (poster.complete ? Promise.resolve() : new Promise(r => { poster.onload = poster.onerror = r; }));
+    try { await poster.decode(); } catch (e) { /* not decodable: carry on */ }
+    await nextFrame();
+}
+
 let renderer;
 try {
     renderer = makeRenderer(canvas);
@@ -57,6 +68,7 @@ async function furShells(geometry, letter) {
         const g = geometry.clone();
         const p = g.attributes.position.array;
         for (let k = 0; k < p.length; k++) p[k] = base[k] + nrm[k] * len * f;
+        if (i % 6 === 0) await breathe();
         g.attributes.position.needsUpdate = true;
         const m = new THREE.MeshStandardMaterial({
             color: dark.clone().lerp(light, Math.pow(f, 0.7)), roughness: 1,
@@ -87,6 +99,7 @@ async function build() {
     });
     await Promise.all([marbleReady, ...WORD.map(async (w, i) => {
         const shape = await loadShape(w.ch);
+        await breathe();
         const group = new THREE.Group();
         group.add(new THREE.Mesh(shape.geometry, cutout(w.mat === 'fur' ? M.furBase : M[w.mat])));
         if (w.mat === 'fur') await furShells(shape.geometry, group);
@@ -98,8 +111,10 @@ async function build() {
     starGeo.userData = { ...s.geometry.userData, baseZ: s.geometry.userData.baseZ.slice() };
     star = new THREE.Mesh(starGeo, cutout(pinkChrome));
     scene.add(star);
+    await breathe();
     layout();
     frame();
+    await breathe();
     // compile every shader before showing anything, so the first visible frame is
     // the finished one (the preview image stays up until then)
     if (renderer.compileAsync) await renderer.compileAsync(scene, camera);
