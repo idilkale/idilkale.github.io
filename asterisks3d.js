@@ -1,8 +1,12 @@
 // The page-wide chrome layer: every flat asterisk (the SVG .asterisk spans and
 // the "*" in "Say hi*") becomes a soft, liquid-metal one that ripples, spins
 // and turns toward the cursor, drawn exactly where its flat version sits.
-// One fixed, see-through canvas covers the viewport, so the layout never
-// changes and the whole page uses a single WebGL context.
+// Desktop: one fixed, see-through canvas covers the viewport (one WebGL context,
+// stars may poke out of their bands and turn toward the cursor).
+// Touch screens: the browser scrolls the page on its own thread, so a fixed layer
+// lags behind and the stars jump when you flick. There each star is drawn into a
+// small canvas that lives inside the page next to its flat version, so it scrolls
+// with the content natively; one hidden WebGL renderer draws them all.
 import * as THREE from 'three';
 import { makeRenderer, studio, chrome, pinkChrome, loadShape, wobble, cutout } from './chrome3d.js';
 
@@ -31,8 +35,7 @@ async function init() {
 
     const shape = await loadShape('ast');
     const geo = shape.geometry;
-    const silver = cutout(chrome, shape.mask), pink = cutout(pinkChrome, shape.mask);
-    document.documentElement.classList.add('ast-3d');     // hide the flat ones only once these can draw
+    const silver = cutout(chrome), pink = cutout(pinkChrome);
 
     const isPink = el => {
         if (el.matches('.say-hi span')) return true;
@@ -42,6 +45,9 @@ async function init() {
         return r - g > 60 && b - g > 10;               // berry / pink, not yellow or white
     };
 
+    if (matchMedia('(hover: none) and (pointer: coarse)').matches) return inlineMode(renderer, canvas, scene, geo, silver, pink, isPink);
+
+    document.documentElement.classList.add('ast-3d');     // hide the flat ones only once these can draw
     const items = targets.map((el, i) => {
         const mesh = new THREE.Mesh(geo, isPink(el) ? pink : silver);
         mesh.visible = false;
@@ -130,4 +136,88 @@ async function init() {
             else if (!running) { running = true; requestAnimationFrame(frame); }
         });
     }
+}
+
+/* ---------- touch screens: stars drawn in place, scrolling with the page ---------- */
+function inlineMode(renderer, layer, scene, geo, silver, pink, isPink) {
+    layer.remove();                                    // the hidden renderer keeps its own canvas
+    const dpr = Math.min(devicePixelRatio, 2);
+    const PAD = 1.25;                                  // room around the star for its slow tilt
+    const camera = new THREE.OrthographicCamera(-PAD / 2, PAD / 2, PAD / 2, -PAD / 2, -10, 10);
+    renderer.setPixelRatio(1);
+
+    const items = targets.map((el, i) => {
+        const glyph = el.matches('.say-hi span');
+        if (glyph) el.style.position = 'relative';
+        const c = document.createElement('canvas');
+        c.className = 'ast-2d';
+        c.setAttribute('aria-hidden', 'true');
+        // out of the flow from the start, so it never changes the size we measure
+        Object.assign(c.style, { position: 'absolute', width: '0px', height: '0px', left: '0px', top: '0px' });
+        el.appendChild(c);
+        const mesh = new THREE.Mesh(geo, isPink(el) ? pink : silver);
+        mesh.visible = false;
+        scene.add(mesh);
+        return { el, c, ctx: c.getContext('2d'), mesh, glyph, phase: i * 1.7, dir: i % 2 ? -1 : 1, visible: false, px: 0 };
+    });
+
+    let tex = 0;
+    function place() {
+        for (const it of items) {
+            const r = it.el.getBoundingClientRect();
+            const size = (it.glyph ? r.width * 1.05 : Math.min(r.width, r.height)) / 0.75;   // star square, as on desktop
+            const css = Math.round(size * PAD);
+            it.px = Math.round(css * dpr);
+            it.c.width = it.c.height = it.px;
+            Object.assign(it.c.style, {
+                position: 'absolute', width: css + 'px', height: css + 'px', pointerEvents: 'none',
+                left: (r.width - css) / 2 + 'px',
+                top: (it.glyph ? r.height * 0.36 : r.height / 2) - css / 2 + 'px',
+            });
+            tex = Math.max(tex, it.px);
+        }
+        renderer.setSize(tex, tex, false);
+    }
+
+    const io = new IntersectionObserver(es => es.forEach(e => {
+        const it = items.find(i => i.el === e.target);
+        if (it) it.visible = e.isIntersecting;
+    }), { rootMargin: '100px' });
+    items.forEach(it => io.observe(it.el));
+
+    const clock = new THREE.Clock();
+    let last = 0, running = true;
+    function frame(now) {
+        if (!running) return;
+        requestAnimationFrame(frame);
+        if (now - last < 33) return;                   // ~30 fps is plenty for a slow spin
+        last = now;
+        const t = reduceMotion ? 0 : clock.getElapsedTime();
+        const shown = items.filter(it => it.visible && it.px);
+        if (!shown.length) return;
+        if (!reduceMotion) wobble(geo, t, 0.06);
+        for (const it of shown) {
+            it.mesh.visible = true;
+            it.mesh.rotation.set(Math.sin(t * 0.6 + it.phase) * 0.18, Math.sin(t * 0.45 + it.phase) * 0.3, it.phase + t * 0.35 * it.dir);
+            renderer.setViewport(0, 0, it.px, it.px);
+            renderer.setScissor(0, 0, it.px, it.px);
+            renderer.setScissorTest(true);
+            renderer.setClearColor(0x000000, 0);
+            renderer.clear();
+            renderer.render(scene, camera);
+            it.ctx.clearRect(0, 0, it.px, it.px);
+            // the WebGL canvas is bottom-left based; copy the square we just drew
+            it.ctx.drawImage(renderer.domElement, 0, tex - it.px, it.px, it.px, 0, 0, it.px, it.px);
+            it.mesh.visible = false;
+        }
+    }
+    place();
+    addEventListener('resize', place);
+    document.fonts?.ready.then(place);                 // "Say hi*" changes size once its font arrives
+    document.documentElement.classList.add('ast-3d');
+    requestAnimationFrame(frame);
+    document.addEventListener('visibilitychange', () => {
+        running = !document.hidden;
+        if (running) requestAnimationFrame(frame);
+    });
 }
