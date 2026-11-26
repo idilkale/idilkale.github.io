@@ -12,7 +12,7 @@
     --ink-soft: #aaa3a9;
     --line: #3a363d;
 
-    --display: #f0569a;          /* livelier pink, 6.1:1 on --paper */
+    --display: #f98fbf;          /* soft, light pink, 9:1 on --paper */
     --band: #9e1f5c;             /* richer berry, 6.9:1 with --band-ink */
     --tab-active: #2b1420;
 }
@@ -52,7 +52,7 @@ body { background: var(--paper); }
 }
 .hero-hello { order: -1; position: relative; width: 100%; min-height: clamp(220px, 44svh, 560px); display: grid; place-items: center; }
 .hero-copy { padding: 0 var(--gutter) clamp(28px, 6svh, 64px); display: flex; flex-direction: column; align-items: center; }
-.hero-title--name { font-size: clamp(2.4rem, 4.2vw, 3.8rem); letter-spacing: .01em; }
+.hero-title--name { font-size: clamp(2.4rem, 4.2vw, 3.8rem); letter-spacing: .01em; color: var(--ink); }
 .hero-sub--role { margin-top: .9em; }
 .hero-statement { margin: clamp(.9rem, 2.4svh, 1.6rem) auto 0; max-width: 24em; }
 .hero .hero-actions { justify-content: center; margin-top: clamp(1.1rem, 3svh, 2rem); }
@@ -79,3 +79,37 @@ body { background: var(--paper); }
 
 /* "Who I am" on the berry band reads in white, not black */
 .who-title { color: var(--ink); }
+
+/* scroll cue under the hero: people didn't scroll after "See my works", so invite them down */
+.scroll-cue {
+    display: inline-flex; flex-direction: column; align-items: center; gap: 6px;
+    margin-top: clamp(1.2rem, 3.4svh, 2.2rem); padding: 10px 18px;
+    color: var(--ink-soft); text-decoration: none; border-radius: 999px;
+}
+.scroll-cue .mono { font-size: .72rem; }
+.scroll-cue svg { width: 26px; height: 26px; color: var(--display); animation: cue 1.8s ease-in-out infinite; }
+.scroll-cue:hover, .scroll-cue:focus-visible { color: var(--ink); }
+.scroll-cue:focus-visible { outline: 2px solid var(--display); outline-offset: 4px; }
+@keyframes cue { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(7px); } }
+
+/* ---------- phones ---------- */
+@media (max-width: 640px) {
+    /* tab labels were ~10px; readable now, tighter tracking so "My research" still fits */
+    .nav a { font-size: .72rem; letter-spacing: .04em; }
+    /* bands sized for desktop left big empty blocks on a phone */
+    .statement { min-height: 0; padding: 132px var(--gutter) 88px; }
+    .statement .asterisk--a { width: 64px; height: 64px; top: 36px; left: var(--gutter); }   /* sits above the text, not on it */
+    .who .asterisk--a { width: 96px; height: 96px; }
+    .who { min-height: 0; }
+    .who-inner { padding-top: 132px; }
+    /* long project names ("Hepsisurada →") no longer run off the edge */
+    .next-project .display { font-size: clamp(2.8rem, 12vw, 5rem); flex-wrap: wrap; }
+    /* small text links get a finger-sized hit area */
+    .text-link { display: inline-block; padding-block: 10px; }
+    /* tiny uppercase labels (meta, captions, badges) up to ~12px */
+    dt, .cs-cap, .strip-hint, .gcard-meta, .sev, .text-link, .scroll-cue .mono, .hero .mono,
+    .work-meta dt, .cs-meta dt, .play .mono, .entry .entry-links a { font-size: .76rem; }
+}
+
+/* logos and artwork drawn on white keep their white card, or black-on-transparent art disappears */
+.cs-fig .frame.frame--pad, .figs .frame.frame--pad, .frame.frame--pad, .cs-cover.cs-cover--pad { background: #faf7f2; }

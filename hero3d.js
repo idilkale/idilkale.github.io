@@ -1,5 +1,5 @@
 // Hero 3D scene: a puffy "HELLO", every letter in a different material
-// (jelly glass, pink fur, mirror chrome, glossy checker, iridescent pearl),
+// (jelly glass, pink fur, mirror chrome, blue-veined marble, iridescent pearl),
 // plus a fluid chrome asterisk. Letters lean toward the cursor and spin when
 // touched; the asterisk ripples like liquid metal.
 import * as THREE from 'three';
@@ -28,18 +28,40 @@ const rim = new THREE.DirectionalLight(0xf0569a, 1.2); rim.position.set(4, -2, -
 scene.add(new THREE.AmbientLight(0xffffff, 0.25));
 
 /* ---------- materials ---------- */
-function checkerTexture() {
-    const c = document.createElement('canvas'); c.width = c.height = 256;
-    const g = c.getContext('2d'), n = 8, s = 256 / n;
-    for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
-        g.fillStyle = (x + y) % 2 ? '#f0569a' : '#5b2a8c';
-        g.fillRect(x * s, y * s, s, s);
+/* Blue marble with navy and white veins, drawn once: fractal noise bent through sines. */
+function marbleTexture() {
+    const N = 512, c = document.createElement('canvas'); c.width = c.height = N;
+    const g = c.getContext('2d'), img = g.createImageData(N, N);
+    const G = 64, grid = new Float32Array((G + 1) * (G + 1)).map(() => Math.random());
+    const noise = (x, y) => {                       // tiling value noise on a 64-cell grid
+        const xi = Math.floor(x) % G, yi = Math.floor(y) % G, xf = x - Math.floor(x), yf = y - Math.floor(y);
+        const at = (i, j) => grid[(j % G) * (G + 1) + (i % G)];
+        const sx = xf * xf * (3 - 2 * xf), sy = yf * yf * (3 - 2 * yf);
+        const top = at(xi, yi) + (at(xi + 1, yi) - at(xi, yi)) * sx;
+        const bot = at(xi, yi + 1) + (at(xi + 1, yi + 1) - at(xi, yi + 1)) * sx;
+        return top + (bot - top) * sy;
+    };
+    const fbm = (x, y) => { let v = 0, a = 0.5, f = 1; for (let o = 0; o < 5; o++) { v += a * noise(x * f, y * f); a *= 0.5; f *= 2; } return v; };
+    for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+        const u = x / N * 8, v = y / N * 8;
+        const f = fbm(u, v);
+        const t = Math.abs(Math.sin((u * 1.3 + v * 0.7) * 1.6 + f * 7));               // 0 on a dark vein
+        const t2 = Math.abs(Math.sin((u * 0.6 - v * 1.1) * 2.1 + f * 9 + 1.7));        // 0 on a white vein
+        const dark = Math.pow(1 - t, 7), light = Math.pow(1 - t2, 10), cloud = f * 0.35;
+        // cornflower blue stone, navy veins, a few white threads
+        let r = 112 + cloud * 90, gg = 146 + cloud * 80, b = 245;
+        r += (22 - r) * dark; gg += (38 - gg) * dark; b += (140 - b) * dark;
+        r += (245 - r) * light; gg += (248 - gg) * light; b += (255 - b) * light;
+        const k = (y * N + x) * 4;
+        img.data[k] = r; img.data[k + 1] = gg; img.data[k + 2] = b;
+        img.data[k + 3] = 255;
     }
-    const t = new THREE.CanvasTexture(c);
-    t.colorSpace = THREE.SRGBColorSpace;
-    t.wrapS = t.wrapT = THREE.RepeatWrapping;
-    t.repeat.set(2.4, 2.4);
-    return t;
+    g.putImageData(img, 0, 0);
+    const tex = new THREE.CanvasTexture(c);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+    tex.repeat.set(1.3, 1.3);
+    return tex;
 }
 const M = {
     jelly: new THREE.MeshPhysicalMaterial({
@@ -49,7 +71,7 @@ const M = {
     }),
     furBase: new THREE.MeshStandardMaterial({ color: 0xa0245e, roughness: 1 }),
     chrome,
-    checker: new THREE.MeshPhysicalMaterial({ map: checkerTexture(), roughness: 0.22, clearcoat: 1, clearcoatRoughness: 0.05 }),
+    marble: new THREE.MeshPhysicalMaterial({ map: marbleTexture(), roughness: 0.12, clearcoat: 1, clearcoatRoughness: 0.04, sheen: 0.3, sheenColor: 0xc9d4ff }),
     pearl: new THREE.MeshPhysicalMaterial({
         color: 0xf6eef6, roughness: 0.14, metalness: 0.25, iridescence: 1, iridescenceIOR: 1.7,
         iridescenceThicknessRange: [180, 820], clearcoat: 1, clearcoatRoughness: 0.06, sheen: 0.5, sheenColor: 0xffd6ea,
@@ -82,7 +104,7 @@ const WORD = [
     { ch: 'H', mat: 'jelly', row: 0, col: 0, tilt: -0.10 },
     { ch: 'E', mat: 'fur', row: 0, col: 1, tilt: 0.06, scale: 0.9 },   // fur adds bulk, so a touch smaller
     { ch: 'L', mat: 'chrome', row: 0, col: 2, tilt: -0.04 },
-    { ch: 'L', mat: 'checker', row: 1, col: 0.6, tilt: 0.08 },
+    { ch: 'L', mat: 'marble', row: 1, col: 0.6, tilt: 0.08 },
     { ch: 'O', mat: 'pearl', row: 1, col: 1.7, tilt: -0.07 },
 ];
 const letters = [];
