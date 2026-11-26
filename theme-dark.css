@@ -66,6 +66,10 @@ body { background: var(--paper); }
 @media (max-width: 960px) {
     .hero { min-height: 0; grid-template-rows: auto auto; }
     .hero-hello { min-height: clamp(240px, 38svh, 360px); margin: 16px 0 8px; }
+}
+@media (max-width: 640px) {
+    /* one-row HELLO on phones: a shorter stage, so the text moves up under it */
+    .hero-hello { min-height: clamp(150px, 44vw, 230px); margin: 28px 0 12px; }
     .hero-copy { padding-top: 0; }
 }
 

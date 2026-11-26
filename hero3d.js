@@ -144,7 +144,7 @@ function layout() {
     const ax = a.left - r.left, ay = a.top - r.top;
     // one row on wide screens, "HEL / LO" on narrow ones. Letters are spaced by
     // their real widths and overlap a little, like they were piled up by hand.
-    const oneRow = matchMedia('(min-width: 641px)').matches;   // same breakpoint as the preview images
+    const oneRow = true;                               // one row everywhere; phones just get it smaller
     const rowsOf = oneRow ? [[0, 1, 2, 3, 4]] : [[0, 1, 2], [3, 4]];
     const overlap = 0.84;                                // < 1: neighbours lean into each other
     const rowWidth = row => row.reduce((sum, i, k) => sum + (k ? (letters[row[k - 1]].w + letters[i].w) / 2 * overlap : 0), 0)
