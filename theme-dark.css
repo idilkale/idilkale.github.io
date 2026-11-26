@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Dark theme draft: black ground, light type, berry kept as the accent.
+   Loaded after site.css; only overrides tokens and the few rules that
+   used ink as a background.
+   ========================================================================== */
+
+:root {
+    --paper: #0a0a0c;
+    --paper-2: #131317;
+    --white: #17171b;
+    --ink: #f3eff2;
+    --ink-soft: #aaa3a9;
+    --line: #3a363d;
+
+    --display: #ec7aa6;          /* 6.8:1 on --paper */
+    --tab-active: #2b1420;
+}
+
+html { color-scheme: dark; }
+body { background: var(--paper); }
+
+/* sections that used ink as their background stay dark, a step off black */
+.dark, .site-footer, .cs-video, .cs-cover--dark, .cs-cover video, .gcard-img--dark { background: #000; color: var(--ink); }
+.site-footer { border-top: 1px solid var(--line); }
+.say-hi, .next .section-title, .reflection .section-title { color: var(--ink); }
+.ai-flow b.key { color: #111; }
+
+/* no flat circles in this version */
+.circle { display: none; }
+
+/* ---------- hero with the 3D scene ---------- */
+.hero {
+    background:
+        radial-gradient(60% 70% at 78% 42%, rgba(194, 85, 127, .22), transparent 70%),
+        radial-gradient(40% 50% at 10% 90%, rgba(148, 54, 95, .14), transparent 70%),
+        var(--paper);
+}
+.hero-3d { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; pointer-events: none; }
+.hero-figure { z-index: 1; }
+.hero-copy { z-index: 2; }
+.hero.has-3d .hero-figure .asterisk { display: none; }   /* the 3D asterisk takes its place */
+
+/* the portrait sits on black now: a soft floor glow keeps it from floating */
+.hero-figure::after {
+    content: ""; position: absolute; left: 10%; right: 10%; bottom: -40px; height: 120px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(236, 122, 166, .25), transparent 70%);
+    z-index: -1; pointer-events: none;
+}
+
+/* ---------- 3D asterisks across the page ---------- */
+.ast-layer { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 40; }
+.ast-3d .asterisk svg { visibility: hidden; }          /* drawn in chrome by asterisks3d.js */
+.ast-3d .hero:not(.has-3d) .asterisk svg { visibility: visible; }
+.ast-3d .say-hi span { color: transparent; }
+
